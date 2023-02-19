@@ -9,7 +9,7 @@ int main(void)
     int n, end_size, c = 0;
 
     // TODO: Prompt for start size
-    int n = get_pop();
+    n = get_pop();
 
     // TODO: Prompt for end size
     end_size = get_end(n);
