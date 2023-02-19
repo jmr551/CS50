@@ -12,7 +12,7 @@ the decimal to get 333 new llamas born. 1000 / 4 = 250 llamas will pass away, so
 total of 1000 + 333 - 250 = 1083 llamas at the end of the year.
 */
 
-#include <cstdlib.h>
+#include <stdio.h>
 #include <cs50.h>
 
 int main()
@@ -28,6 +28,6 @@ int main()
         n = n + n/3 - n/4;
         c++;
     }
-    printf("Years: %d",c);
+    printf("Years: %d\n",c);
 
 }
