@@ -1,6 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int get_pop();
+int get_end(int n);
+
 int main(void)
 {
     int n, end_size, c = 0;
@@ -9,7 +12,7 @@ int main(void)
     int n = get_pop();
 
     // TODO: Prompt for end size
-    end_size = get_int("End size: ");
+    end_size = get_end(n);
 
     // TODO: Calculate number of years until we reach threshold
     while (n < end_size)
@@ -33,4 +36,16 @@ int get_pop()
     }
 
     return n;
+}
+
+int get_end(int n)
+{
+    int end = get_int("End size: ");
+
+    while (end < n)
+    {
+        end = get_int("Please enter a number greater than or equal to %d", n);
+    }
+
+    return end;
 }
