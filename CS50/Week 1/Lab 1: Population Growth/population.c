@@ -17,12 +17,12 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
     while (n < end_size)
     {
-        n = n + n/3 - n/4;
+        n = n + n / 3 - n / 4;
         c++;
     }
 
     // TODO: Print number of years
-    printf("Years: %d\n",c);
+    printf("Years: %d\n", c);
 }
 
 
@@ -32,7 +32,8 @@ int get_pop()
     do
     {
         n = get_int("Start size: ");
-    }while (n < 9);
+    }
+    while (n < 9);
 
     return n;
 }
@@ -44,7 +45,8 @@ int get_end(int n)
     do
     {
         end = get_int("End size: ");
-    }while (end < n);
+    }
+    while (end < n);
 
     return end;
 }
