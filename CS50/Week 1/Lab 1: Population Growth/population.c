@@ -28,23 +28,22 @@ int main(void)
 
 int get_pop()
 {
-    int n = get_int("Start size: ");
-
-    while (n < 9)
+    int n;
+    do
     {
-        n = get_int("Please enter a number greater than or equal to 9: ");
-    }
+        n = get_int("Start size: ");
+    }while (n < 9);
 
     return n;
 }
 
 int get_end(int n)
 {
-    int end = get_int("End size: ");
+    int end;
 
     while (end < n)
     {
-        end = get_int("Please enter a number greater than or equal to %d", n);
+        end = get_int("End size: ");
     }
 
     return end;
