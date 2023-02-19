@@ -6,7 +6,7 @@ int main(void)
     int n, end_size, c = 0;
 
     // TODO: Prompt for start size
-    n = get_int("Start size: ");
+    int n = get_pop();
 
     // TODO: Prompt for end size
     end_size = get_int("End size: ");
@@ -20,4 +20,17 @@ int main(void)
 
     // TODO: Print number of years
     printf("Years: %d\n",c);
+}
+
+
+int get_pop()
+{
+    int n = get_int("Start size: ");
+
+    while (n < 9)
+    {
+        n = get_int("Please enter a number greater than or equal to 9: ");
+    }
+
+    return n;
 }
