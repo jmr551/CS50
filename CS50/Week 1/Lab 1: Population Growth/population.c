@@ -41,10 +41,10 @@ int get_end(int n)
 {
     int end;
 
-    while (end < n)
+    do
     {
         end = get_int("End size: ");
-    }
+    }while (end < n);
 
     return end;
 }
