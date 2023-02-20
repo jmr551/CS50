@@ -3,6 +3,7 @@
 
 int main(void)
 {
+    int pares = 0, impares = 0;
     long card = get_long();
     bool visa = false, master = false, checsum = false;
 
@@ -10,6 +11,7 @@ int main(void)
     for (int i = 0; i < 16; i++)
     {
         
+
     }
 
 }
