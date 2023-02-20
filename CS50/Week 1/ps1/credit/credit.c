@@ -30,6 +30,7 @@ int main(void)
         //printf("%d\n", two_digits);
         if (two_digits == 34 || two_digits == 37) printf("AMEX\n");
         else if (two_digits == 40) printf("VISA\n");
+        else if (two_digits >= 51 && two_digits <= 55) printf("MASTERCARD\n");
         else printf("The what?\n");
     }
     else printf("INVALID\n");
