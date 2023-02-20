@@ -9,8 +9,8 @@ int main(void)
     bool visa = false, master = false, checksum = false;
 
     // Verificamos primero el checksum
-    int i;
-    for (i = 0; i < 16; i++)
+    int i=0;
+    while (i<16)
     {
         if (i % 2 == 0) impares += card_copia % 10;
         else
@@ -18,11 +18,12 @@ int main(void)
             int n = 2* (card_copia % 10);
             pares += n % 10 + n/10;
         }
+        i++;
         card_copia /= 10;
         if (card_copia < 1) break;
     }
     checksum = ((pares + impares) % 10 == 0) && (i<=16) && (i>=13);
-    printf("Cant de digitos: %d\n", i);
+    //printf("Cant de digitos: %d\n", i);
     //printf("Pares: %i\n", pares);
     //printf("Impares: %i\n", impares);
 
