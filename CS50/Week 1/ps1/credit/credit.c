@@ -17,8 +17,8 @@ int main(void)
     }
     checksum = ((pares + impares) % 10 == 0);
 
-    printf("Pares: %li\n", pares);
-    printf("Impares: %li\n", impares);
+    printf("Pares: %d\n", pares);
+    printf("Impares: %d\n", impares);
 
     if (checksum) printf("VALID\n");
     else printf("INVALID\n");
