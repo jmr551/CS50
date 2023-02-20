@@ -3,5 +3,7 @@
 
 int main(void)
 {
-    get_long();
+    long card = get_long();
+
+    
 }
