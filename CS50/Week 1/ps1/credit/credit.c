@@ -27,7 +27,9 @@ int main(void)
     if (checksum)
     {
         long two_digits = card/100000000000000;
-        
+        if (two_digits == 34 || two_digits == 37) printf("AMEX\n");
+        else if (two_digits %10 == 4) printf("VISA\n");
+        else printf("The what?\n");
     }
     else printf("INVALID\n");
 
