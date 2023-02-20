@@ -26,6 +26,7 @@ int main(void)
 
     if (checksum)
     {
+        long two_digits = card/100000000000000;
         
     }
     else printf("INVALID\n");
