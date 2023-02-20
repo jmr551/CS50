@@ -12,13 +12,17 @@ int main(void)
     for (int i = 0; i < 16; i++)
     {
         if (i % 2 == 0) impares += card_copia % 10;
-        else pares += 2* (card_copia % 10);
+        else
+        {
+            int n = 2* (card_copia % 10);
+            pares += n
+        }
         card_copia/=10;
     }
     checksum = ((pares + impares) % 10 == 0);
 
-    printf("Pares: %d\n", pares);
-    printf("Impares: %d\n", impares);
+    printf("Pares: %i\n", pares);
+    printf("Impares: %i\n", impares);
 
     if (checksum) printf("VALID\n");
     else printf("INVALID\n");
