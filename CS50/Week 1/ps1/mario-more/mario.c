@@ -1,17 +1,19 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int get_height();
+
 int main(void)
 {
-    int n = get_height();
+    int n;
+    n = get_height();
 
     for (int i = 0; i < n; i++)
     {
         // This is for the first part
         for (int j = 0; j<n; j++)
         {
-            // ___# n=4,i=[0,3], i = 0, espacios = [0,3), # = [3,4)
-            // caso 1: i=0, espacios = [0,1,2], n-i = 4-0 = 3, # = [3]
+
             if (j<n-i)
             {
                 printf(" ");
@@ -27,6 +29,7 @@ int main(void)
 
 int get_height()
 {
+    int n;
     do
     {
         n = get_int("Height: ");
