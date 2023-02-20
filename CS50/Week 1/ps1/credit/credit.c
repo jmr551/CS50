@@ -26,8 +26,11 @@ int main(void)
 
     if (checksum)
     {
-        int two_digits = card/10000000000000;
-        printf("%d\n", two_digits);
+        long two_digits = card;
+        while ( two_digits > 100)
+        {
+            two_digits/=10;
+        }
         if (two_digits == 34 || two_digits == 37) printf("AMEX\n");
         else if (two_digits == 40) printf("VISA\n");
         else if (two_digits >= 51 && two_digits <= 55) printf("MASTERCARD\n");
