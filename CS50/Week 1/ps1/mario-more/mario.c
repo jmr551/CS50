@@ -13,7 +13,6 @@ int main(void)
         // This is for the first part
         for (int j = 0; j<n; j++)
         {
-
             if (j<n-i)
             {
                 printf(" ");
@@ -23,6 +22,22 @@ int main(void)
                 printf("#");
             }
         }
+        printf("  ");
+
+        // This is for the second part
+        for (int j = 0; j<n; j++)
+        {
+            if (j<n-i)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("#");
+            }
+        }
+
+
         printf("\n");
     }
 }
