@@ -22,7 +22,7 @@ int main(void)
         if (card_copia < 1) break;
     }
     checksum = ((pares + impares) % 10 == 0) && (i<=16) && (i>=13);
-
+    printf("Cant de digitos: %d\n", i);
     //printf("Pares: %i\n", pares);
     //printf("Impares: %i\n", impares);
 
