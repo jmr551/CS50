@@ -13,7 +13,7 @@ int main(void)
         // This is for the first part
         for (int j = 0; j<n; j++)
         {
-            if (j<n-i)
+            if (j<n-i-1)
             {
                 printf(" ");
             }
@@ -22,6 +22,7 @@ int main(void)
                 printf("#");
             }
         }
+        
         printf("  ");
 
         // This is for the second part
