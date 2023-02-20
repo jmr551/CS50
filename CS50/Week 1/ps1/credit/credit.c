@@ -9,7 +9,7 @@ int main(void)
     bool visa = false, master = false, checksum = false;
 
     // Verificamos primero el checksum
-    for (int i = 0; i < 16; i++)
+    while (card_copia > 0)
     {
         if (i % 2 == 0) impares += card_copia % 10;
         else
@@ -34,7 +34,7 @@ int main(void)
         if (two_digits == 34 || two_digits == 37) printf("AMEX\n");
         else if (two_digits >= 40 && two_digits <= 49) printf("VISA\n");
         else if (two_digits >= 51 && two_digits <= 55) printf("MASTERCARD\n");
-        else printf("The what?\n");
+        else printf("INVALID\n");
     }
     else printf("INVALID\n");
 
