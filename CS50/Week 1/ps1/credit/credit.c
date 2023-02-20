@@ -15,7 +15,7 @@ int main(void)
         else
         {
             int n = 2* (card_copia % 10);
-            pares += n
+            pares += n % 10 + n/10;
         }
         card_copia/=10;
     }
