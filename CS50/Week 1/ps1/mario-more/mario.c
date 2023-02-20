@@ -10,17 +10,18 @@ int main(void)
         // This is for the first part
         for (int j = 0; j<n; j++)
         {
-            // ___# n=4,i=[0,3], i = , espacios = [0,3), # = [3,4)
-            if (<1)
+            // ___# n=4,i=[0,3], i = 0, espacios = [0,3), # = [3,4)
+            // caso 1: i=0, espacios = [0,1,2], n-i = 4-0 = 3, # = [3]
+            if (j<n-i)
             {
-
+                printf(" ");
             }
             else
             {
-
+                printf("#");
             }
-
         }
+        printf("\n");
     }
 }
 
