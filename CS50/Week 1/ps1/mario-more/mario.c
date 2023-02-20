@@ -7,7 +7,11 @@ int main(void)
 
     for (int i = 0; i < n; i++)
     {
-        for (int j=)
+        // This is for the first part
+        for (int j = 0; j<n; j++)
+        {
+
+        }
     }
 }
 
