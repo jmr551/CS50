@@ -10,8 +10,8 @@ int main(void)
         // This is for the first part
         for (int j = 0; j<n; j++)
         {
-            // ___# n=4, i=[0,3], espacios = []
-            if ()
+            // ___# n=4,i=[0,3], i = , espacios = [0,3), # = [3,4)
+            if (<1)
             {
 
             }
