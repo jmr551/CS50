@@ -5,5 +5,6 @@ int main(void)
 {
     long card = get_long();
 
+    // Verificamos de qué compañía es
     
 }
