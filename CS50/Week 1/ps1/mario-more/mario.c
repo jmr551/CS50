@@ -11,9 +11,9 @@ int main(void)
     for (int i = 0; i < n; i++)
     {
         // This is for the first part
-        for (int j = 0; j<n; j++)
+        for (int j = 0; j < n; j++)
         {
-            if (j<n-i-1)
+            if (j < n - i - 1)
             {
                 printf(" ");
             }
@@ -26,16 +26,12 @@ int main(void)
         printf("  ");
 
         // This is for the second part
-        for (int j = 0; j<n; j++)
+        for (int j = 0; j < n; j++)
         {
-            if (j<i+1)
+            if (j < i + 1)
             {
                 printf("#");
             }
-            /*else
-            {
-                printf(" ");
-            }*/
         }
 
 
