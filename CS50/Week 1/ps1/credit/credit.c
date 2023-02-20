@@ -4,7 +4,9 @@
 int main(void)
 {
     long card = get_long();
+    bool visa = false, master = false, checsum = false;
 
-    // Verificamos de qué compañía es
+    // Verificamos primero el checksum
     
+
 }
