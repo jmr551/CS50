@@ -22,7 +22,7 @@ int main(void)
                 printf("#");
             }
         }
-        
+
         printf("  ");
 
         // This is for the second part
@@ -32,10 +32,10 @@ int main(void)
             {
                 printf("#");
             }
-            else
+            /*else
             {
                 printf(" ");
-            }
+            }*/
         }
 
 
