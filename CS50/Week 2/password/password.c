@@ -5,6 +5,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 bool valid(string password);
 
@@ -34,19 +35,19 @@ bool valid(string password)
         }
         if (islower(password[i]))
         {
-            upper = true;
+            lower = true;
         }
         if (isalnum(password[i]) && !(isalpha(password[i])))
         {
-            upper = true;
+            number = true;
         }
-        if (isupper(password[i]))
+        if (!(isalpha(password[i])))
         {
-            upper = true;
+            symbol = true;
         }
     }
 
-    if (uppwer && lower && number && symbol)
+    if (upper && lower && number && symbol)
         return true;
 
     return false;
