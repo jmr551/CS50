@@ -28,7 +28,10 @@ bool valid(string password)
 
     for (int i = 0; i < strlen(password); i++)
     {
-        
+        if (isupper(password[i]))
+        {
+
+        }
     }
 
     if (uppwer && lower && number && symbol)
