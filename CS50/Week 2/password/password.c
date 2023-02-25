@@ -30,7 +30,19 @@ bool valid(string password)
     {
         if (isupper(password[i]))
         {
-
+            upper = true;
+        }
+        if (isupper(password[i]))
+        {
+            upper = true;
+        }
+        if (isupper(password[i]))
+        {
+            upper = true;
+        }
+        if (isupper(password[i]))
+        {
+            upper = true;
         }
     }
 
