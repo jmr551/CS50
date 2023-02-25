@@ -32,11 +32,11 @@ bool valid(string password)
         {
             upper = true;
         }
-        if (isupper(password[i]))
+        if (islower(password[i]))
         {
             upper = true;
         }
-        if (isupper(password[i]))
+        if (is(password[i]))
         {
             upper = true;
         }
