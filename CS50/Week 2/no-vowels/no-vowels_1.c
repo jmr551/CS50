@@ -6,47 +6,43 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
-string replace(string word);
+void replace(string word);
 
 int main(int argc, string argv[])
 {
-
     if (argc != 2)
     {
         printf("Usage: ./no-vowels.c word\n");
         return 1;
     }
-    string hello = replace(argv[1]);
+    replace(argv[1]);
 
-    printf("%s\n", hello);
+    printf("%s\n", argv[1]);
 
     return 0;
 }
 
-string replace(string word)
+void replace(string word)
 {
-    string hola;
-    strcpy (hola, word);
     for (int i = 0; i < strlen(word); i++)
     {
         switch (word[i])
         {
             case 'a':
-                hola[i] = (char) '6';
+                word[i] = (char) '6';
                 break;
             case 'e':
-                hola[i] = (char) '3';
+                word[i] = (char) '3';
                 break;
             case 'i':
-                hola[i] = (char) '1';
+                word[i] = (char) '1';
                 break;
             case 'o':
-                hola[i] = (char) '0';
+                word[i] = (char) '0';
                 break;
             default:
-                hola[i] = word [i];
+                word[i] = word [i];
                 break;
         }
     }
-    return hola;
 }
