@@ -6,6 +6,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void replace(string )
+
 int main(int argc, string argv[])
 {
     if (argc != 2)
@@ -14,6 +16,6 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    
+
 
 }
