@@ -48,7 +48,8 @@ bool valid(string password)
     }
 
     if (upper && lower && number && symbol)
+    {
         return true;
-
+    }
     return false;
 }
