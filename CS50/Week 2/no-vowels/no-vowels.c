@@ -25,10 +25,10 @@ int main(int argc, string argv[])
 string replace(string word)
 {
     string hola;
-
-    for (int i = 0; i < strlen(word); i++)
+    strcpy (hola, word);
+    for (int i = 0; i < strlen(hola); i++)
     {
-        switch (word[i])
+        switch (hola[i])
         {
             case 'a':
                 hola[i] = (char) '6';
@@ -47,7 +47,5 @@ string replace(string word)
                 break;
         }
     }
-
-    hola[strlen(word)] = '\0';
     return hola;
 }
