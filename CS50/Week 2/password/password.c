@@ -36,7 +36,7 @@ bool valid(string password)
         {
             upper = true;
         }
-        if (is(password[i]))
+        if (isalnum(password[i]) && !(isalpha(password[i])))
         {
             upper = true;
         }
