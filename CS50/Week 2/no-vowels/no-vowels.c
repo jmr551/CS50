@@ -24,23 +24,23 @@ int main(int argc, string argv[])
 
 string replace(string word)
 {
-    string hola[strlen(word)+1];
+    string hola;
 
     for (int i = 0; i < strlen(word); i++)
     {
         switch (word[i])
         {
             case 'a':
-                hola[i] = '6';
+                hola[i] = (char) '6';
                 break;
             case 'e':
-                hola[i] = '3';
+                hola[i] = (char) '3';
                 break;
             case 'i':
-                hola[i] = '1';
+                hola[i] = (char) '1';
                 break;
             case 'o':
-                hola[i] = '0';
+                hola[i] = (char) '0';
                 break;
             default:
                 hola[i] = word [i];
