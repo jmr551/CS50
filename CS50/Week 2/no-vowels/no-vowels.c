@@ -5,7 +5,7 @@
 
 #include <cs50.h>
 #include <stdio.h>
-
+#include <string.h>
 string replace(string word);
 
 int main(int argc, string argv[])
@@ -28,12 +28,26 @@ string replace(string word)
 
     for (int i = 0; i < strlen(word); i++)
     {
-        switch (word[i]):
+        switch (word[i])
         {
-            case 
+            case 'a':
+                hola [i] = '6';
+                break;
+            case 'e':
+                hola [i] = '3';
+                break;
+            case 'i':
+                hola [i] = '1';
+                break;
+            case 'o':
+                hola [i] = '0';
+                break;
+            default:
+                hola [i] = word [i];
+                break;
         }
-
     }
 
-    return
+    hola[strlen(word)] = '\0';
+    return hola;
 }
