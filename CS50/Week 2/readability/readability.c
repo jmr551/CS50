@@ -5,13 +5,18 @@ int count_letters(string s);
 
 int main(void)
 {
-    int words=0,
     string text = get_string("Text: ");
-
-
+    int letters = count_letters(text);
+    print(count_letters);
 }
 
 int count_letters(string s)
 {
-    
+    int i=0;
+    while(s[i]!=0)
+    {
+        if ((s[i]))
+        i++;
+    }
+
 }
