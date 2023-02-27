@@ -39,8 +39,8 @@ int main(void)
 
 int count_letters(string s)
 {
-    int i=0, c=0;
-    while(s[i]!=0)
+    int i = 0, c = 0;
+    while (s[i] != 0)
     {
         if (isalpha(s[i]))
         {
@@ -54,24 +54,24 @@ int count_letters(string s)
 
 int count_words(string s)
 {
-    int i=0, c=0;
-    while(s[i]!=0)
+    int i = 0, c = 0;
+    while (s[i] != 0)
     {
-        if (s[i]== ' ')
+        if (s[i] == ' ')
         {
             c++;
         }
         i++;
     }
-    return c+1;
+    return c + 1;
 }
 
 int count_sentences(string s)
 {
-    int i=0, c=0;
-    while(s[i]!=0)
+    int i = 0, c = 0;
+    while (s[i] != 0)
     {
-        if (s[i]== '.' || s[i]== '!' || s[i]== '?')
+        if (s[i] == '.' || s[i] == '!' || s[i] == '?')
         {
             c++;
         }
