@@ -29,7 +29,7 @@ int main(void)
     }
     else if (index < 1)
     {
-        printf("Grade 1\n");
+        printf("Before Grade 1\n");
     }
     else
     {
