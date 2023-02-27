@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <math.h>
 
 int count_letters(string s);
 int count_words(string s);
@@ -24,15 +25,15 @@ int main(void)
     printf("%i sentences\n", sentences);
     if (index >= 16)
     {
-
+        printf("Grade 16+\n");
     }
     else if (index < 1)
     {
-        print
+        printf("Grade 1\n");
     }
     else
     {
-        printf("Grade %i\n", index);
+        printf("Grade %i\n", round(index));
     }
 }
 
