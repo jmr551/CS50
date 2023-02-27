@@ -8,13 +8,32 @@ int count_sentences(string s);
 
 int main(void)
 {
+    float L, S, index;
     string text = get_string("Text: ");
+
     int letters = count_letters(text);
     int words = count_words(text);
     int sentences = count_sentences(text);
+
+    L = 100.0 * letters / words;
+    S = 100.0 * sentences / words;
+    index = 0.0588 * L - 0.296 * S - 15.8;
+
     printf("%i letters\n", letters);
     printf("%i words\n", words);
     printf("%i sentences\n", sentences);
+    if (index >= 16)
+    {
+
+    }
+    else if (index < 1)
+    {
+        print
+    }
+    else
+    {
+        printf("Grade %i\n", index);
+    }
 }
 
 int count_letters(string s)
