@@ -61,16 +61,16 @@ string cifrar(string old, string key)
     string new = malloc(strlen(old) * sizeof(char));
     strcpy(new, old);
 
-    printf ("Dentro de la funcion, la copia es: %s\n", new);
+    //printf ("Dentro de la funcion, la copia es: %s\n", new);
     for (int i = 0; i < strlen(old); i++)
     {
         if (isalpha(old[i]))
         {
             int pos_let = tolower(old[i])-'a'; //Posicion de la letra. Por ejemplo, a = 0;
-
+            //printf("post_let = %i\n", pos_let);
             //Distancia entre la letra original y su codificacion. Por ejemplo, a -> c, correccion = 2
-            int correccion = tolower(key[pos_let]) - old[i];
-
+            int correccion = tolower(key[pos_let]) - tolower(old[i]);
+            //printf("correccion = %i\n", correccion);
             new[i] += correccion;
         }
     }
