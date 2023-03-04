@@ -5,7 +5,14 @@ int main(int argc, string argv[])
 {
     if (argc == 2)
     {
-        
+        if (strlen(arv[1])==26)
+        {
+
+        }
+        else
+        {
+            printf()
+        }
     }
     else
     {
