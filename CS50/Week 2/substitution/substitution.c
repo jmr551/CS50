@@ -1,5 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 bool validKey(string s);
 
@@ -29,6 +31,6 @@ bool validKey(string s)
 {
     for (int i = 0; i < strlen(s); i++)
     {
-        
+
     }
 }
