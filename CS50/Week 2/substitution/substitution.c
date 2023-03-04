@@ -57,7 +57,7 @@ bool validKey(string s)
 
 string cifrar(string old, string key)
 {
-    string new = NULL;
+    string new;;
     strcpy(new, old);
 
     for (int i = 0; i < strlen(new); i++)
