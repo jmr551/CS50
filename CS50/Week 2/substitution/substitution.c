@@ -11,11 +11,11 @@ int main(int argc, string argv[])
     {
         if (strlen(arv[1])==26 && validKey(arv[1]))
         {
-
+            
         }
         else
         {
-            printf("Error\n");
+             printf("Error. You must introduce a valid key.\n");
             return 1;
         }
     }
@@ -37,14 +37,16 @@ bool validKey(string s)
         {
             for (int j = 0; j < i; j++)
             {
-                tolower(s[i]);
+                if (c == tolower(s[j]))
+                {
+                    return false;
+                }
             }
         }
         else
         {
-            printf("Error. Introducir caracteres alfabeticos.\n");
             return false;
         }
-
     }
+    return true;
 }
