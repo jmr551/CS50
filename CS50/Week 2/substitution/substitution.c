@@ -8,13 +8,13 @@ string cifrar(string old, string key);
 
 int main(int argc, string argv[])
 {
-    string s, word;
+    string s;
     if (argc == 2)
     {
         if (strlen(argv[1])==26 && validKey(argv[1]))
         {
             s = get_string("plaintext:");
-            word = cifrar(s, argv[1]);
+            string word = cifrar(s, argv[1]);
             printf("%s\n",word);
         }
         else
@@ -57,7 +57,7 @@ bool validKey(string s)
 
 string cifrar(string old, string key)
 {
-    string new;;
+    string new;
     strcpy(new, old);
 
     for (int i = 0; i < strlen(new); i++)
