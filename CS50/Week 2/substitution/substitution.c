@@ -15,6 +15,7 @@ int main(int argc, string argv[])
         {
             s = get_string("plaintext:");
             word = cifrar(s, argv[1]);
+            printf("%s",word);
         }
         else
         {
@@ -35,7 +36,7 @@ bool validKey(string s)
     for (int i = 0; i < strlen(s); i++)
     {
 
-        c = tolower(s[i]);
+        char c = tolower(s[i]);
         if (isalpha(s[i]))
         {
             for (int j = 0; j < i; j++)
@@ -59,7 +60,7 @@ string cifrar(string old, string key)
     string new;
     strcpy(new, old);
 
-    for (int i = 0; i < str(len(new)); i++)
+    for (int i = 0; i < strlen(new); i++)
     {
         if (isalpha(old[i]))
         {
@@ -68,7 +69,8 @@ string cifrar(string old, string key)
             //Distancia entre la letra original y su codificacion. Por ejemplo, a -> c, correccion = 2
             int correccion = tolower(key[pos_let]) - old[i];
 
-            
+            new[i] += correcion;
         }
     }
+    return new;
 }
