@@ -61,6 +61,7 @@ string cifrar(string old, string key)
     string new = malloc(strlen(old) * sizeof(char));
     strcpy(new, old);
 
+    printf ("Dentro de la funcion, la copia es: %s\n", new);
     for (int i = 0; i < strlen(old); i++)
     {
         if (isalpha(old[i]))
