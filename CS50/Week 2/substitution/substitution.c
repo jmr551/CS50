@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 bool validKey(string s);
 string cifrar(string old, string key);
@@ -57,7 +58,7 @@ bool validKey(string s)
 
 string cifrar(string old, string key)
 {
-    string new;
+    string new = malloc(strlen(old) * sizeof(char));
     strcpy(new, old);
 
     for (int i = 0; i < strlen(old); i++)
