@@ -16,7 +16,7 @@ int main(int argc, string argv[])
         {
             s = get_string("plaintext:");
             string word = cifrar(s, argv[1]);
-            printf("%s",word);
+            printf("ciphertext: %s\n",word);
         }
         else
         {
