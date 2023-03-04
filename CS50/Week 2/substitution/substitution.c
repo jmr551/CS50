@@ -15,7 +15,7 @@ int main(int argc, string argv[])
         {
             s = get_string("plaintext:");
             word = cifrar(s, argv[1]);
-            printf("%s",word);
+            printf("%s\n",word);
         }
         else
         {
@@ -25,7 +25,7 @@ int main(int argc, string argv[])
     }
     else
     {
-        printf ("Error. You must introduce one key and just one.");
+        printf ("Error. You must introduce one key and just one.\n");
         return 1;
     }
 }
