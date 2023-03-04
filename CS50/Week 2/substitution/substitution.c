@@ -27,5 +27,8 @@ int main(int argc, string argv[])
 
 bool validKey(string s)
 {
-    
+    for (int i = 0; i < strlen(s); i++)
+    {
+        
+    }
 }
