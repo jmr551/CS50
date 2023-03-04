@@ -4,14 +4,18 @@
 #include <ctype.h>
 
 bool validKey(string s);
+string cifrar(string s);
 
 int main(int argc, string argv[])
 {
+    string s;
     if (argc == 2)
     {
         if (strlen(arv[1])==26 && validKey(arv[1]))
         {
-            
+            s = get_string("plaintext:");
+
+
         }
         else
         {
@@ -49,4 +53,11 @@ bool validKey(string s)
         }
     }
     return true;
+}
+
+string cifrar(string s)
+{
+
+
+    
 }
