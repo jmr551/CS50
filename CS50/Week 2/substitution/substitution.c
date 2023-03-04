@@ -63,7 +63,7 @@ string cifrar(string old)
     {
         if (isalpha(old[i]))
         {
-            
+            int correccion = 
         }
     }
 }
