@@ -12,21 +12,21 @@ int main(int argc, string argv[])
     string s;
     if (argc == 2)
     {
-        if (strlen(argv[1])==26 && validKey(argv[1]))
+        if (strlen(argv[1]) == 26 && validKey(argv[1]))
         {
             s = get_string("plaintext:");
             string word = cifrar(s, argv[1]);
-            printf("ciphertext: %s\n",word);
+            printf("ciphertext: %s\n", word);
         }
         else
         {
-             printf("Error. You must introduce a valid key.\n");
+            printf("Error. You must introduce a valid key.\n");
             return 1;
         }
     }
     else
     {
-        printf ("Error. You must introduce one key and just one.\n");
+        printf("Error. You must introduce one key and just one.\n");
         return 1;
     }
 }
@@ -66,7 +66,7 @@ string cifrar(string old, string key)
     {
         if (isalpha(old[i]))
         {
-            int pos_let = tolower(old[i])-'a'; //Posicion de la letra. Por ejemplo, a = 0;
+            int pos_let = tolower(old[i]) - 'a'; //Posicion de la letra. Por ejemplo, a = 0;
             //printf("post_let = %i\n", pos_let);
             //Distancia entre la letra original y su codificacion. Por ejemplo, a -> c, correccion = 2
             int correccion = tolower(key[pos_let]) - tolower(old[i]);
