@@ -55,12 +55,12 @@ bool validKey(string s)
     return true;
 }
 
-string cifrar(string old, string key)
+string cifrar(char * old, string key)
 {
-    string new;
+    char new[strlen(old)+1];
     strcpy(new, old);
 
-    for (int i = 0; i < strlen(new); i++)
+    for (int i = 0; i < strlen(old); i++)
     {
         if (isalpha(old[i]))
         {
