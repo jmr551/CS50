@@ -55,9 +55,9 @@ bool validKey(string s)
     return true;
 }
 
-string cifrar(char * old, string key)
+string cifrar(string old, string key)
 {
-    char new[strlen(old)+1];
+    string new;
     strcpy(new, old);
 
     for (int i = 0; i < strlen(old); i++)
