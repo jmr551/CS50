@@ -64,12 +64,12 @@ string cifrar(string old, string key)
     {
         if (isalpha(old[i]))
         {
-            char pos_let = tolower(old[i])-'a'; //Posicion de la letra. Por ejemplo, a = 0;
+            int pos_let = tolower(old[i])-'a'; //Posicion de la letra. Por ejemplo, a = 0;
 
             //Distancia entre la letra original y su codificacion. Por ejemplo, a -> c, correccion = 2
             int correccion = tolower(key[pos_let]) - old[i];
 
-            new[i] += correcion;
+            new[i] += correccion;
         }
     }
     return new;
