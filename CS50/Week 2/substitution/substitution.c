@@ -32,5 +32,19 @@ bool validKey(string s)
     for (int i = 0; i < strlen(s); i++)
     {
 
+        c = tolower(s[i]);
+        if (isalpha(s[i]))
+        {
+            for (int j = 0; j < i; j++)
+            {
+                tolower(s[i]);
+            }
+        }
+        else
+        {
+            printf("Error. Introducir caracteres alfabeticos.\n");
+            return false;
+        }
+
     }
 }
