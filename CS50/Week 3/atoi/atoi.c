@@ -25,7 +25,7 @@ int main(void)
 
 int convert(string input)
 {
-    int n = 0;
+    int n;
 
     if (strlen(input)==0)
     {
@@ -33,7 +33,9 @@ int convert(string input)
     }
     else
     {
-        
-        return input[strlen(input)-1] + 10 *
+        n = input[strlen(input)-1];
+        input[strlen(input)-1] = '\0';
+        return n + 10 * convert(input);
+
     }
 }
