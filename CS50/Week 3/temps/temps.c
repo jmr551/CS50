@@ -64,19 +64,27 @@ void sort_cities(void)
 {
     int aux_i;
     string aux_s;
+
+    avg_temp aux;
+
     for (int i = 0; i < NUM_CITIES; i++)
     {
         for (int j = 0; j < NUM_CITIES - 1; j++)
         {
             if (temps[j].temp < temps[j + 1].temp)
             {
-                aux_i = temps[j].temp;
+                aux = temps[j];
+                temps[j] = temps[j + 1];
+                temps[j + 1] = aux;
+
+                /*aux_i = temps[j].temp;
                 temps[j].temp = temps[j + 1].temp;
                 temps[j + 1].temp = aux_i;
 
                 aux_s = temps[j].city;
                 temps[j].city = temps[j + 1].city;
-                temps[j + 1].city = aux_s;
+                temps[j + 1].city = aux_s;*/
+
             }
         }
     }
