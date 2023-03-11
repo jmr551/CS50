@@ -83,7 +83,10 @@ void print_winner(void)
     int mayor = candidates[0].votes;
     for (int i = 1; i < candidate_count; i++)
     {
-        
+        if (candidates[1].votes > mayor)
+        {
+            
+        }
     }
     return;
 }
