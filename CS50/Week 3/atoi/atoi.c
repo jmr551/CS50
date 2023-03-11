@@ -33,10 +33,8 @@ int convert(string input)
     }
     else
     {
-        n = input[strlen(input)-1];
-        printf("n = %d\n", n);
+        n = input[strlen(input)-1] - '0';
         input[strlen(input)-1] = '\0';
-        printf("El nuevo string es: %s\n\n", input);
         return n + 10 * convert(input);
 
     }
