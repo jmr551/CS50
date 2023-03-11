@@ -92,12 +92,11 @@ void print_winner(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        if ()
+        if (candidate[i].votes == mayor)
         {
-
+            printf ("%s\n",candidate[i].name);
         }
     }
-
 
     return;
 }
