@@ -28,7 +28,7 @@ sorted50000: 0.384
 random50000: 0.442
 reversed50000: 0.981
 
-sort3 uses: No es bubble.
+sort3 uses: Selection sort
 
 How do you know?:
 sorted5000: 0.059
