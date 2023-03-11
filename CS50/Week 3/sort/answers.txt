@@ -1,6 +1,7 @@
 sort1 uses: TODO
-
+reversed 5000: 0.099
 random 5000: 0.096
+
 
 How do you know?: TODO
 
