@@ -1,4 +1,4 @@
-sort1 uses: TODO
+sort1 uses: bubble sort
 
 How do you know?:
 sorted5000: 0.044
@@ -9,9 +9,9 @@ sorted10000: 0.081
 random10000: 0.288
 reversed10000: 0.255
 
-sorted50000:
-random50000:
-reversed50000: 
+sorted50000: 0.596
+random50000: 8.053
+reversed50000: 10.104
 
 sort2 uses: TODO
 
