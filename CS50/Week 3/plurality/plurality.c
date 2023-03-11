@@ -68,9 +68,9 @@ bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!(strcmp(candidates[i].name,name)))
+        if (!(strcmp(candidates[i].name, name)))
         {
-            candidates[i].votes +=1;
+            candidates[i].votes += 1;
             return true;
         }
     }
@@ -94,7 +94,7 @@ void print_winner(void)
     {
         if (candidates[i].votes == mayor)
         {
-            printf ("%s\n",candidates[i].name);
+            printf("%s\n", candidates[i].name);
         }
     }
 
