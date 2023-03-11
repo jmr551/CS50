@@ -29,10 +29,11 @@ int convert(string input)
 
     if (strlen(input)==0)
     {
-        return ;
+        return 0;
     }
     else
     {
-        return 
+        
+        return input[strlen(input)-1] + 10 *
     }
 }
