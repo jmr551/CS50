@@ -7,8 +7,11 @@ reversed 5000: 0.099
 
 sorted10000: 0.081
 random10000: 0.288
-reversed10000: 
+reversed10000: 0.255
 
+sorted50000:
+random50000:
+reversed50000: 
 
 sort2 uses: TODO
 
