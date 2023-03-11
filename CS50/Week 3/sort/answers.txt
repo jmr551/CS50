@@ -1,7 +1,11 @@
 sort1 uses: TODO
-reversed 5000: 0.099
+sorted5000: 0.044
 random 5000: 0.096
+reversed 5000: 0.099
 
+sorted10000: 0.081
+random10000: 0.288
+reversed10000: 
 
 How do you know?: TODO
 
