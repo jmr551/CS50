@@ -67,7 +67,7 @@ int main(int argc, string argv[])
     int voter_count = get_int("Number of voters: ");
 
     // Query for votes
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < voter_count; i++) //para cada votante
     {
         // ranks[i] is voter's ith preference
         int ranks[candidate_count];
