@@ -164,7 +164,15 @@ void sort_pairs(void)
     {
         for (int j = 0; j < pair_count; j++)
         {
-            
+            if (strenght[j] > strenght[i])
+            {
+                aux_int = strenght[j];
+                strenght[j] = strenght[i];
+                strenght[i] = aux_int;
+
+                aux_pair = 
+
+            }
         }
 
     }
