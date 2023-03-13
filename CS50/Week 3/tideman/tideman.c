@@ -101,9 +101,9 @@ bool vote(int rank, string name, int ranks[])
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i]) == 0) //tengo que actualizar 
+        if (strcmp(name, candidates[i]) == 0) //tengo que actualizar
         {
-            // ranks[rank]: índice del candidato en posición rank.
+            ranks[rank] = i; // ranks[rank]: índice del candidato en posición rank.
             return true;
         }
 
