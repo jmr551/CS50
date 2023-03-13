@@ -170,11 +170,11 @@ void sort_pairs(void)
                 strenght[j] = strenght[i];
                 strenght[i] = aux_int;
 
-                aux_pair = 
-
+                aux_pair = pairs[j];
+                pairs[j] = pairs[i];
+                pairs[i] = aux_pair;
             }
         }
-
     }
     return;
 }
