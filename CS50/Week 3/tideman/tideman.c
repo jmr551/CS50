@@ -154,7 +154,7 @@ void sort_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        preferences[pairs[i].winner][pairs[i].loser]
+        preferences[pairs[i].winner][pairs[i].loser] //Esta es la fuerza de la victoria
     }
     return;
 }
