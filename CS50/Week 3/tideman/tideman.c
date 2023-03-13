@@ -152,6 +152,14 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
+    //Hallamos un vector que determine la fuerza de cada par
+    int strenght[pair_count], aux_int;
+    pair aux_pair;
+    for (int i = 0; i < pair_count; i++)
+    {
+        strenght[i] = preferences[pairs[i].winner][pairs[i].loser];
+    }
+
     for (int i = 0; i < pair_count - 1; i++)
     {
         for (int j = 0; j < pair_count; j++)
