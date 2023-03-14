@@ -224,7 +224,8 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
         {
             if (locked[v_orig[pos]][i])
             {
-                
+                v_orig[pos+1] = i;
+                ciclo(len, v_orig, pos + 1)
             }
         }
     }
