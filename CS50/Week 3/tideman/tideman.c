@@ -185,7 +185,8 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        // está locked?
+        // el par actual es pairs[i].winner, pairs[i].loser
+        // Le puedo añadir ESTE par? // locked[pairs[i].winner][pairs[i].loser] = true;
 
         //Si sí, volver al estado inicial
 
@@ -207,6 +208,6 @@ void print_winner(void)
 bool no_ciclos(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
 {
     int v_new[len]
-    
+
     locked[]
 }
