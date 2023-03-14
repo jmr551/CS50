@@ -218,6 +218,16 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
 {
     int v_new[len]
 
-    locked[v_orig[pos]] //v_orig[pos]: candidato
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (i != v_orig[pos]) //v_orig[pos]: candidato
+        {
+            if (locked[v_orig[pos]][i])
+            {
+                
+            }
+        }
+    }
+
     return false; //?
 }
