@@ -218,7 +218,8 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
 {
     int v_new[len]
 
-    
+    //Primero, probamos si es que en el vector recibido no hay bucles
+    for (int i = 0; i < )
 
     for (int i = 0; i < candidate_count; i++)
     {
