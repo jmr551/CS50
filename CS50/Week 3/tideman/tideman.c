@@ -185,12 +185,14 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        // el par actual es pairs[i].winner, pairs[i].loser
-        // Le puedo añadir ESTE par? // locked[pairs[i].winner][pairs[i].loser] = true;
+        //Añado el par a la tabla locked
+        locked[pairs[i].winner][pairs[i].loser] = true;
 
-        //Si sí, volver al estado inicial
+        //Hay un ciclo ahora?
 
-        //Si no, seguir
+            //Si sí, volver al estado inicial
+
+            //Si no, seguir
     }
 
 
