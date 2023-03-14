@@ -192,6 +192,8 @@ void lock_pairs(void)
 
         for (int j = 0; j < candidate_count; j++) //esto va a definir el inicio. Cada candidato va a ser el origen
         {
+            int vec[]
+            funcion()
             if (!(no_ciclo)) //si hay un ciclo
             //Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
