@@ -33,6 +33,7 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 bool ciclo(int len, int v[], int pos);
+void imprimir_matriz();
 
 int main(int argc, string argv[])
 {
@@ -210,7 +211,7 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
+    imprimir_matriz();
     return;
 }
 
@@ -242,4 +243,16 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
     }
 
     return false; //?
+}
+
+imprimir_matriz()
+{
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            printf("%d ", locked[i][j]);
+        }
+        printf("\n");
+    }
 }
