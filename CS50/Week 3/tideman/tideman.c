@@ -247,7 +247,7 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
     return false; //?
 }
 
-imprimir_matriz()
+void imprimir_matriz()
 {
     for (int i = 0; i < candidate_count; i++)
     {
