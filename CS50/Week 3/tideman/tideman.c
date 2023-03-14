@@ -195,7 +195,7 @@ void lock_pairs(void)
             int vec[pair_count + 1];
             vec[0] = j;
 
-            if (!(ciclo(pair_count + 1, vec, 0))) //si hay un ciclo
+            if (!(ciclo(pair_count + 1, vec, 0))) //si hay un ciclo ([limiteDeElementos], vector, posicion)
             //Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
         }
@@ -216,16 +216,24 @@ void print_winner(void)
 
 bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
 {
-    int v_new[len]
+    //int v_new[len]
 
     //Primero, probamos si es que en el vector recibido no hay bucles
-    for (int i = 0; i < )
+    for (int i = 0; i < pos; i++)
+    {
+        for (int j = i + 1; j <= pos; j++)
+        {
+            if (v_orig[i] == v_orig[j])
+                return true;
+        }
+    }
+
 
     for (int i = 0; i < candidate_count; i++)
     {
         if (i != v_orig[pos]) //v_orig[pos]: candidato
         {
-            if (locked[v_orig[pos]][i])
+            if (locked[v_orig[pos]][i] && pos + 1 < len)
             {
                 v_orig[pos+1] = i;
                 ciclo(len, v_orig, pos + 1)
