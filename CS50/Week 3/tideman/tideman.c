@@ -32,7 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-bool ciclos(int len, int v[], int pos);
+bool no_ciclos(int len, int v[], int pos);
 
 int main(int argc, string argv[])
 {
@@ -204,7 +204,7 @@ void print_winner(void)
     return;
 }
 
-bool ciclos(int len, int v_orig[], int pos)
+bool no_ciclos(int len, int v_orig[], int pos)
 {
     int v_new[len]
     locked[]
