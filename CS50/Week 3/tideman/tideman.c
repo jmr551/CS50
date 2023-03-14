@@ -163,19 +163,19 @@ void sort_pairs(void)
         strenght[i] = preferences[pairs[i].winner][pairs[i].loser];
     }
 
-    for (int i = 0; i < pair_count - 1; i++)
+    for (int i = 0; i < pair_count; i++) //cantidad de veces
     {
-        for (int j = i + 1; j < pair_count; j++)
+        for (int j = 0; j < pair_count - 1; j++)
         {
-            if (strenght[j] > strenght[i])
+            if (strenght[j + 1] > strenght[j])
             {
-                aux_int = strenght[j];
-                strenght[j] = strenght[i];
-                strenght[i] = aux_int;
+                aux_int = strenght[j + 1];
+                strenght[j+1] = strenght[j];
+                strenght[j] = aux_int;
 
-                aux_pair = pairs[j];
-                pairs[j] = pairs[i];
-                pairs[i] = aux_pair;
+                aux_pair = pairs[j + 1];
+                pairs[j + 1] = pairs[j];
+                pairs[j] = aux_pair;
             }
         }
     }
