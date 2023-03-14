@@ -170,7 +170,7 @@ void sort_pairs(void)
             if (strenght[j + 1] > strenght[j])
             {
                 aux_int = strenght[j + 1];
-                strenght[j+1] = strenght[j];
+                strenght[j + 1] = strenght[j];
                 strenght[j] = aux_int;
 
                 aux_pair = pairs[j + 1];
@@ -198,8 +198,10 @@ void lock_pairs(void)
             vec[0] = j;
 
             if (ciclo(pair_count + 1, vec, 0)) //si hay un ciclo ([limiteDeElementos], vector, posicion)
-            //Volver al estado inicial
+            {
+                //Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
+            }
         }
 
     }
@@ -220,7 +222,10 @@ void print_winner(void)
         for (int i = 0; i < candidate_count; i++)
         {
             if (locked[i][j])
+            {
                 winner = false;
+            }
+
         }
         if (winner)
         {
@@ -242,7 +247,9 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
         for (int j = i + 1; j <= pos; j++)
         {
             if (v_orig[i] == v_orig[j])
+            {
                 return true;
+            }
         }
     }
 
@@ -253,9 +260,12 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
         {
             if (locked[v_orig[pos]][i] && pos + 1 < len)
             {
-                v_orig[pos+1] = i;
+                v_orig[pos + 1] = i;
                 if (ciclo(len, v_orig, pos + 1))
+                {
                     return true;
+                }
+
             }
         }
     }
