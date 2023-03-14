@@ -212,7 +212,19 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    imprimir_matriz();
+
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        bool winner = true;
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if ()
+                winner = false;
+        }
+        printf("\n");
+    }
+
     return;
 }
 
@@ -244,7 +256,7 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
         }
     }
 
-    return false; //?
+    return false;
 }
 
 void imprimir_matriz()
