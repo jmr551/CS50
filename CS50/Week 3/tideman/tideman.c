@@ -207,5 +207,6 @@ void print_winner(void)
 bool no_ciclos(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
 {
     int v_new[len]
+    
     locked[]
 }
