@@ -190,10 +190,13 @@ void lock_pairs(void)
 
         //Hay un ciclo ahora?
 
-        for (int j = 0; i < ) //esto va a definir el inicio del
-            //Si sí, volver al estado inicial
-            locked[pairs[i].winner][pairs[i].loser] = false;
-            //Si no, seguir
+        for (int j = 0; j < candidate_count; j++) //esto va a definir el inicio. Cada candidato va a ser el origen
+        {
+            if (!(no_ciclo)) //si hay un ciclo
+            //Volver al estado inicial
+                locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+
     }
 
 
