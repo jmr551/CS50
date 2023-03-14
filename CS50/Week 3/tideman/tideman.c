@@ -214,10 +214,10 @@ void print_winner(void)
 {
     //imprimir_matriz();
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int j = 0; j < candidate_count; j++)
     {
         bool winner = true;
-        for (int j = 0; j < candidate_count; j++)
+        for (int i = 0; i < candidate_count; i++)
         {
             if (locked[i][j])
                 winner = false;
