@@ -195,7 +195,7 @@ void lock_pairs(void)
             int vec[pair_count + 1];
             vec[0] = j;
 
-            if (!(ciclo(pair_count + 1, vec, 0))) //si hay un ciclo ([limiteDeElementos], vector, posicion)
+            if (ciclo(pair_count + 1, vec, 0)) //si hay un ciclo ([limiteDeElementos], vector, posicion)
             //Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
         }
