@@ -202,3 +202,5 @@ void print_winner(void)
     // TODO
     return;
 }
+
+bool ciclos(int len, int v[], )
