@@ -204,7 +204,8 @@ void print_winner(void)
     return;
 }
 
-bool ciclos(int len, int v[], int pos)
+bool ciclos(int len, int v_orig[], int pos)
 {
+    int v_new[len]
     locked[]
 }
