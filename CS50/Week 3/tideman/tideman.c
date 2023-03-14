@@ -32,7 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-bool no_ciclos(int len, int v[], int pos);
+bool ciclo(int len, int v[], int pos);
 
 int main(int argc, string argv[])
 {
@@ -194,7 +194,7 @@ void lock_pairs(void)
         {
             int vec[]
             funcion()
-            if (!(no_ciclo)) //si hay un ciclo
+            if (!(ciclo)) //si hay un ciclo
             //Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
         }
@@ -213,7 +213,7 @@ void print_winner(void)
     return;
 }
 
-bool no_ciclos(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
+bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
 {
     int v_new[len]
 
