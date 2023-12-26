@@ -112,11 +112,11 @@ bool check(char *word)
     node *cursor = root;
     for (int i = 0; i < strlen(word); i++)
     {
-        if (cursor -> children[word[i]-'a'] == NULL)
+        if (cursor -> children[tolower(word[i]) - 'a'] == NULL)
             return false;
     }
 
-    return true;
+    return cursor;
 }
 
 // Unload trie from memory
