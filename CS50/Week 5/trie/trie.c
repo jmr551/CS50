@@ -118,7 +118,7 @@ bool check(char *word)
             return false;
 
         if (index == strlen(word)-1)
-            return cursor->children->is_word;
+            return cursor->children[index]->is_word;
         cursor = cursor->children[index];
     }
 
