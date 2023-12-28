@@ -114,10 +114,10 @@ bool check(char *word)
     {
         int index = tolower(word[i]) - 'a';
 
-        if (cursor -> children[index] == NULL)
+        if (cursor->children[index] == NULL)
             return false;
 
-        if (index == strlen(word)-1)
+        if (index == strlen(word) - 1)
             return cursor->children[index]->is_word;
         cursor = cursor->children[index];
     }
