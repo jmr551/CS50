@@ -89,6 +89,10 @@ bool load(const char *dictionary)
                 table[hash_num] -> next = NULL;
                 strcpy(table[hash_num]->word, new_word);
             }
+            else
+            {
+                
+            }
         }
     }
 
