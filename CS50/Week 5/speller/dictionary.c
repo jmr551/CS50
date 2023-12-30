@@ -60,8 +60,3 @@ bool unload(void)
     return false;
 }
 
-
-int main()
-{
-    printf("%d", hash("a"));
-}
