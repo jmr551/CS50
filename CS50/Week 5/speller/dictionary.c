@@ -69,7 +69,7 @@ bool load(const char *dictionary)
     for (int i = 0; i < N; i++)
     {
         static node tmp;
-        table[i] = tmp;
+        table[i] = &tmp;
         table[i]->next = NULL;
     }
 
