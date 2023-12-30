@@ -63,7 +63,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    
+    char new_word[LENGTH + 1];
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
