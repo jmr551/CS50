@@ -81,12 +81,12 @@ bool load(const char *dictionary)
         else if (c == '\n')
         {
             new_word[index] = '\0';
-            printf("new_word = %s", new_word);
+            //printf("new_word = %s", new_word);
             unsigned int hash_num =  hash(new_word);
-            printf("%s hashes in %u\n", new_word, hash_num);
+            //printf("%s hashes in %u\n", new_word, hash_num);
             if (table[hash_num] == NULL)
             {
-                printf("La primera vez entra aqui\n");
+                //printf("La primera vez entra aqui\n");
                 node *new_node = malloc(sizeof(node));
                 if (new_node == NULL)
                     return false;
