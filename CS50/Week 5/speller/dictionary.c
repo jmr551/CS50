@@ -18,7 +18,7 @@ typedef struct node
 const unsigned int N = 18279; // Maximo valor de mi funcion hash + 1
 
 // Hash table
-static node *table[N];
+static node *table[N]; // estuvo bien convertir a static?
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
@@ -68,8 +68,8 @@ bool load(const char *dictionary)
     // Creamos los nodos y que todos los next apunten a NULL
     for (int i = 0; i < N; i++)
     {
-        node *
-        table[i] = &tmp;
+        node *new_node = malloc (sizeof(node));
+        table[i] = new_node;
         table[i]->next = NULL;
     }
 
