@@ -91,6 +91,7 @@ bool load(const char *dictionary)
                 table[hash_num] = new_node;
                 table[hash_num] -> next = NULL;
                 strcpy(table[hash_num]->word, new_word);
+                index = 0;
             }
             else
             {
@@ -100,6 +101,7 @@ bool load(const char *dictionary)
                 strcpy(new_node -> word, new_word);
                 new_node->next = table[hash_num];
                 table[hash_num] = new_node;
+                index = 0;
             }
         }
     }
