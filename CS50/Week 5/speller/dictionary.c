@@ -85,6 +85,8 @@ bool load(const char *dictionary)
             if (table[hash_num] == NULL)
             {
                 node *new_node = malloc(sizeof(node));
+                if (new_node == NULL)
+                    return false;
                 table[hash_num] = new_node;
                 table[hash_num] -> next = NULL;
                 strcpy(table[hash_num]->word, new_word);
@@ -92,6 +94,8 @@ bool load(const char *dictionary)
             else
             {
                 node *new_node = malloc(sizeof(node));
+                if (new_node == NULL)
+                    return false;
                 
             }
         }
