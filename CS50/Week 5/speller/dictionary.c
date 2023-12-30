@@ -81,7 +81,7 @@ bool load(const char *dictionary)
         else if (c == '\0')
         {
             new_word[index] = c;
-            if (table[hash(new_word)] )
+            if (table[hash(new_word)]->next == NULL)
         }
     }
 
