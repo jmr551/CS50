@@ -49,7 +49,7 @@ unsigned int hash(const char *word)
 
     for (int i = 0; i < max_it; i++)
     {
-        num += (tolower(word[len - 1 - i])-'a'+1) * pot(26, i);
+        num += (tolower(word[len - 1 - i]) - 'a' + 1) * pot(26, i);
     }
     return num;
 }
