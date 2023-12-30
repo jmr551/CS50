@@ -82,6 +82,7 @@ bool load(const char *dictionary)
         {
             new_word[index] = c;
             if (table[hash(new_word)]->next == NULL)
+            
         }
     }
 
