@@ -81,6 +81,7 @@ bool load(const char *dictionary)
         else if (c == '\n')
         {
             new_word[index] = c;
+            printf("new_word = %s", new_word);
             unsigned int hash_num =  hash(new_word);
             printf("%s \t hashes in %u\n", new_word, hash_num);
             if (table[hash_num] == NULL)
