@@ -98,7 +98,7 @@ bool load(const char *dictionary)
                     return false;
                 strcpy(new_node -> word, new_word);
                 new_node->next = table[hash_num];
-                
+                table[hash_num] = new_node;
             }
         }
     }
