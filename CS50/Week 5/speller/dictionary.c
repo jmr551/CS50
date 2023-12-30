@@ -91,6 +91,7 @@ bool load(const char *dictionary)
             }
             else
             {
+                node *new_node = malloc(sizeof(node));
                 
             }
         }
