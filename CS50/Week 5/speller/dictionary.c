@@ -5,6 +5,7 @@
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -68,7 +69,7 @@ bool load(const char *dictionary)
     {
         table[i] = NULL;
     }
-    
+
     char c;
     while (fread(&c, sizeof(char), 1, file_dict))
     {
