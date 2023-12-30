@@ -68,7 +68,8 @@ bool load(const char *dictionary)
     {
         table[i] = NULL;
     }
-
+    
+    char c;
     while (fread(&c, sizeof(char), 1, file_dict))
     {
         if (isalpha(c))
