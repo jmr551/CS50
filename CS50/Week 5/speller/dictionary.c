@@ -39,12 +39,12 @@ unsigned int pot(unsigned int a, unsigned int b)
 }
 
 // Hashes word to a number
-long hash(const char *word)
+unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int len = strlen(word);
     int max_it = len < 2 ? len : 2;
-    long num = 0;
+    unsigned int num = 0;
 
     for (int i = 0; i < max_it; i++)
     {
@@ -81,8 +81,8 @@ bool load(const char *dictionary)
         else if (c == '\n')
         {
             new_word[index] = c;
-            long hash_num =  hash(new_word);
-            printf("%s \t hashes in %ld\n", new_word, hash_num);
+            unsigned int hash_num =  hash(new_word);
+            printf("%s \t hashes in %d\n", new_word, hash_num);
             if (table[hash_num] == NULL)
             {
                 printf("La primera vez entra aqui\n");
