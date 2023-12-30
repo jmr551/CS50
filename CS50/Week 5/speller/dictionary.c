@@ -83,7 +83,7 @@ bool load(const char *dictionary)
             new_word[index] = c;
             printf("new_word = %s", new_word);
             unsigned int hash_num =  hash(new_word);
-            printf("%s \t hashes in %u\n", new_word, hash_num);
+            printf("%s hashes in %u\n", new_word, hash_num);
             if (table[hash_num] == NULL)
             {
                 printf("La primera vez entra aqui\n");
