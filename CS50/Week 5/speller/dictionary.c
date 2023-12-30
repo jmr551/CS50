@@ -65,12 +65,10 @@ bool load(const char *dictionary)
     int index = 0;
     char new_word[LENGTH + 1];
 
-    // Creamos los nodos y que todos los next apunten a NULL
+    // Cada puntero apunta a NULL
     for (int i = 0; i < N; i++)
     {
-        node *new_node = malloc (sizeof(node));
-        table[i] = new_node;
-        table[i]->next = NULL;
+        table[i] = NULL;
     }
 
     while (fread(&c, sizeof(char), 1, file_dict))
@@ -84,8 +82,11 @@ bool load(const char *dictionary)
         {
             new_word[index] = c;
             unsigned int hash_num =  hash(new_word);
-            if (table[hash_num]->next == NULL)
+            if (table[hash_num] == NULL)
             {
+                node *new_node = malloc(sizeof(node));
+                table[hash_num] = new_node;
+                table[hash_num] -> 
                 strcpy(table[hash_num].word, new_word);
                 static node *
             }
