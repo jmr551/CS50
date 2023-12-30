@@ -18,7 +18,7 @@ typedef struct node
 const unsigned int N = 18279; // Maximo valor de mi funcion hash + 1
 
 // Hash table
-node *table[N];
+static node *table[N];
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
@@ -62,7 +62,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    
+
 
 }
 
