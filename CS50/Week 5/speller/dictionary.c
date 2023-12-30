@@ -2,6 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "dictionary.h"
 
@@ -33,7 +34,7 @@ unsigned int hash(const char *word)
     int num = 0;
     for (int i = 0; i < len; i++)
     {
-        num += word[len - 1 - i]*26;
+        num += word[len - 1 - i]*pow(26, 3 - i);
     }
     return tolower(word[0]) - 'a';
 }
