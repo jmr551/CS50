@@ -42,12 +42,14 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int len = strlen(word);
-    int max_it = len < 4 ? len : 4;
+    printf("len = %d\n", len);
+    int max_it = len < 3 ? len : 3;
+    printf ("max_it = %d\n", max_it);
     unsigned int num = 0;
 
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < max_it; i++)
     {
-        num += (tolower(word[len - 1 - i]) - 'a' + 1) * pot(26, i);
+        num += (tolower(word[len - 1 - i])-'a'+1) * pot(26, i);
     }
     return num;
 }
