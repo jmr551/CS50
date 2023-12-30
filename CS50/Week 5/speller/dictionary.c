@@ -44,10 +44,10 @@ unsigned int hash(const char *word)
     unsigned int len = strlen(word);
     int max_it = len < 4 ? len : 4;
     unsigned int num = 0;
-    
+
     for (int i = 0; i < len; i++)
     {
-        num += (tolower(word[len - 1 - i])-'a'+1) * pot(26, i);
+        num += (tolower(word[len - 1 - i]) - 'a' + 1) * pot(26, i);
     }
     return num;
 }
