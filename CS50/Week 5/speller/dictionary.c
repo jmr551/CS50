@@ -39,7 +39,7 @@ unsigned int pot(unsigned int a, unsigned int b)
 }
 
 // Hashes word to a number
-unsigned int hash(const char *word)
+long hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int len = strlen(word);
