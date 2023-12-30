@@ -65,6 +65,7 @@ bool load(const char *dictionary)
     int index = 0;
     char new_word[LENGTH + 1];
 
+    // Hacemos que todos los next apunten a NULL
     for (int i = 0; i < N; i++)
     {
         table[i]->next = NULL;
@@ -80,7 +81,7 @@ bool load(const char *dictionary)
         else if (c == '\0')
         {
             new_word[index] = c;
-            table[hash(new_word)]
+            if (table[hash(new_word)] )
         }
     }
 
