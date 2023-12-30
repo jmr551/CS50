@@ -86,9 +86,8 @@ bool load(const char *dictionary)
             {
                 node *new_node = malloc(sizeof(node));
                 table[hash_num] = new_node;
-                table[hash_num] -> 
+                table[hash_num] -> next = NULL;
                 strcpy(table[hash_num].word, new_word);
-                static node *
             }
         }
     }
