@@ -78,7 +78,7 @@ bool load(const char *dictionary)
             new_word[index] = tolower(c);
             index++;
         }
-        else if (c == '\0')
+        else if (c == '\n')
         {
             new_word[index] = c;
             unsigned int hash_num =  hash(new_word);
