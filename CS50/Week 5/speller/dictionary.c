@@ -15,7 +15,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26*26*26*26; // Elijo hacerlo 4 veces (incluyo el espacio)
+const unsigned int N = 18279; // Maximo valor de mi funcion hash + 1
 
 // Hash table
 node *table[N];
