@@ -72,7 +72,7 @@ bool load(const char *dictionary)
             new_word[index] = c;
             index++;
         }
-        else if (c == '\')
+        else if (c == '\0')
         {
             fread(&c, sizeof(char), 1, file_dict)
         }
