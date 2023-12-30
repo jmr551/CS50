@@ -65,6 +65,11 @@ bool load(const char *dictionary)
     int index = 0;
     char new_word[LENGTH + 1];
 
+    for (int i = 0; i < N; i++)
+    {
+        table[i]->next = NULL;
+    }
+
     while (fread(&c, sizeof(char), 1, file_dict))
     {
         if (isalpha(c))
