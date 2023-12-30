@@ -42,9 +42,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int len = strlen(word);
-    printf("len = %d\n", len);
     int max_it = len < 3 ? len : 3;
-    printf ("max_it = %d\n", max_it);
     unsigned int num = 0;
 
     for (int i = 0; i < max_it; i++)
@@ -102,8 +100,7 @@ bool load(const char *dictionary)
             }
         }
     }
-
-
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
