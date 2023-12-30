@@ -75,16 +75,17 @@ bool load(const char *dictionary)
     {
         if (isalpha(c))
         {
-            new_word[index] = c;
+            new_word[index] = tolower(c);
             index++;
         }
         else if (c == '\0')
         {
             new_word[index] = c;
             unsigned int hash_num =  hash(new_word);
-            if (table[hash(hash_num)]->next == NULL)
+            if (table[hash_num]->next == NULL)
             {
-                
+                strcpy(table[hash_num].word, new_word);
+                static node *
             }
         }
     }
