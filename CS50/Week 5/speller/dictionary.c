@@ -82,6 +82,7 @@ bool load(const char *dictionary)
         {
             new_word[index] = c;
             unsigned int hash_num =  hash(new_word);
+            printf("%s \t hashes in %d", new_word, hash_num);
             if (table[hash_num] == NULL)
             {
                 node *new_node = malloc(sizeof(node));
