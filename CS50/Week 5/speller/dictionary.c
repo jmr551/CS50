@@ -68,7 +68,7 @@ bool load(const char *dictionary)
     // Creamos los nodos y que todos los next apunten a NULL
     for (int i = 0; i < N; i++)
     {
-        static node tmp;
+        node tmp;
         table[i] = &tmp;
         table[i]->next = NULL;
     }
