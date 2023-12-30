@@ -45,7 +45,7 @@ unsigned int hash(const char *word)
 
     for (int i = 0; i < len; i++)
     {
-        num += (tolower(word[len - 1 - i]) - '0') * pot(26, 3 - i);
+        num += (tolower(word[len - 1 - i]) - '0') * pot(26, len - i);
     }
     return tolower(word[0]) - 'a';
 }
