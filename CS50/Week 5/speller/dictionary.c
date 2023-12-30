@@ -12,12 +12,12 @@ typedef struct node
     struct node *next;
 } node;
 
-typedef struct node
+/*typedef struct node
 {
     bool is_word;
     struct node *children[SIZE_OF_ALPHABET];
 } node;
-
+*/
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 27*27*27*27; // Elijo hacerlo 4 veces (incluyo el espacio)
