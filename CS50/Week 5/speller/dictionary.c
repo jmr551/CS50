@@ -63,6 +63,11 @@ bool load(const char *dictionary)
         return false;
     }
 
+    while (fread(&c, sizeof(char), 1, file))
+    {
+
+    }
+
     char new_word[LENGTH + 1];
 }
 
