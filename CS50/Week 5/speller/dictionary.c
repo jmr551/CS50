@@ -42,13 +42,14 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int len = strlen(word);
+    int max_it = len < 4 ? len : 4;
     unsigned int num = 0;
-
+    
     for (int i = 0; i < len; i++)
     {
-        num += (tolower(word[len - 1 - i]) - '0') * pot(26, len - i);
+        num += (tolower(word[len - 1 - i])-'a'+1) * pot(26, i);
     }
-    return tolower(word[0]) - 'a';
+    return num;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
