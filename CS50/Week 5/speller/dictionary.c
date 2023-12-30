@@ -26,14 +26,23 @@ bool check(const char *word)
     return false;
 }
 
-
+unsigned int pot(unsigned int a, unsigned int b)
+{
+    unsigned int res = 1;
+    for (int i = 0; i < b; i++)
+    {
+        res *= a;
+    }
+    return res;
+}
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int len = strlen(word);
-    int num = 0;
+    unsigned int len = strlen(word);
+    unsigned int num = 0;
+
     for (int i = 0; i < len; i++)
     {
         num += (tolower(word[len - 1 - i]) - '0') * pot(26, 3 - i);
