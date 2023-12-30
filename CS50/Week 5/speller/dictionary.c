@@ -16,7 +16,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 703; // Maximo valor de mi funcion hash + 1
+const unsigned int N = 20000; // Maximo valor de mi funcion hash + 1
 
 // Hash table
 static node *table[N]; // estuvo bien convertir a static?
@@ -43,7 +43,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int len = strlen(word);
-    int max_it = len < 2 ? len : 2;
+    int max_it = len < 3 ? len : 3;
     unsigned int num = 0;
 
     for (int i = 0; i < max_it; i++)
