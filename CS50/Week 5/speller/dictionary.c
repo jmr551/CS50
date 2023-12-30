@@ -59,3 +59,9 @@ bool unload(void)
     // TODO
     return false;
 }
+
+
+int main()
+{
+    printf("%d", hash("a"));
+}
