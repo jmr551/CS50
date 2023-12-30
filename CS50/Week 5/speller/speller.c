@@ -17,8 +17,6 @@
 // Prototype
 double calculate(const struct rusage *b, const struct rusage *a);
 
-// Variable global que va a contener al diccionario
-node *root[]
 
 int main(int argc, char *argv[])
 {
