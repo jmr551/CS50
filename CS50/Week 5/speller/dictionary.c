@@ -62,10 +62,20 @@ bool load(const char *dictionary)
     {
         return false;
     }
+    int index = 0;
     char new_word[LENGTH + 1];
+
     while (fread(&c, sizeof(char), 1, file_dict))
     {
-        
+        if (isalpha(c))
+        {
+            new_word[index] = c;
+            index++;
+        }
+        else if (c == '\')
+        {
+            fread(&c, sizeof(char), 1, file_dict)
+        }
     }
 
 
