@@ -75,7 +75,7 @@ bool load(const char *dictionary)
         else if (c == '\0')
         {
             new_word[index] = c;
-            
+            hash(new_word)
         }
     }
 
