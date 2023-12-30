@@ -65,7 +65,7 @@ bool load(const char *dictionary)
     int index = 0;
     char new_word[LENGTH + 1];
 
-    // Hacemos que todos los next apunten a NULL
+    // Creamos los nodos y que todos los next apunten a NULL
     for (int i = 0; i < N; i++)
     {
         static node tmp;
