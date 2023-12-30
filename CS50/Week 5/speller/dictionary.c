@@ -26,6 +26,8 @@ bool check(const char *word)
     return false;
 }
 
+
+
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
@@ -34,7 +36,7 @@ unsigned int hash(const char *word)
     int num = 0;
     for (int i = 0; i < len; i++)
     {
-        num += (tolower(word[len - 1 - i]) - '0') * pow(26, 3 - i);
+        num += (tolower(word[len - 1 - i]) - '0') * pot(26, 3 - i);
     }
     return tolower(word[0]) - 'a';
 }
