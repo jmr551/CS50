@@ -89,7 +89,7 @@ bool load(const char *dictionary)
     char c;
     while (fread(&c, sizeof(char), 1, file_dict))
     {
-        if (isalpha(c))
+        if (isalpha(c) || c == '\'')
         {
             new_word[index] = tolower(c);
             index++;
