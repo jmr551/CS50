@@ -25,8 +25,6 @@ static node *table[N]; // estuvo bien convertir a static?
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-
-
     // Para truncar lo que venga desde '
     int l = strlen(word);
     char new_word[LENGTH+1];
