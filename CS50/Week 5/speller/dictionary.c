@@ -31,7 +31,6 @@ bool check(const char *word)
     node *nodo = table[hashed_num];
 
 
-
     // Comenzamos la búsqueda
     while (nodo != NULL)
     {
