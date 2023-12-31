@@ -122,6 +122,7 @@ bool load(const char *dictionary)
             }
         }
     }
+    fclose(file_dict);
     return true;
 }
 
