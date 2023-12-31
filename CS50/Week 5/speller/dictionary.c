@@ -27,24 +27,14 @@ bool check(const char *word)
     // Asignamos el nodo correspondiente
     node *nodo = table[hash(word)];
 
-    //Comenzamos la busqueda
-    if (nodo != NULL)
+    // Comenzamos la búsqueda
+    while (nodo != NULL)
     {
-        if (strcmp(nodo->word,word) == 0)
+        if (strcmp(nodo->word, word) == 0)
         {
             return true;
         }
-        else
-        {
-            while (nodo->next != NULL)
-            {
-                nodo = nodo->next;
-                if (strcmp(nodo->word,word) == 0)
-                {
-                    return true;
-                }
-            }
-        }
+        nodo = nodo->next;
     }
 
     return false;
