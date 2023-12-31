@@ -136,7 +136,8 @@ unsigned int size(void)
 
 void recursive_unload(node *nodo)
 {
-    
+    if
+    free(nodo);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
@@ -148,14 +149,7 @@ bool unload(void)
     {
         if (table[i] != NULL)
         {
-            cursor = table[i];
-            c++;
-
-            while (cursor -> next != NULL)
-            {
-                cursor = cursor->next;
-                c++;
-            }
+            recursive_unload(table[i]);
         }
     }
     return c;
