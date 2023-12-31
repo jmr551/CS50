@@ -25,7 +25,9 @@ static node *table[N]; // estuvo bien convertir a static?
 bool check(const char *word)
 {
     // Asignamos el nodo correspondiente
-    node *nodo = table[hash(word)];
+    unsigned int hashed_num = hash(word);
+    printf("Word: %s, Hash: %u\n",word, hashed_num);
+    node *nodo = table[hashed_num];
 
     // Comenzamos la búsqueda
     while (nodo != NULL)
