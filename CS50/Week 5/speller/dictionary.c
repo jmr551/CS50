@@ -35,7 +35,10 @@ bool check(const char *word)
             {
                 return true;
             }
-            
+            else
+            {
+                
+            }
         }while(nodo->next != NULL);
 
         if (strcmp(nodo->word,word) == 0)
