@@ -2,7 +2,6 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-#include <math.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +26,6 @@ bool check(const char *word)
 {
     // Asignamos el nodo correspondiente
     unsigned int hashed_num = hash(word);
-    //printf("Word: %s, Hash: %u\n",word, hashed_num);
     node *nodo = table[hashed_num];
 
 
@@ -97,17 +95,14 @@ bool load(const char *dictionary)
         else if (c == '\n')
         {
             new_word[index] = '\0';
-            //printf("new_word = %s", new_word);
-            unsigned int hash_num =  hash(new_word);
-            //printf("%s hashes in %u\n", new_word, hash_num);
+            unsigned int hash_num = hash(new_word);
             if (table[hash_num] == NULL)
             {
-                //printf("La primera vez entra aqui\n");
                 node *new_node = malloc(sizeof(node));
                 if (new_node == NULL)
                     return false;
                 table[hash_num] = new_node;
-                table[hash_num] -> next = NULL;
+                table[hash_num]->next = NULL;
                 strcpy(table[hash_num]->word, new_word);
                 index = 0;
             }
@@ -116,7 +111,7 @@ bool load(const char *dictionary)
                 node *new_node = malloc(sizeof(node));
                 if (new_node == NULL)
                     return false;
-                strcpy(new_node -> word, new_word);
+                strcpy(new_node->word, new_word);
                 new_node->next = table[hash_num];
                 table[hash_num] = new_node;
                 index = 0;
@@ -139,7 +134,7 @@ unsigned int size(void)
             cursor = table[i];
             c++;
 
-            while (cursor -> next != NULL)
+            while (cursor->next != NULL)
             {
                 cursor = cursor->next;
                 c++;
@@ -175,5 +170,4 @@ bool unload(void)
     }
     return true;
 }
-
 
