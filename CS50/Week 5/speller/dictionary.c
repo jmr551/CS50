@@ -32,7 +32,7 @@ bool check(const char *word)
     // Comenzamos la búsqueda
     while (nodo != NULL)
     {
-        if (strcmp(nodo->word, word) == 0)
+        if (strcasecmp(nodo->word, word) == 0)
         {
             return true;
         }
