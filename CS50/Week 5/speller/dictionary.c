@@ -134,9 +134,9 @@ unsigned int size(void)
 
 // Hago mi función auxiliar
 
-void recursive_unload(node *)
+void recursive_unload(node *nodo)
 {
-
+    
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
