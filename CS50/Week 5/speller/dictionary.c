@@ -32,6 +32,8 @@ bool check(const char *word)
 
     // Para truncar lo que venga desde '
     int l = strlen(word);
+
+    
     for (int i = 0; i < l; i++)
     {
         if (word[i] == '\'')
