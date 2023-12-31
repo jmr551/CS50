@@ -26,7 +26,7 @@ bool check(const char *word)
 {
     // Asignamos el nodo correspondiente
     unsigned int hashed_num = hash(word);
-    printf("Word: %s, Hash: %u\n",word, hashed_num);
+    //printf("Word: %s, Hash: %u\n",word, hashed_num);
     node *nodo = table[hashed_num];
 
     // Comenzamos la búsqueda
