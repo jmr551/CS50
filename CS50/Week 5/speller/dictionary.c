@@ -34,9 +34,9 @@ bool check(const char *word)
     int l = strlen(word);
     char *new_word[LENGTH+1];
 
+    strcpy(new_word, word);
     for (int i = 0; i < l; i++)
     {
-        new_word[i] = word[i];
         if (word[i] == '\'')
         {
             new_word[i] = '\0';
