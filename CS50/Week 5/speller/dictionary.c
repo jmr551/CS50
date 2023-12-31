@@ -1,12 +1,12 @@
 // Implements a dictionary's functionality
 
+#include "dictionary.h"
 #include <ctype.h>
 #include <stdbool.h>
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <strings.h>
-#include "dictionary.h"
 
 // Represents a node in a hash table
 typedef struct node
@@ -27,7 +27,6 @@ bool check(const char *word)
     // Asignamos el nodo correspondiente
     unsigned int hashed_num = hash(word);
     node *nodo = table[hashed_num];
-
 
     // Comenzamos la búsqueda
     while (nodo != NULL)
@@ -170,4 +169,3 @@ bool unload(void)
     }
     return true;
 }
-
