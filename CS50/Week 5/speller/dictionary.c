@@ -32,7 +32,7 @@ bool check(const char *word)
 
     // Para truncar lo que venga desde '
     int l = strlen(word);
-    char *new_word[LENGTH+1];
+    char new_word[LENGTH+1];
 
     strcpy(new_word, word);
     for (int i = 0; i < l; i++)
