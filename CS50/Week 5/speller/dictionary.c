@@ -25,6 +25,8 @@ static node *table[N]; // estuvo bien convertir a static?
 bool check(const char *word)
 {
     // TODO
+    node *nodo = table[hash(word)];
+    
     return false;
 }
 
