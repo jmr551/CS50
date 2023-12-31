@@ -64,7 +64,7 @@ unsigned int hash(const char *word)
     {
         num += (tolower(word[len - 1 - i]) - 'a' + 1) * pot(26, i);
     }
-    return num;
+    return num % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
