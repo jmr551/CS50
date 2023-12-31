@@ -28,7 +28,10 @@ bool check(const char *word)
     node *nodo = table[hash(word)];
 
     //Comenzamos la busqueda
-    
+    if (nodo != NULL)
+    {
+        
+    }
 
     return false;
 }
