@@ -119,7 +119,13 @@ unsigned int size(void)
     {
         if (table[i] != NULL)
         {
-            
+            cursor = table[i];
+            c++;
+
+            while (cursor -> next != NULL)
+            {
+                
+            }
         }
     }
     return 0;
