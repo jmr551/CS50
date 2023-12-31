@@ -124,7 +124,7 @@ unsigned int size(void)
 
             while (cursor -> next != NULL)
             {
-                
+
             }
         }
     }
