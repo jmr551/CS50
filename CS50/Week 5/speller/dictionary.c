@@ -124,11 +124,12 @@ unsigned int size(void)
 
             while (cursor -> next != NULL)
             {
-
+                cursor = cursor->next;
+                c++;
             }
         }
     }
-    return 0;
+    return c;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
