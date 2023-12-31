@@ -36,8 +36,8 @@ bool check(const char *word)
     {
         if (word[i] == '\'')
         {
-            char *new_word
-            for
+            char *new_word[LENGTH+1];
+            for (int j = 0; j < i)
         }
     }
 
