@@ -30,6 +30,16 @@ bool check(const char *word)
     //printf("Word: %s, Hash: %u\n",word, hashed_num);
     node *nodo = table[hashed_num];
 
+    // Para truncar lo que venga desde '
+    int l = strlen(word);
+    for (int i = 0; i < l; i++)
+    {
+        if (word[i] == '\'')
+        {
+            
+        }
+    }
+
     // Comenzamos la búsqueda
     while (nodo != NULL)
     {
