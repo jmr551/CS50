@@ -32,25 +32,22 @@ bool check(const char *word)
 
     // Para truncar lo que venga desde '
     int l = strlen(word);
+    char *new_word[LENGTH+1];
 
-    
     for (int i = 0; i < l; i++)
     {
+        new_word[i] = word[i];
         if (word[i] == '\'')
         {
-            char *new_word[LENGTH+1];
-            for (int j = 0; j < i; j++)
-            {
-                new_word[j] = word[j];
-            }
             new_word[i] = '\0';
+            break;
         }
     }
 
     // Comenzamos la búsqueda
     while (nodo != NULL)
     {
-        if (strcasecmp(nodo->word, word) == 0)
+        if (strcasecmp(nodo->word, new_word) == 0)
         {
             return true;
         }
