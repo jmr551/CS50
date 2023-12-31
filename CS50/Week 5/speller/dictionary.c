@@ -25,31 +25,17 @@ static node *table[N]; // estuvo bien convertir a static?
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // Para truncar lo que venga desde '
-    int l = strlen(word);
-    char new_word[LENGTH+1];
-
-    strcpy(new_word, word);
-    for (int i = 0; i < l; i++)
-    {
-        if (word[i] == '\'')
-        {
-            new_word[i] = '\0';
-            //printf("Palabra antigua: %s\n", word);
-            //printf("Palabra nueva: %s\n", new_word);
-            break;
-        }
-    }
-
     // Asignamos el nodo correspondiente
-    unsigned int hashed_num = hash(new_word);
+    unsigned int hashed_num = hash(word);
     //printf("Word: %s, Hash: %u\n",word, hashed_num);
     node *nodo = table[hashed_num];
+
+
 
     // Comenzamos la búsqueda
     while (nodo != NULL)
     {
-        if (strcasecmp(nodo->word, new_word) == 0)
+        if (strcasecmp(nodo->word, word) == 0)
         {
             return true;
         }
