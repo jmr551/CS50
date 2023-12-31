@@ -36,7 +36,7 @@ bool check(const char *word)
     {
         if (word[i] == '\'')
         {
-            
+            word[i] = '\0';
         }
     }
 
