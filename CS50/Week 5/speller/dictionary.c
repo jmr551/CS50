@@ -40,6 +40,8 @@ bool check(const char *word)
         if (word[i] == '\'')
         {
             new_word[i] = '\0';
+            printf("Palabra antigua: %s\n", word);
+            printf("Palabra nueva: %s\n", new_word);
             break;
         }
     }
