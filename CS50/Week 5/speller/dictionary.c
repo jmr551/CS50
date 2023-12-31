@@ -114,6 +114,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     int c = 0;
+    node *cursor = NULL;
     for (int i = 0; i < N; i++)
     {
         if (table[i] != NULL)
