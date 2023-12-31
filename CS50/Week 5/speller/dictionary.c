@@ -136,7 +136,11 @@ unsigned int size(void)
 
 void recursive_unload(node *nodo)
 {
-    if
+    if (nodo->next != NULL)
+    {
+        recursive_unload(nodo->next);
+    }
+
     free(nodo);
 }
 
@@ -152,7 +156,7 @@ bool unload(void)
             recursive_unload(table[i]);
         }
     }
-    return c;
+    return true;
 }
 
 
