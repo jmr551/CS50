@@ -30,13 +30,22 @@ bool check(const char *word)
     //Comenzamos la busqueda
     if (nodo != NULL)
     {
+
+        
         if (strcmp(nodo->word,word) == 0)
         {
             return true;
         }
         else
         {
-            
+            while (nodo->next != NULL)
+            {
+                nodo = nodo->next;
+                if (strcmp(nodo->word,word) == 0)
+                {
+                    return true;
+                }
+            }
         }
     }
 
