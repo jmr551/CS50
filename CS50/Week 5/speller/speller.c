@@ -109,11 +109,15 @@ int main(int argc, char *argv[])
             // Update counter
             words++;
 
+            printf("Llego sin problemas a check()\n");
+
+
             // Check word's spelling
             getrusage(RUSAGE_SELF, &before);
-            bool misspelled = !check(word);
+            bool misspelled = false; //!check(word);
             getrusage(RUSAGE_SELF, &after);
 
+            printf("Pasa el check\n");
             // Update benchmark
             time_check += calculate(&before, &after);
 
