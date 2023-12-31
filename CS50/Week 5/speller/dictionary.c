@@ -24,9 +24,12 @@ static node *table[N]; // estuvo bien convertir a static?
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // Asignamos el nodo correspondiente
     node *nodo = table[hash(word)];
+
+    //Comenzamos la busqueda
     
+
     return false;
 }
 
