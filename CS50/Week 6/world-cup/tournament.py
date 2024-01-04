@@ -21,13 +21,15 @@ def main():
         for row in csvreader:
             row['rating'] = int(row['rating'])
             teams.append(row)
-        print(teams)
+        # print(teams)
 
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
+    for t in teams:
+        counts[t['team']] = 0
     for _ in range(N):
-        simulate_tournament(teams)
+        counts[simulate_tournament(teams)] += 1
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
@@ -61,6 +63,6 @@ def simulate_tournament(teams):
     # TODO
     while (len(teams)>1):
         teams = simulate_round(teams)
-    return 
+    return teams[0]['team']
 if __name__ == "__main__":
     main()
