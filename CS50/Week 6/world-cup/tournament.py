@@ -9,7 +9,6 @@ N = 1000
 
 
 def main():
-
     # Ensure correct usage
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
@@ -19,15 +18,14 @@ def main():
     with open(sys.argv[1]) as csvfile:
         csvreader = csv.DictReader(csvfile)
         for row in csvreader:
-            row['rating'] = int(row['rating'])
+            row["rating"] = int(row["rating"])
             teams.append(row)
         # print(teams)
-
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
     for t in teams:
-        counts[t['team']] = 0
+        counts[t["team"]] = 0
     for _ in range(N):
         counts[simulate_tournament(teams)] += 1
 
@@ -61,8 +59,10 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-    while (len(teams)>1):
+    while len(teams) > 1:
         teams = simulate_round(teams)
-    return teams[0]['team']
+    return teams[0]["team"]
+
+
 if __name__ == "__main__":
     main()
