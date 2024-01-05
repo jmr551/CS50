@@ -16,8 +16,7 @@ typedef struct
 {
     int winner;
     int loser;
-}
-pair;
+} pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -70,7 +69,7 @@ int main(int argc, string argv[])
     int voter_count = get_int("Number of voters: ");
 
     // Query for votes
-    for (int i = 0; i < voter_count; i++) //para cada votante
+    for (int i = 0; i < voter_count; i++) // para cada votante
     {
         // ranks[i] is voter's ith preference
         int ranks[candidate_count];
@@ -104,12 +103,11 @@ bool vote(int rank, string name, int ranks[])
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i]) == 0) //tengo que actualizar
+        if (strcmp(name, candidates[i]) == 0) // tengo que actualizar
         {
             ranks[rank] = i; // ranks[rank]: índice del candidato en posición rank.
             return true;
         }
-
     }
     return false;
 }
@@ -117,7 +115,7 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    for (int i = 0; i < candidate_count - 1; i++) //i representa el rank ganador
+    for (int i = 0; i < candidate_count - 1; i++) // i representa el rank ganador
     {
         for (int j = i + 1; j < candidate_count; j++) // j representa a los que pierden contra i
         {
@@ -134,13 +132,13 @@ void add_pairs(void)
     {
         for (int j = i + 1; j < candidate_count; j++)
         {
-            if (preferences [i][j] > preferences [j][i])
+            if (preferences[i][j] > preferences[j][i])
             {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
             }
-            if (preferences [i][j] < preferences [j][i])
+            if (preferences[i][j] < preferences[j][i])
             {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
@@ -155,7 +153,7 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    //Hallamos un vector que determine la fuerza de cada par
+    // Hallamos un vector que determine la fuerza de cada par
     int strenght[pair_count], aux_int;
     pair aux_pair;
     for (int i = 0; i < pair_count; i++)
@@ -163,7 +161,7 @@ void sort_pairs(void)
         strenght[i] = preferences[pairs[i].winner][pairs[i].loser];
     }
 
-    for (int i = 0; i < pair_count; i++) //cantidad de veces
+    for (int i = 0; i < pair_count; i++) // cantidad de veces
     {
         for (int j = 0; j < pair_count - 1; j++)
         {
@@ -187,26 +185,23 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        //Añado el par a la tabla locked
+        // Añado el par a la tabla locked
         locked[pairs[i].winner][pairs[i].loser] = true;
 
-        //Hay un ciclo ahora?
+        // Hay un ciclo ahora?
 
-        for (int j = 0; j < candidate_count; j++) //esto va a definir el inicio. Cada candidato va a ser el origen
+        for (int j = 0; j < candidate_count; j++) // esto va a definir el inicio. Cada candidato va a ser el origen
         {
             int vec[pair_count + 1];
             vec[0] = j;
 
-            if (ciclo(pair_count + 1, vec, 0)) //si hay un ciclo ([limiteDeElementos], vector, posicion)
+            if (ciclo(pair_count + 1, vec, 0)) // si hay un ciclo ([limiteDeElementos], vector, posicion)
             {
-                //Volver al estado inicial
+                // Volver al estado inicial
                 locked[pairs[i].winner][pairs[i].loser] = false;
             }
         }
-
     }
-
-
 
     return;
 }
@@ -214,7 +209,7 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    //imprimir_matriz();
+    // imprimir_matriz();
 
     for (int j = 0; j < candidate_count; j++)
     {
@@ -225,7 +220,6 @@ void print_winner(void)
             {
                 winner = false;
             }
-
         }
         if (winner)
         {
@@ -237,11 +231,11 @@ void print_winner(void)
     return;
 }
 
-bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de los que pueda llegar
+bool ciclo(int len, int v_orig[], int pos) // prueba el recibido y a cada uno de los que pueda llegar
 {
-    //int v_new[len]
+    // int v_new[len]
 
-    //Primero, probamos si es que en el vector recibido no hay bucles
+    // Primero, probamos si es que en el vector recibido no hay bucles
     for (int i = 0; i < pos; i++)
     {
         for (int j = i + 1; j <= pos; j++)
@@ -253,10 +247,9 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
         }
     }
 
-
     for (int i = 0; i < candidate_count; i++)
     {
-        if (i != v_orig[pos]) //v_orig[pos]: candidato
+        if (i != v_orig[pos]) // v_orig[pos]: candidato
         {
             if (locked[v_orig[pos]][i] && pos + 1 < len)
             {
@@ -265,7 +258,6 @@ bool ciclo(int len, int v_orig[], int pos) //prueba el recibido y a cada uno de 
                 {
                     return true;
                 }
-
             }
         }
     }
