@@ -38,7 +38,12 @@ int main(int argc, char *argv[])
     fgets(a,44,input);
 
     // TODO: Read samples from input file and write updated data to output file
-    while ()
+    char a[1];
+    while (input != NULL)
+    {
+        fgets(a, 1, input);
+        fwrite* atof(argv[3])
+    }
 
     // Close files
     fclose(input);
