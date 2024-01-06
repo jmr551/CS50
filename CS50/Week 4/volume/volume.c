@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     while (input != NULL)
     {
         fgets(a, 1, input);
-        fwrite* atof(argv[3])
+        fwrite()
     }
 
     // Close files
