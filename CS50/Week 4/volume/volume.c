@@ -34,10 +34,11 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // TODO: Copy header from input file to output file
-    char a;
-    
+    char h[44];
+    fgets(a,44,input);
 
     // TODO: Read samples from input file and write updated data to output file
+    while ()
 
     // Close files
     fclose(input);
