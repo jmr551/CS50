@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
     int16_t buffer;
     while (input != NULL)
     {
+        fread(&buffer, sizeof(int16_t), 1, input)
         fgets(a, 1, input);
         fwrite(output, )
     }
