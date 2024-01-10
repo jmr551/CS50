@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     fwrite(h,sizeof(uint8_t), HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
-    char a[1];
+    int16_t buffer;
     while (input != NULL)
     {
         fgets(a, 1, input);
