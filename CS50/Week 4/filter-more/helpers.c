@@ -97,7 +97,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            float r = 0, g = 0, b = 0, count = 0;
+            float rx = 0, gx = 0, bx = 0, ry = 0, gy = 0, by = 0;
             int x0 = i - 1;
             int xf = i + 1;
             int y0 = j - 1;
@@ -117,10 +117,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            //borrar?
-            b /= count;
-            g /= count;
-            r /= count;
 
             image[i][j].rgbtBlue = (BYTE)(round(b));
             image[i][j].rgbtGreen = (BYTE)(round(g));
