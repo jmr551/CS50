@@ -125,13 +125,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         // printf("%d - %d\n", f - i + 1, c - j + 1);
-                        bx += (float)image[f][c].rgbtBlue * Gx[f - i + 1][c - j + 1] / 9;
-                        gx += (float)image[f][c].rgbtGreen * Gx[f- i + 1][c - j + 1] / 9;
-                        rx += (float)image[f][c].rgbtRed * Gx[f - i + 1][c - j + 1] / 9;
+                        bx += (float)image[f][c].rgbtBlue * Gx[f - i + 1][c - j + 1];
+                        gx += (float)image[f][c].rgbtGreen * Gx[f- i + 1][c - j + 1];
+                        rx += (float)image[f][c].rgbtRed * Gx[f - i + 1][c - j + 1];
 
-                        by += (float)image[f][c].rgbtBlue * Gy[f - i + 1][c - j + 1] / 9;
-                        gy += (float)image[f][c].rgbtGreen * Gy[f- i + 1][c - j + 1] / 9;
-                        ry += (float)image[f][c].rgbtRed * Gy[f - i + 1][c - j + 1] / 9;
+                        by += (float)image[f][c].rgbtBlue * Gy[f - i + 1][c - j + 1];
+                        gy += (float)image[f][c].rgbtGreen * Gy[f- i + 1][c - j + 1];
+                        ry += (float)image[f][c].rgbtRed * Gy[f - i + 1][c - j + 1];
 /*
                         if (i == 1 && j == 1)
                         {
