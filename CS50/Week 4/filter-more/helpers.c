@@ -8,8 +8,6 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            //BYTE prom = BYTE(round((float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3));
-            // BYTE prom = WORD(DWORD(image[i][j].rgbtBlue) + DWORD(image[i][j].rgbtGreen) + DWORD(image[i][j].rgbtRed))/3;
             BYTE prom = (BYTE) round(((float)image[i][j].rgbtBlue + (float)image[i][j].rgbtGreen + (float)image[i][j].rgbtRed)/3);
             image[i][j].rgbtBlue = prom;
             image[i][j].rgbtGreen = prom;
@@ -22,6 +20,17 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    BYTE r, g, b;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            
+            image[i][j].rgbtBlue = prom;
+            image[i][j].rgbtGreen = prom;
+            image[i][j].rgbtRed = prom;
+        }
+    }
     return;
 }
 
