@@ -52,7 +52,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int xf = i + 1;
             int y0 = j - 1;
             int yf = j + 1;
-
+            /*
             if (x0 < 0)
             {
                 x0 = 0;
@@ -69,14 +69,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 yf = width - 1;
             }
+            */
             for (int f = x0; f <= xf; f++)
             {
                 for (int c = y0; c <= yf; c++)
                 {
-                    count += 1;
-                    b += (float)new_image[f][c].rgbtBlue;
-                    g += (float)new_image[f][c].rgbtGreen;
-                    r += (float)new_image[f][c].rgbtRed;
+                    if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
+                    {
+                        count += 1;
+                        b += (float)new_image[f][c].rgbtBlue;
+                        g += (float)new_image[f][c].rgbtGreen;
+                        r += (float)new_image[f][c].rgbtRed;
+                    }
                 }
             }
             b /= count;
