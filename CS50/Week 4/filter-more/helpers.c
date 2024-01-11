@@ -122,13 +122,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         b += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 18;
                         g += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 18;
                         r += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 18;
-
+/*
                         if (i == 1 && j == 1)
                         {
                             printf("Blue: %u. ", image[f][c].rgbtBlue);
                             printf("Resultado: %f\n", b);
                         }
-
+*/
 
                     }
                 }
