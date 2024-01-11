@@ -97,7 +97,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            float rx = 0, gx = 0, bx = 0, ry = 0, gy = 0, by = 0;
+            float r = 0, g = 0, b = 0, by = 0;
             int x0 = i - 1;
             int xf = i + 1;
             int y0 = j - 1;
@@ -113,35 +113,21 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
-                        bx += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1];
-                        gx += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1];
-                        rx += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1];
+                        b += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 9;
+                        g += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 9;
+                        r += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 9;
 
-                        by += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1];
-                        gy += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1];
-                        ry += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1];
+                        b += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 9;
+                        g += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 9;
+                        r += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 9;
 
                     }
                 }
             }
 
-            // Para Gx
-            for (int f = x0; f <= xf; f++)
-            {
-                for (int c = y0; c <= yf; c++)
-                {
-                    if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
-                    {
-                        bx += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1];
-                        gx += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1];
-                        rx += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1];
-                    }
-                }
-            }
-
-            image[i][j].rgbtBlue = (BYTE)(round(b));
-            image[i][j].rgbtGreen = (BYTE)(round(g));
-            image[i][j].rgbtRed = (BYTE)(round(r));
+            image[i][j].rgbtBlue = (BYTE)(round(b/2));
+            image[i][j].rgbtGreen = (BYTE)(round(g/2));
+            image[i][j].rgbtRed = (BYTE)(round(r/2));
         }
     }
     return;
