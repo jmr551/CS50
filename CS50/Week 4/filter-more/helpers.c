@@ -93,6 +93,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE new_image[height][width];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -147,9 +148,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 r = 255;
 
 
-            image[i][j].rgbtBlue = (BYTE)(round(b));
-            image[i][j].rgbtGreen = (BYTE)(round(g));
-            image[i][j].rgbtRed = (BYTE)(round(r));
+            new_image[i][j].rgbtBlue = (BYTE)(round(b));
+            new_image[i][j].rgbtGreen = (BYTE)(round(g));
+            new_image[i][j].rgbtRed = (BYTE)(round(r));
+        }
+    }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j] = new_image[i][j];
         }
     }
     return;
