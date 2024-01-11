@@ -114,13 +114,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         // printf("%d - %d\n", f - i + 1, c - j + 1);
-                        b += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 9;
-                        g += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 9;
-                        r += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 9;
+                        b += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 18;
+                        g += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 18;
+                        r += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 18;
 
-                        b += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 9;
-                        g += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 9;
-                        r += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 9;
+                        b += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 18;
+                        g += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 18;
+                        r += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 18;
 
                         if (i == 1 && j == 1)
                         {
@@ -133,9 +133,23 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            image[i][j].rgbtBlue = (BYTE)(round(b/2));
-            image[i][j].rgbtGreen = (BYTE)(round(g/2));
-            image[i][j].rgbtRed = (BYTE)(round(r/2));
+            if (b < 0)
+                b = 0;
+            if (g < 0)
+                g = 0;
+            if (r < 0)
+                r = 0;
+            if (b > 255)
+                b = 255;
+            if (g > 255)
+                g = 255;
+            if (r > 255)
+                r = 255;
+
+
+            image[i][j].rgbtBlue = (BYTE)(round(b));
+            image[i][j].rgbtGreen = (BYTE)(round(g));
+            image[i][j].rgbtRed = (BYTE)(round(r));
         }
     }
     return;
