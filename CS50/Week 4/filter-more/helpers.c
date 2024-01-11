@@ -102,23 +102,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int xf = i + 1;
             int y0 = j - 1;
             int yf = j + 1;
+            int gx[3][3] = {{-1}, {}, {}};
+            int gy[3][3] = {{}, {}, {}};
 
-            if (x0 < 0)
-            {
-                x0 = 0;
-            }
-            if (y0 < 0)
-            {
-                y0 = 0;
-            }
-            if (xf > height - 1)
-            {
-                xf = height - 1;
-            }
-            if (yf > width - 1)
-            {
-                yf = width - 1;
-            }
+
             // Para Gx
             for (int f = x0; f <= xf; f++)
             {
