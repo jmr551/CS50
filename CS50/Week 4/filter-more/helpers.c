@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <math.h> 
 #include <stdio.h> // BORRAR DESPUÉS
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -17,7 +18,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
                 printf("numero: %u\n", image[i][j].rgbtBlue);
                 printf("numero: %u\n", image[i][j].rgbtGreen);
                 printf("numero: %u\n", image[i][j].rgbtRed);
-                printf("numero: %hu\n", float(suma));
+                printf("numero: %f\n", round((float)suma/3));
             }
         }
     }
