@@ -115,8 +115,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int xf = i + 1;
             int y0 = j - 1;
             int yf = j + 1;
-            int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-            int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+            int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+            int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
             for (int f = x0; f <= xf; f++)
             {
@@ -125,13 +125,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         // printf("%d - %d\n", f - i + 1, c - j + 1);
-                        bx += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 9;
-                        gx += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 9;
-                        rx += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 9;
+                        bx += (float)image[f][c].rgbtBlue * Gx[f - i + 1][c - j + 1] / 9;
+                        gx += (float)image[f][c].rgbtGreen * Gx[f- i + 1][c - j + 1] / 9;
+                        rx += (float)image[f][c].rgbtRed * Gx[f - i + 1][c - j + 1] / 9;
 
-                        by += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 9;
-                        gy += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 9;
-                        ry += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 9;
+                        by += (float)image[f][c].rgbtBlue * Gy[f - i + 1][c - j + 1] / 9;
+                        gy += (float)image[f][c].rgbtGreen * Gy[f- i + 1][c - j + 1] / 9;
+                        ry += (float)image[f][c].rgbtRed * Gy[f - i + 1][c - j + 1] / 9;
 /*
                         if (i == 1 && j == 1)
                         {
