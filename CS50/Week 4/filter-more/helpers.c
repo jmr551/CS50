@@ -8,8 +8,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             //BYTE prom = BYTE(round((float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3));
-            // BYTE prom = (float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3;
-            printf("%d",WORD(DWORD(image[i][j].rgbtBlue)/3));
+            // BYTE prom = WORD(DWORD(image[i][j].rgbtBlue) + DWORD(image[i][j].rgbtGreen) + DWORD(image[i][j].rgbtRed))/3;
+            if (i == 0 && j == 0)
+            {
+                printf("numero: %d", image[i][j].rgbtBlue);
+            }
         }
     }
     return;
