@@ -117,6 +117,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     r += (float)image[f][c].rgbtRed;
                 }
             }
+
+            //borrar?
             b /= count;
             g /= count;
             r /= count;
