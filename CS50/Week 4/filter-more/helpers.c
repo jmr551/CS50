@@ -8,7 +8,8 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            BYTE prom = (BYTE) round(((float)image[i][j].rgbtBlue + (float)image[i][j].rgbtGreen + (float)image[i][j].rgbtRed)/3);
+            BYTE prom =
+                (BYTE) round(((float) image[i][j].rgbtBlue + (float) image[i][j].rgbtGreen + (float) image[i][j].rgbtRed) / 3);
             image[i][j].rgbtBlue = prom;
             image[i][j].rgbtGreen = prom;
             image[i][j].rgbtRed = prom;
@@ -29,10 +30,10 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtBlue = image[i][width - 1 - j].rgbtBlue;
             image[i][width - 1 - j].rgbtBlue = b;
             g = image[i][j].rgbtGreen;
-            image[i][j].rgbtGreen = image[i][width -1 - j].rgbtGreen;
+            image[i][j].rgbtGreen = image[i][width - 1 - j].rgbtGreen;
             image[i][width - 1 - j].rgbtGreen = g;
             r = image[i][j].rgbtRed;
-            image[i][j].rgbtRed = image[i][width -1 - j].rgbtRed;
+            image[i][j].rgbtRed = image[i][width - 1 - j].rgbtRed;
             image[i][width - 1 - j].rgbtRed = r;
         }
     }
@@ -77,9 +78,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         count += 1;
-                        b += (float)image[f][c].rgbtBlue;
-                        g += (float)image[f][c].rgbtGreen;
-                        r += (float)image[f][c].rgbtRed;
+                        b += (float) image[f][c].rgbtBlue;
+                        g += (float) image[f][c].rgbtGreen;
+                        r += (float) image[f][c].rgbtRed;
                     }
                 }
             }
@@ -87,9 +88,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             g /= count;
             r /= count;
 
-            new_image[i][j].rgbtBlue = (BYTE)(round(b));
-            new_image[i][j].rgbtGreen = (BYTE)(round(g));
-            new_image[i][j].rgbtRed = (BYTE)(round(r));
+            new_image[i][j].rgbtBlue = (BYTE) (round(b));
+            new_image[i][j].rgbtGreen = (BYTE) (round(g));
+            new_image[i][j].rgbtRed = (BYTE) (round(r));
         }
     }
     for (int i = 0; i < height; i++)
@@ -125,27 +126,19 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         // printf("%d - %d\n", f - i + 1, c - j + 1);
-                        bx += (float)image[f][c].rgbtBlue * Gx[f - i + 1][c - j + 1];
-                        gx += (float)image[f][c].rgbtGreen * Gx[f- i + 1][c - j + 1];
-                        rx += (float)image[f][c].rgbtRed * Gx[f - i + 1][c - j + 1];
+                        bx += (float) image[f][c].rgbtBlue * Gx[f - i + 1][c - j + 1];
+                        gx += (float) image[f][c].rgbtGreen * Gx[f - i + 1][c - j + 1];
+                        rx += (float) image[f][c].rgbtRed * Gx[f - i + 1][c - j + 1];
 
-                        by += (float)image[f][c].rgbtBlue * Gy[f - i + 1][c - j + 1];
-                        gy += (float)image[f][c].rgbtGreen * Gy[f- i + 1][c - j + 1];
-                        ry += (float)image[f][c].rgbtRed * Gy[f - i + 1][c - j + 1];
-/*
-                        if (i == 1 && j == 1)
-                        {
-                            printf("Blue: %u. ", image[f][c].rgbtBlue);
-                            printf("Resultado: %f\n", b);
-                        }
-*/
-
+                        by += (float) image[f][c].rgbtBlue * Gy[f - i + 1][c - j + 1];
+                        gy += (float) image[f][c].rgbtGreen * Gy[f - i + 1][c - j + 1];
+                        ry += (float) image[f][c].rgbtRed * Gy[f - i + 1][c - j + 1];
                     }
                 }
             }
-            float b = sqrt(bx*bx + by*by);
-            float g = sqrt(gx*gx + gy*gy);
-            float r = sqrt(rx*rx + ry*ry);
+            float b = sqrt(bx * bx + by * by);
+            float g = sqrt(gx * gx + gy * gy);
+            float r = sqrt(rx * rx + ry * ry);
             if (b < 0)
                 b = 0;
             if (g < 0)
@@ -159,10 +152,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             if (r > 255)
                 r = 255;
 
-
-            new_image[i][j].rgbtBlue = (BYTE)(round(b));
-            new_image[i][j].rgbtGreen = (BYTE)(round(g));
-            new_image[i][j].rgbtRed = (BYTE)(round(r));
+            new_image[i][j].rgbtBlue = (BYTE) (round(b));
+            new_image[i][j].rgbtGreen = (BYTE) (round(g));
+            new_image[i][j].rgbtRed = (BYTE) (round(r));
         }
     }
     for (int i = 0; i < height; i++)
