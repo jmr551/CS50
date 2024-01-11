@@ -111,7 +111,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int c = y0; c <= yf; c++)
                 {
-                    count += 1;
                     b += (float)image[f][c].rgbtBlue;
                     g += (float)image[f][c].rgbtGreen;
                     r += (float)image[f][c].rgbtRed;
