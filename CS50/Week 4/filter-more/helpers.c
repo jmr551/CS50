@@ -23,12 +23,16 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     BYTE r, g, b;
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width / 2; j++)
         {
-            
-            image[i][j].rgbtBlue = prom;
-            image[i][j].rgbtGreen = prom;
-            image[i][j].rgbtRed = prom;
+            b = image[i][j].rgbtBlue;
+            image[i][j].rgbtBlue =
+
+            g = image[i][j].rgbtGreen;
+            image[i][j].rgbtGreen =
+
+            r = image[i][j].rgbtRed;
+            image[i][j].rgbtRed =
         }
     }
     return;
