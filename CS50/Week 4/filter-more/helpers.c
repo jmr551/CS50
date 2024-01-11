@@ -10,16 +10,10 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         {
             //BYTE prom = BYTE(round((float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3));
             // BYTE prom = WORD(DWORD(image[i][j].rgbtBlue) + DWORD(image[i][j].rgbtGreen) + DWORD(image[i][j].rgbtRed))/3;
-            if (i == 0 && j == 0)
-            {
-                uint16_t suma = (uint16_t)image[i][j].rgbtBlue +
-                (uint16_t)image[i][j].rgbtGreen +
-                (uint16_t)image[i][j].rgbtRed;
-                printf("numero: %u\n", image[i][j].rgbtBlue);
-                printf("numero: %u\n", image[i][j].rgbtGreen);
-                printf("numero: %u\n", image[i][j].rgbtRed);
-                printf("numero: %u\n", (BYTE)round((float)suma/3));
-            }
+            BYTE prom = (BYTE) round(((float)image[i][j].rgbtBlue + (float)image[i][j].rgbtGreen + (float)image[i][j].rgbtRed)/3);
+            image[i][j].rgbtBlue = prom;
+            image[i][j].rgbtGreen = prom;
+            image[i][j].rgbtRed = prom;
         }
     }
     return;
