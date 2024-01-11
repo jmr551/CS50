@@ -113,7 +113,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
-                        printf("%d\n", f - i + 1);
+                        printf("%d - %d\n", f - i + 1, c - j + 1);
                         b += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 9;
                         g += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 9;
                         r += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 9;
