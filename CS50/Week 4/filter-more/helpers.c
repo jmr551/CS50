@@ -110,7 +110,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            float r = 0, g = 0, b = 0;
+            float rx = 0, ry = 0, gx = 0, gy = 0, bx = 0, by = 0;
             int x0 = i - 1;
             int xf = i + 1;
             int y0 = j - 1;
@@ -125,13 +125,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         // printf("%d - %d\n", f - i + 1, c - j + 1);
-                        b += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 18;
-                        g += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 18;
-                        r += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 18;
+                        bx += (float)image[f][c].rgbtBlue * gx[f - i + 1][c - j + 1] / 9;
+                        gx += (float)image[f][c].rgbtGreen * gx[f- i + 1][c - j + 1] / 9;
+                        rx += (float)image[f][c].rgbtRed * gx[f - i + 1][c - j + 1] / 9;
 
-                        b += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 18;
-                        g += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 18;
-                        r += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 18;
+                        by += (float)image[f][c].rgbtBlue * gy[f - i + 1][c - j + 1] / 9;
+                        gy += (float)image[f][c].rgbtGreen * gy[f- i + 1][c - j + 1] / 9;
+                        ry += (float)image[f][c].rgbtRed * gy[f - i + 1][c - j + 1] / 9;
 /*
                         if (i == 1 && j == 1)
                         {
@@ -143,7 +143,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-
+            float b = sqrt(bx*bx + by*by);
+            float g = sqrt(gx*gx + gy*gy);
+            float r = sqrt(rx*rx + ry*ry);
             if (b < 0)
                 b = 0;
             if (g < 0)
