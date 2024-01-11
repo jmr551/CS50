@@ -9,7 +9,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         {
             //BYTE prom = BYTE(round((float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3));
             // BYTE prom = (float(image[i][j]->rgbtBlue) + float(image[i][j]->rgbtGreen) + float(image[i][j]->rgbtRed))/3;
-            printf("%f",float(image[i][j].rgbtBlue)/3);
+            printf("%d",WORD(DWORD(image[i][j].rgbtBlue)/3));
         }
     }
     return;
