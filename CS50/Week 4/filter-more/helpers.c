@@ -77,9 +77,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     if (f >= 0 && f <= height - 1 && c >= 0 && c <= width - 1)
                     {
                         count += 1;
-                        b += (float)new_image[f][c].rgbtBlue;
-                        g += (float)new_image[f][c].rgbtGreen;
-                        r += (float)new_image[f][c].rgbtRed;
+                        b += (float)image[f][c].rgbtBlue;
+                        g += (float)image[f][c].rgbtGreen;
+                        r += (float)image[f][c].rgbtRed;
                     }
                 }
             }
