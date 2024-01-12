@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
     int cont = 0;
     char file_name[8];
-    bool abierto = false;
-    FILE *nueva_foto == NULL;
+    int abierto = 0;
+    FILE *nueva_foto = NULL;
     while (fread(buffer, 1, 512, file))
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0)==0xe0)
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
             }
             sprintf(file_name, "%03d.jpg",cont);
             nueva_foto = fopen(file_name, "w");
-            abierto = true;
+            abierto = 1;
             fwrite(buffer, 1, 512, nueva_foto);
             cont++;
         }
