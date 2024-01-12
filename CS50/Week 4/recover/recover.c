@@ -25,13 +25,12 @@ int main(int argc, char *argv[])
         return 1;
     }
     int cont = 0;
-    while (fread(buffer, 1, 512, file))
-    {
-        
-    }
+    //while (fread(buffer, 1, 512, file))
+    //{
 
+    //}
 
-    fread()
-
-    fclose(file);
+    printf("Son iguales? \n", 0x0f == 15);
+    free (buffer);
+    fclose (file);
 }
