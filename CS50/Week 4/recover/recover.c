@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int main(int argc, char *argv[])
 {
@@ -23,8 +24,11 @@ int main(int argc, char *argv[])
         return 1;
     }
     int cont = 0;
+    while (fread(buffer, 512, 1, file))
+    {
+        
+    }
 
-    
 
     fread()
 
