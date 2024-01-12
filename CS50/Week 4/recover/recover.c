@@ -21,7 +21,11 @@ int main(int argc, char *argv[])
     int cont = 0;
     while (fread(buffer, 1, 512, file))
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff &&(buffer[3]&0xf0))
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0)==0xe0)
+        {
+            printf("Encontramos la foto %d\n", cont+1);
+            cont++;
+        }
     }
 
     fclose (file);
