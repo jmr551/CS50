@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
         {
             printf("Encontramos la foto %d\n", cont+1);
             // Grabamos la foto...
-            sprintf("%d",)
-
+            sprintf(file_name, "%d",cont);
+            printf("%s\n", file_name);
             cont++;
         }
     }
