@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     int cont = 0;
     while (fread(buffer, 1, 512, file))
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3]&)
     }
 
     fclose (file);
