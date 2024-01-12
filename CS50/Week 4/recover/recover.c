@@ -19,13 +19,14 @@ int main(int argc, char *argv[])
     uint8_t buffer[512];
 
     int cont = 0;
+    char file_name[];
     while (fread(buffer, 1, 512, file))
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0)==0xe0)
         {
             printf("Encontramos la foto %d\n", cont+1);
             // Grabamos la foto...
-            
+            sprintf("%d",)
 
             cont++;
         }
