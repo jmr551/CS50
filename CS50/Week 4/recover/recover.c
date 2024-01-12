@@ -15,6 +15,18 @@ int main(int argc, char *argv[])
         printf("No se puede abrir el archivo\n");
         return 1;
     }
+    uint8_t *buffer = (uint8_t) malloc(sizeof(uint8_t)*512);
+    if (buffer == NULL)
+    {
+        fclose(file);
+        printf("No se pudo reservar espacio en memoria.\n");
+        return 1;
+    }
+    int cont = 0;
+
+    
+
+    fread()
 
     fclose(file);
 }
