@@ -1,6 +1,6 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 int main(int argc, char *argv[])
 {
@@ -24,19 +24,19 @@ int main(int argc, char *argv[])
     FILE *nueva_foto = NULL;
     while (fread(buffer, 1, 512, file))
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0)==0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
             if (abierto)
             {
                 fclose(nueva_foto);
             }
-            sprintf(file_name, "%03d.jpg",cont);
+            sprintf(file_name, "%03d.jpg", cont);
             nueva_foto = fopen(file_name, "w");
             abierto = 1;
             fwrite(buffer, 1, 512, nueva_foto);
             cont++;
         }
-        else if(abierto)
+        else if (abierto)
         {
             fwrite(buffer, 1, 512, nueva_foto);
         }
@@ -45,5 +45,5 @@ int main(int argc, char *argv[])
     {
         fclose(nueva_foto);
     }
-    fclose (file);
+    fclose(file);
 }
