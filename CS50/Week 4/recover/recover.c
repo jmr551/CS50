@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     uint8_t *buffer = (uint8_t) malloc(sizeof(uint8_t)*512);
+
     if (buffer == NULL)
     {
         fclose(file);
@@ -24,7 +25,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     int cont = 0;
-    while (fread(buffer, 512, 1, file))
+    while (fread(buffer, 1, 512, file))
     {
         
     }
