@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         }
         else if(abierto)
         {
-            
+            fwrite(buffer, 1, 512, nueva_foto);
         }
     }
 
