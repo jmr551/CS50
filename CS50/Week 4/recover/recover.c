@@ -25,6 +25,10 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0)==0xe0)
         {
+            if (abierto)
+            {
+                fclose(nueva_foto);
+            }
             sprintf(file_name, "%03d.jpg",cont);
             FILE *nueva_foto = fopen(file_name, "w");
             abierto = true;
@@ -36,6 +40,9 @@ int main(int argc, char *argv[])
             fwrite(buffer, 1, 512, nueva_foto);
         }
     }
-
+    if (abierto)
+    {
+        fclose(nueva_foto);
+    }
     fclose (file);
 }
