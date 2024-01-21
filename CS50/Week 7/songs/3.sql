@@ -1,2 +1,3 @@
 SELECT names
-FROM 
+FROM songs
+ORDER BY duration_ms DESC;
