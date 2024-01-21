@@ -1,1 +1,1 @@
-I would do some partitions with the features of the songs like danceability, 
+I would do some partitions with the features of the songs like danceability, valence and energy. Then I would make a classification acording to the feelings I think the songs are 
