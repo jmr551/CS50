@@ -65,7 +65,7 @@ AND license_plate NOT IN (
     FROM bakery_security_logs
     WHERE (activity = 'exit' AND hour < 10)
 ))
-WHERE activity = 'exit' AND hour = 10;
+WHERE activity = 'exit' AND hour = 10 AND minute < 25;
 
 -- So, the people with these license plates are
 SELECT *
@@ -254,7 +254,7 @@ WHERE license_plate IN (
             WHERE (activity = 'exit' AND hour < 10)
         )
     )
-    WHERE activity = 'exit' AND hour = 10
+    WHERE activity = 'exit' AND hour = 10 AND minute < 25
     )
 AND id in (
     SELECT person_id
