@@ -72,19 +72,20 @@ SELECT *
 FROM people
 WHERE license_plate IN (
     SELECT license_plate
-    FROM (SELECT activity, license_plate, hour, minute, month, year
-    FROM bakery_security_logs
-    WHERE month = 7 AND day = 28
-    AND license_plate NOT IN (
-        SELECT license_plate
+    FROM (
+        SELECT activity, license_plate, hour, minute, month, year
         FROM bakery_security_logs
-        WHERE (activity = 'entrance' AND hour > 10 )
+        WHERE month = 7 AND day = 28
+        AND license_plate NOT IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE (activity = 'entrance' AND hour > 10 )
+        )
+        AND license_plate NOT IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE (activity = 'exit' AND hour < 10)
+        )
     )
-    AND license_plate NOT IN (
-        SELECT license_plate
-        FROM bakery_security_logs
-        WHERE (activity = 'exit' AND hour < 10)
-    ))
     WHERE activity = 'exit' AND hour = 10
-
-);
+    );
