@@ -309,7 +309,12 @@ WHERE id = (
 SELECT *
 FROM phone_calls
 WHERE caller = (
-
+    SELECT phone_number
+    FROM people
+    WHERE passport_number = 5773159633
 )
-
-SELECT *
+OR receiver = (
+    SELECT phone_number
+    FROM people
+    WHERE passport_number = 5773159633
+);
