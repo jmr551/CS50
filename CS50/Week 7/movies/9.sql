@@ -5,5 +5,8 @@ WHERE id IN (
     FROM stars
     WHERE movie_id IN (
         SELECT id
+        FROM movies
+        WHERE year = 2014
     )
 )
+ORDER BY birth
