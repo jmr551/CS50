@@ -220,4 +220,5 @@ AND phone_number IN (
 .schema flights
 
 SELECT *
-FROM 
+FROM flights
+WHERE day = 29 AND month = 7;
