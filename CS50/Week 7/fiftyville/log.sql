@@ -15,6 +15,8 @@ AND street = 'Humphrey Street';
 -- "each of their interview transcripts mentions the bakery."
 .schema bakery_security_logs
 
+-- I need to see what info is there
 SELECT activity, license_plate, hour, minute, month, year
 FROM bakery_security_logs
 WHERE month = 7 AND day = 28;
+
