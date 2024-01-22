@@ -308,7 +308,7 @@ WHERE id = (
 -- Helper to scape
 SELECT *
 FROM phone_calls
-WHERE caller = (
+WHERE (caller = (
     SELECT phone_number
     FROM people
     WHERE passport_number = 5773159633
@@ -317,4 +317,4 @@ OR receiver = (
     SELECT phone_number
     FROM people
     WHERE passport_number = 5773159633
-);
+)) AND day = 28 AND duration < 60;
