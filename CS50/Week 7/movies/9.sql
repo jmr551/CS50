@@ -9,4 +9,4 @@ WHERE id IN (
         WHERE year = 2014
     )
 )
-ORDER BY birth, name;
+ORDER BY birth;
