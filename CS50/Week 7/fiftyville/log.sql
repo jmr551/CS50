@@ -37,4 +37,7 @@ AND license_plate NOT IN (
     WHERE (activity = 'exit' AND hour < 10)
 );
 
-
+-- I want to see what is in the Interviews table
+SELECT *
+FROM interviews
+WHERE day = 28 AND month = 7;
