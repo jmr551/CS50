@@ -222,3 +222,6 @@ AND phone_number IN (
 SELECT *
 FROM flights
 WHERE day = 29 AND month = 7;
+
+SELECT *
+FROM airports;
