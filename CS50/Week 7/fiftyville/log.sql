@@ -231,7 +231,7 @@ FROM passengers
 WHERE flight_id IN (
     SELECT id
     FROM flights
-    WHERE day = 29 AND month = 7 and hour < 12
+    WHERE day = 29 AND month = 7 and hour < 9
 );
 
 -- According to 1, 2, 3 and 4
