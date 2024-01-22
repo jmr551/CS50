@@ -22,6 +22,6 @@ WHERE month = 7 AND day = 28;
 
 -- So I need to see who entered before 10:15 and has gone after that
 
-(SELECT activity, license_plate, hour, minute, month, year
+SELECT activity, license_plate, hour, minute, month, year
 FROM bakery_security_logs
-WHERE month = 7 AND day = 28)
+WHERE month = 7 AND day = 28
