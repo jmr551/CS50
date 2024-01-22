@@ -25,4 +25,4 @@ WHERE month = 7 AND day = 28;
 SELECT activity, license_plate, hour, minute, month, year
 FROM bakery_security_logs
 WHERE month = 7 AND day = 28
-AND ((activity = 'entrance' AND hour <= 10) AND (activity = 'exit' AND hour >= 10));
+AND ((activity = 'entrance' AND hour <= 10) OR (activity = 'exit' AND hour >= 10));
