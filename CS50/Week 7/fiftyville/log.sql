@@ -154,8 +154,8 @@ WHERE month = 7 AND day = 28 AND duration <=60;
 
 
 -- So, the ids from the people involved in a phone call are
-SELECT *
-FROM ID
+SELECT id
+FROM people
 WHERE phone_number IN (
     SELECT caller
     FROM phone_calls
