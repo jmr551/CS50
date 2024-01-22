@@ -216,4 +216,8 @@ AND phone_number IN (
 ;
 -- So, I have four people.
 
+-- According to 4.
+.schema flights
 
+SELECT *
+FROM 
