@@ -14,3 +14,4 @@ AND street = 'Humphrey Street';
 
 -- "each of their interview transcripts mentions the bakery."
 .schema bakery_security_logs
+
