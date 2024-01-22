@@ -231,7 +231,7 @@ FROM passengers
 WHERE flight_id IN (
     SELECT id
     FROM flights
-    WHERE day = 29 AND month = 7
+    WHERE day = 29 AND month = 7 and hour < 12
 );
 
 -- According to 1, 2, 3 and 4
@@ -286,7 +286,7 @@ AND passport_number IN (
     WHERE flight_id IN (
         SELECT id
         FROM flights
-        WHERE day = 29 AND month = 7
+        WHERE day = 29 AND month = 7 and hour < 12
     )
 )
 ;
