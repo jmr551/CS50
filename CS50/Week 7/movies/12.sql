@@ -6,7 +6,7 @@ WHERE id IN (
     WHERE person_id = (
         SELECT id
         FROM people
-        WHERE name = 'Bradley Coope'
+        WHERE name = 'Bradley Cooper'
     )
 )
 AND id IN (
