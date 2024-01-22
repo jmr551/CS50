@@ -305,3 +305,11 @@ WHERE id = (
 );
 
 
+-- Helper to scape
+SELECT *
+FROM phone_calls
+WHERE caller = (
+
+)
+
+SELECT *
