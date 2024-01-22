@@ -292,5 +292,13 @@ AND passport_number IN (
 ;
 
 -- City
-SELECT *
-from 
+
+(SELECT destination_airport_id
+FROM flights
+WHERE id = (
+    SELECT flight_id
+    FROM passengers
+    WHERE passport_number = 5773159633
+)
+)
+;
