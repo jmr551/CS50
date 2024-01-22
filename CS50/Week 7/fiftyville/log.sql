@@ -151,3 +151,16 @@ AND id in (
 SELECT *
 FROM phone_calls
 WHERE month = 7 AND day = 28 AND duration <=60;
+
+SELECT *
+FROM people
+WHERE phone_number IN (
+    SELECT caller
+    FROM phone_calls
+    WHERE month = 7 AND day = 28 AND duration <=60
+)
+OR phone_number IN (
+    SELECT caller
+    FROM phone_calls
+    WHERE month = 7 AND day = 28 AND duration <=60
+);
