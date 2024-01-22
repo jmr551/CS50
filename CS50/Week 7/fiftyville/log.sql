@@ -224,5 +224,14 @@ SELECT id
 FROM flights
 WHERE day = 29 AND month = 7;
 
+-- So I need the passport number from the people who flu next day.
 .schema passengers
-SELECT
+SELECT passport_number
+FROM passengers
+WHERE flight_id IN (
+    SELECT id
+    FROM flights
+    WHERE day = 29 AND month = 7
+);
+
+-- According to 1, 2, 3 and 4
