@@ -1,4 +1,4 @@
-SELECT name
+SELECT name, birth
 FROM people
 WHERE id IN (
     SELECT person_id
@@ -9,4 +9,4 @@ WHERE id IN (
         WHERE year = 2014
     )
 )
-ORDER BY birth
+ORDER BY birth;
