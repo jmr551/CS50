@@ -91,4 +91,23 @@ WHERE license_plate IN (
     );
 -- So, I have 9 people.
 
+-- Acording to 2.
+.schema atm_transactions
 
+SELECT *
+FROM atm_transactions
+WHERE month = 7 AND day = 28
+AND atm_location = 'Leggett Street';
+-- I need to see how to connect with the account_number
+
+.schema bank_account
+
+-- I need the ID from the people at the ATM
+SELECT *
+FROM bank_accounts
+WHERE account_number IN (
+    SELECT *
+    FROM atm_transactions
+    WHERE month = 7 AND day = 28
+    AND atm_location = 'Leggett Street'
+);
