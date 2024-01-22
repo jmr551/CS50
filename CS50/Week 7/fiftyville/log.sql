@@ -288,8 +288,13 @@ AND passport_number IN (
         FROM flights
         WHERE day = 29 AND month = 7 and hour < 9
     )
-)
-;
+);
+
+--+--------+-------+----------------+-----------------+---------------+
+--|   id   | name  |  phone_number  | passport_number | license_plate |
+--+--------+-------+----------------+-----------------+---------------+
+--| 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
+--+--------+-------+----------------+-----------------+---------------+
 
 -- City
 SELECT city
@@ -303,6 +308,9 @@ WHERE id = (
         WHERE passport_number = 5773159633
     )
 );
+-- New York City
+
+
 
 
 -- Helper to scape
@@ -318,3 +326,9 @@ OR receiver = (
     FROM people
     WHERE passport_number = 5773159633
 )) AND day = 28 AND duration < 60;
+
+
+SELECT name
+FROM people
+WHERE phone_number = '(375) 555-8161';
+-- Robin
