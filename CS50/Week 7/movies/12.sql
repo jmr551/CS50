@@ -9,9 +9,13 @@ WHERE id IN (
 )
 
 
-SELECT id
-FROM people
-WHERE name = 'Bradley Cooper'
+SELECT movie_id
+FROM stars
+WHERE person_id = (
+    SELECT id
+    FROM people
+    WHERE name = 'Bradley Coope'
+)
 
 SELECT movie_id
 FROM stars
