@@ -12,4 +12,5 @@ AND street = 'Humphrey Street';
 -- each of their interview transcripts mentions the bakery.
 -- Littering took place at 16:36. No known witness
 
-
+-- "each of their interview transcripts mentions the bakery."
+.schema bakery_security_logs
