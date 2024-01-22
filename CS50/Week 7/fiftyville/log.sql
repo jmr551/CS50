@@ -290,3 +290,7 @@ AND passport_number IN (
     )
 )
 ;
+
+-- City
+SELECT *
+from 
