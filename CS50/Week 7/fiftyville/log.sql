@@ -147,3 +147,7 @@ AND id in (
 -- So I have 5 people
 
 -- According to 3.
+.schema phone_calls
+SELECT *
+FROM phone_calls
+WHERE month = 7 AND day = 28;
