@@ -160,7 +160,7 @@ WHERE phone_number IN (
     WHERE month = 7 AND day = 28 AND duration <=60
 )
 OR phone_number IN (
-    SELECT caller
+    SELECT receiver
     FROM phone_calls
     WHERE month = 7 AND day = 28 AND duration <=60
 );
