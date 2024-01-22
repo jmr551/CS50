@@ -134,7 +134,7 @@ WHERE license_plate IN (
     )
     WHERE activity = 'exit' AND hour = 10
     )
-AND person_id in (
+AND id in (
     SELECT person_id
     FROM bank_accounts
     WHERE account_number IN (
@@ -144,3 +144,6 @@ AND person_id in (
         AND atm_location = 'Leggett Street'
     )
 );
+-- So I have 5 people
+
+-- According to 3.
