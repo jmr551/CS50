@@ -153,8 +153,8 @@ FROM phone_calls
 WHERE month = 7 AND day = 28 AND duration <=60;
 
 
--- So, the ids from the people involved in a phone call are
-SELECT id
+-- So, the phone number from the people involved in a phone call are
+SELECT phone_number
 FROM people
 WHERE phone_number IN (
     SELECT caller
@@ -198,4 +198,22 @@ AND id in (
         WHERE month = 7 AND day = 28
         AND atm_location = 'Leggett Street'
     )
-);
+)
+AND phone_number IN (
+    SELECT phone_number
+    FROM people
+    WHERE phone_number IN (
+        SELECT caller
+        FROM phone_calls
+        WHERE month = 7 AND day = 28 AND duration <=60
+    )
+    OR phone_number IN (
+        SELECT receiver
+        FROM phone_calls
+        WHERE month = 7 AND day = 28 AND duration <=60
+    )
+)
+;
+-- So, I have four people.
+
+
