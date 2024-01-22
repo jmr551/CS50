@@ -272,12 +272,12 @@ AND phone_number IN (
     WHERE phone_number IN (
         SELECT caller
         FROM phone_calls
-        WHERE month = 7 AND day = 28 AND duration <=60
+        WHERE month = 7 AND day = 28 AND duration <60
     )
     OR phone_number IN (
         SELECT receiver
         FROM phone_calls
-        WHERE month = 7 AND day = 28 AND duration <=60
+        WHERE month = 7 AND day = 28 AND duration <60
     )
 )
 AND passport_number IN (
