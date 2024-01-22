@@ -219,9 +219,10 @@ AND phone_number IN (
 -- According to 4.
 .schema flights
 
-SELECT *
+-- So, I need the ids from these flights
+SELECT id
 FROM flights
 WHERE day = 29 AND month = 7;
 
-SELECT *
-FROM airports;
+.schema passengers
+SELECT
