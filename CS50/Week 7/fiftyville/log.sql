@@ -152,8 +152,10 @@ SELECT *
 FROM phone_calls
 WHERE month = 7 AND day = 28 AND duration <=60;
 
+
+-- So, the ids from the people involved in a phone call are
 SELECT *
-FROM people
+FROM ID
 WHERE phone_number IN (
     SELECT caller
     FROM phone_calls
@@ -163,4 +165,37 @@ OR phone_number IN (
     SELECT receiver
     FROM phone_calls
     WHERE month = 7 AND day = 28 AND duration <=60
+);
+
+-- According to 1, 2 and 3
+SELECT *
+FROM people
+WHERE license_plate IN (
+    SELECT license_plate
+    FROM (
+        SELECT activity, license_plate, hour, minute, month, year
+        FROM bakery_security_logs
+        WHERE month = 7 AND day = 28
+        AND license_plate NOT IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE (activity = 'entrance' AND hour > 10 )
+        )
+        AND license_plate NOT IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE (activity = 'exit' AND hour < 10)
+        )
+    )
+    WHERE activity = 'exit' AND hour = 10
+    )
+AND id in (
+    SELECT person_id
+    FROM bank_accounts
+    WHERE account_number IN (
+        SELECT account_number
+        FROM atm_transactions
+        WHERE month = 7 AND day = 28
+        AND atm_location = 'Leggett Street'
+    )
 );
