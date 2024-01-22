@@ -89,3 +89,6 @@ WHERE license_plate IN (
     )
     WHERE activity = 'exit' AND hour = 10
     );
+-- So, I have 9 people.
+
+
