@@ -28,10 +28,10 @@ WHERE month = 7 AND day = 28
 AND license_plate IN (
     SELECT license_plate
     FROM bakery_security_logs
-    WHERE (activity = 'entrance' AND hour <= 10)
+    WHERE (activity = 'entrance' AND hour <= 10 )
 )
 AND license_plate IN (
     SELECT license_plate
     FROM bakery_security_logs
-    WHERE (activity = 'exit' AND hour >= 10)
+    WHERE (activity = 'exit' AND hour >= 10 and hour <=17)
 );
