@@ -23,7 +23,7 @@ WHERE month = 7 AND day = 28;
 -- So I need to see who entered before 10:15 and has gone after that
 
 -- My list of possible thiefs is
-SELECT license_plate-- activity, license_plate, hour, minute, month, year
+SELECT activity, license_plate, hour, minute, month, year
 FROM bakery_security_logs
 WHERE month = 7 AND day = 28
 AND license_plate NOT IN (
