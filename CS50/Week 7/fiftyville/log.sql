@@ -23,6 +23,7 @@ WHERE month = 7 AND day = 28;
 -- So I need to see who entered before 10:15 and has gone after that
 
 -- My list of possible thiefs is
+
 SELECT activity, license_plate, hour, minute, month, year
 FROM bakery_security_logs
 WHERE month = 7 AND day = 28
@@ -35,7 +36,7 @@ AND license_plate NOT IN (
     SELECT license_plate
     FROM bakery_security_logs
     WHERE (activity = 'exit' AND hour < 10)
-);
+));
 
 -- I want to see what is in the Interviews table
 SELECT *
@@ -49,3 +50,18 @@ WHERE day = 28 AND month = 7;
 -- In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow.
 -- The thief then asked the person on the other end of the phone to purchase the flight ticket.
 
+SELECT license_plate
+FROM (SELECT activity, license_plate, hour, minute, month, year
+FROM bakery_security_logs
+WHERE month = 7 AND day = 28
+AND license_plate NOT IN (
+    SELECT license_plate
+    FROM bakery_security_logs
+    WHERE (activity = 'entrance' AND hour > 10 )
+)
+AND license_plate NOT IN (
+    SELECT license_plate
+    FROM bakery_security_logs
+    WHERE (activity = 'exit' AND hour < 10)
+))
+WHERE activity = 'exit' AND hour = 10;
