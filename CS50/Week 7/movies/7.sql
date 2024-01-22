@@ -1,1 +1,2 @@
-SELECT movies.title, 
+SELECT movies.title, ratings.rating
+FROM 
