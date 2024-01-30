@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            window.onload = function(){
+            let boton1 = document.getElementById('opcion1');
+            let boton2 = document.getElementById('opcion2');
+            let boton3 = document.getElementById('opcion3');
+            let resultado = document.getElementById('resultado');
+            let boton4 = document.getElementById('confirm1');
+            let respuesta1 = document.getElementById('respuesta1');
+            let resultado2 = document.getElementById('resultado2');
+            boton1.addEventListener('click', function(){
+                boton1.style.backgroundColor = 'red';
+                boton2.style.backgroundColor = '';
+                boton3.style.backgroundColor = '';
+                resultado.textContent = 'Incorrect';
+            });
+            boton2.addEventListener('click', function(){
+                boton2.style.backgroundColor = 'green';
+                boton1.style.backgroundColor = '';
+                boton3.style.backgroundColor = '';
+                resultado.textContent = 'Correct!';
+            });
+            boton3.addEventListener('click', function(){
+                boton3.style.backgroundColor = 'red';
+                boton1.style.backgroundColor = '';
+                boton2.style.backgroundColor = '';
+                resultado.textContent = 'Incorrect';
+            });
+            boton4.addEventListener('click', function(){
+                if (respuesta1.value === "Blanco"){
+                    resultado2.textContent = "Correct!";
+                }
+                else{
+                    resultado2.textContent = "Incorrect";
+                }
+            });
+            respuesta1.addEventListener('keypress', function(e){
+                if (e.keyCode === 13){
+                    if (respuesta1.value.toLowerCase() === "blanco"){
+                    resultado2.textContent = "Correct!";
+                }
+                else{
+                    resultado2.textContent = "Incorrect";
+                }
+                }
+            });
+            respuesta1.addEventListener('keydown', function(e){
+                if (e.ctrlKey){
+                    if (respuesta1.value.toLowerCase() === "blanco"){
+                    resultado2.textContent = "Correct!";
+                }
+                else{
+                    resultado2.textContent = "Incorrect";
+                }
+                }
+            });
+        };
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    ¿Cuánto es 2+2?
+                </h3>
+                <button id="opcion1">2</button>
+                <button id="opcion2">4</button>
+                <button id="opcion3">6</button>
+                <p id="resultado"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>¿De qué color era el caballo blanco del Mariscal?</h3>
+                <input id=respuesta1 type="text">
+                <button id="confirm1">Confirm</button>
+                <p id="resultado2"></p>
+            </div>
+        </div>
+    </body>
+</html>
