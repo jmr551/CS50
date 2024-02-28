@@ -6,3 +6,18 @@ body {
     color: navy;
     margin-left: 20px;
   }
+  p, ol, ul{
+    max-width: 600px;
+  }
+
+  img {
+    max-width: 600px;
+    height: auto;
+  }
+  #intro {
+    font-weight: bold;
+  }
+  .texto-destacado {
+    color: blue;
+    font-style: italic;
+  }

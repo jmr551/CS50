@@ -10,12 +10,28 @@
         <title>My Webpage</title>
     </head>
     <body>
-        <h1>Hola mundo</h1>
-        <h2>Comenzamos con un teoremilla</h2>
-        <p>
-            Todo triángulo que tenga dos bisectrices iguales, es un triángulo isósceles.
+        <h1>José Rivas</h1>
+        <h2>Intereses</h2>
+        <p class="texto-destacado">
+            Aquí estaré describiendo mis intereses, aparte de la programación. <br>
+            No pongo mi foto por timidez.
         </p>
-        <button type="button" class="btn btn-primary">Mi Botón</button>
+        <button type="button" class="btn btn-primary"  onclick="mostrarAlerta()">Este botón no hace nada</button>
+        <script>
+            function mostrarAlerta() {
+              alert('¡Ahora este botón hace algo!');
+            }
+            </script>
+        <a href="index.html" class="btn btn-primary">Inicio</a>
+        <a href="templates/jiujitsu.html" class="btn btn-secondary">Jiu-Jitsu</a>
+        <a href="templates/ajedrez.html" class="btn btn-success">Ajedrez</a>
+        <a href="templates/calistenia.html" class="btn btn-warning">Calistenia</a>
+<br> <br>
+        <img src=images/IA.webp alt="Inspiración">
+        <footer>
+            <p>Contacto: notedigo@obviamente.com</p>
+            <p>Todos los derechos reservados © 2024</p>
+          </footer>
 
     </body>
 </html>

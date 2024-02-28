@@ -1,0 +1,24 @@
+HTML tags used:
+1. <a> - For links to other web pages or sections within the same page.
+2. <p> - For text paragraphs.
+3. <h1> - For the main title of the page.
+4. <img> - To include images.
+5. <button> - For clickable buttons that execute JavaScript actions.
+6. <div> - As containers for sections of the page.
+7. <ul> - For unordered lists.
+8. <li> - For individual items within unordered lists.
+9. <header> - For the page header.
+10. <footer> - For the page footer.
+
+CSS properties used:
+1. color - To change the text color.
+2. background-color - To change the background color of elements.
+3. margin - To add space around elements.
+4. padding - To add space inside elements.
+5. font-size - To change the text size.
+
+Use of JavaScript:
+I implemented JavaScript to add interactivity to buttons, including showing an alert message when they are clicked, demonstrating a basic interaction between the user and the website.
+
+Use of Bootstrap:
+I used Bootstrap to leverage its grid system and make the page responsive, in addition to using its predefined components such as buttons and navigation bars for a consistent and professional design.
