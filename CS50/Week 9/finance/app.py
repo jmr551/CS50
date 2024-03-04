@@ -130,6 +130,7 @@ def register():
             db.execute(
             "INSERT INTO users (username, password) VALUES (?, ?)", username, hashed
             )
+            return render_template("login.html")
 
     else:
         return render_template("register.html")
