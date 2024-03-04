@@ -111,9 +111,28 @@ def quote():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
-    return apology("TODO")
+    if request.method == "POST":
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+        )
+        username = request.form.get("username")
+        password = request.form.get("password")
+        hashed = generate_password_hash(password)
+        if request.form.get("username") == "": # Falta verificar en la base de datos
+            return apology("Invalid")
+        elif len(rows) > 0:
+            return apology("Usuario ya existente")
+        elif request.form.get("password") == "":
+            return apology("La contraseña no puede estar vacía")
+        elif request.form.get("password")!=request.form.get("confirmation"):
+            return apology("La contraseña y la confirmación son diferentes")
+        else:
+            db.execute(
+            "INSERT INTO users (username, password) VALUES (?, ?)", username, hashed
+            )
 
+    else:
+        return render_template("register.html")
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
