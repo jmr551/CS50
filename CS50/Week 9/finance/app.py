@@ -128,8 +128,9 @@ def register():
             return apology("La contraseña y la confirmación son diferentes")
         else:
             db.execute(
-            "INSERT INTO users (username, password) VALUES (?, ?)", username, hashed
+            "INSERT INTO users (username, hash) VALUES (?, ?)", username, hashed
             )
+            
             return render_template("login.html")
 
     else:
