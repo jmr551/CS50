@@ -131,7 +131,7 @@ def register():
             "INSERT INTO users (username, hash) VALUES (?, ?)", username, hashed
             )
 
-            redirect("/")
+            redirect("/login")
 
     else:
         return render_template("register.html")
