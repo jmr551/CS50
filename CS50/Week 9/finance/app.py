@@ -42,7 +42,10 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        return post
+    else:
+        return apology("GET")
 
 
 @app.route("/history")
