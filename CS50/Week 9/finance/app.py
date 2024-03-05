@@ -49,7 +49,7 @@ def buy():
         else:
             return apology("Ahora hago esto")
     else:
-        return apology("GET")
+        return render_template("buy.html")
 
 
 @app.route("/history")
