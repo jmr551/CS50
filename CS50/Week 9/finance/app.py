@@ -68,38 +68,47 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
-        if symbol is None:
-            return apology("Vacío")
-        elif float(shares) < 0:
-            return apology("Numero negativo")
-        else:
-            # Obtener información de la acción usando lookup()
-            stock = lookup(symbol)
-            if stock is None:
-                return apology("Invalid symbol")
+        symbol = request.form.get("symbol").upper()  # Convertir el símbolo a mayúsculas para estandarización
+        shares_str = request.form.get("shares")  # Mantén las acciones como string inicialmente para validación
 
-            # Consultar el saldo del usuario
-            rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-            cash = rows[0]["cash"]
+        # Validar entrada del usuario
+        if not symbol:
+            return apology("Por favor, ingrese un símbolo.")
 
-            # Calcular el costo total de la compra
-            total_cost = shares * stock["price"]
+        try:
+            shares = int(shares_str)
+        except ValueError:
+            return apology("Número de acciones debe ser un entero.")
 
-            # Verificar si el usuario tiene suficiente dinero
-            if cash < total_cost:
-                return apology("Not enough cash")
+        if shares <= 0:
+            return apology("El número de acciones debe ser positivo.")
 
-            # Procesar la compra: actualizar el saldo del usuario y registrar la transacción
-            db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
-            db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)",
-                    session["user_id"], symbol, shares, stock["price"])
+        # Obtener información de la acción usando lookup()
+        stock = lookup(symbol)
+        if stock is None:
+            return apology("Símbolo inválido")
 
-            # Redirigir al usuario a la página principal con un mensaje de éxito
-            return redirect("/")
-            else:
-            return render_template("buy.html")
+        # Consultar el saldo del usuario
+        rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash = rows[0]["cash"]
+
+        # Calcular el costo total de la compra
+        total_cost = shares * stock["price"]
+
+        # Verificar si el usuario tiene suficiente dinero
+        if cash < total_cost:
+            return apology("Fondos insuficientes")
+
+        # Procesar la compra: actualizar el saldo del usuario y registrar la transacción
+        db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)",
+                   session["user_id"], symbol, shares, stock["price"])
+
+        # Redirigir al usuario a la página principal con un mensaje de éxito
+        return redirect("/")
+    else:
+        return render_template("buy.html")
+
 
 
 @app.route("/history")
