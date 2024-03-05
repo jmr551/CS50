@@ -35,31 +35,25 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    # Consultar las transacciones del usuario para calcular el portafolio
     transactions = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
-
-    # Consultar el saldo de efectivo del usuario
     cash_row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     cash = cash_row[0]["cash"]
-
-    # Inicializar la lista del portafolio y el total del valor del portafolio
     portfolio = []
     total_portfolio_value = cash
 
-    # Obtener el precio actual y calcular el valor total para cada acción en el portafolio
     for transaction in transactions:
         stock = lookup(transaction["symbol"])
-        stock_value = stock["price"] * transaction["total_shares"]
-        total_portfolio_value += stock_value
-        portfolio.append({
-            "symbol": transaction["symbol"],
-            "name": stock["name"],
-            "shares": transaction["total_shares"],
-            "price": stock["price"],
-            "total": stock_value
-        })
+        if stock is not None:  # Asegúrate de que la acción exista para evitar errores
+            stock_value = stock["price"] * transaction["total_shares"]
+            total_portfolio_value += stock_value
+            portfolio.append({
+                "symbol": transaction["symbol"],
+                "name": stock["name"],
+                "shares": transaction["total_shares"],
+                "price": stock["price"],
+                "total": stock_value
+            })
 
-    # Renderizar la página del portafolio con la información del usuario y las acciones
     return render_template("index.html", cash=cash, portfolio=portfolio, total_portfolio_value=total_portfolio_value)
 
 
