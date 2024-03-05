@@ -204,5 +204,34 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-    """Sell shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        symbol = request.form.get("symbol").upper()  # Asegúrate de obtener el símbolo en mayúsculas
+        shares_to_sell = int(request.form.get("shares"))
+
+        if not symbol or shares_to_sell <= 0:
+            return apology("Invalid symbol or shares")
+
+        # Verificar cuántas acciones del símbolo posee el usuario
+        shares_owned = db.execute("SELECT SUM(shares) as total_shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", session["user_id"], symbol)[0]["total_shares"]
+
+        if shares_to_sell > shares_owned:
+            return apology("Too many shares")
+
+        # Obtener el precio actual del stock
+        stock = lookup(symbol)
+
+        # Calcular el valor de la venta
+        sale_value = shares_to_sell * stock["price"]
+
+        # Registrar la venta (como transacción negativa)
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, -shares_to_sell, stock["price"])
+
+        # Actualizar el efectivo del usuario
+        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", sale_value, session["user_id"])
+
+        # Redirigir a la página principal con un mensaje de éxito
+        return redirect("/")
+    else:
+        # Obtener la lista de stocks que el usuario posee
+        stocks = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
+        return render_template("sell.html", stocks=stocks)
