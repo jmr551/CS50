@@ -211,27 +211,32 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
         username = request.form.get("username")
         password = request.form.get("password")
-        hashed = generate_password_hash(password)
-        if request.form.get("username") == "": # Falta verificar en la base de datos
-            return apology("Invalid")
-        elif len(rows) > 0:
-            return apology("Usuario ya existente")
-        elif request.form.get("password") == "":
-            return apology("La contraseña no puede estar vacía")
-        elif request.form.get("password")!=request.form.get("confirmation"):
-            return apology("La contraseña y la confirmación son diferentes")
-        else:
-            db.execute(
-            "INSERT INTO users (username, hash) VALUES (?, ?)", username, hashed
-            )
+        confirmation = request.form.get("confirmation")
 
-            redirect("/login")
+        # Asegúrate de que el nombre de usuario y la contraseña no estén vacíos
+        if not username:
+            return apology("must provide username", 400)
+        elif not password:
+            return apology("must provide password", 400)
+        elif password != confirmation:
+            return apology("passwords do not match", 400)
 
+        # Verifica si el nombre de usuario ya existe en la base de datos
+        rows = db.execute("SELECT * FROM users WHERE username = ?", username)
+        if len(rows) > 0:
+            return apology("username already exists", 400)
+
+        # Si pasa todas las comprobaciones, inserta el nuevo usuario en la base de datos
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, generate_password_hash(password))
+
+        # Inicia sesión automáticamente al usuario después de registrarse
+        user_id = db.execute("SELECT id FROM users WHERE username = ?", username)[0]["id"]
+        session["user_id"] = user_id
+
+        # Redirige al usuario a la página principal
+        return redirect("/")
     else:
         return render_template("register.html")
 
