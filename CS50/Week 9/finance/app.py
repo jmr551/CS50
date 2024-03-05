@@ -109,7 +109,8 @@ def quote():
     if request.method == "POST":
         return apology("TODO")
     else:
-        return render_template("quote.html")
+        
+        return render_template("quoted.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
