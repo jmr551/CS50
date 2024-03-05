@@ -68,25 +68,25 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol").upper()  # Convertir el símbolo a mayúsculas para estandarización
-        shares_str = request.form.get("shares")  # Mantén las acciones como string inicialmente para validación
+        symbol = request.form.get("symbol").upper() # Asegúrate de normalizar el símbolo a mayúsculas
+        shares = request.form.get("shares")
 
-        # Validar entrada del usuario
-        if not symbol:
-            return apology("Por favor, ingrese un símbolo.")
-
+        # Valida que shares sea un número entero positivo
         try:
-            shares = int(shares_str)
+            shares = int(shares)
+            if shares <= 0:
+                return apology("Numero negativo o cero")
         except ValueError:
-            return apology("Número de acciones debe ser un entero.")
+            return apology("Invalid number of shares")
 
-        if shares <= 0:
-            return apology("El número de acciones debe ser positivo.")
+        if not symbol:
+            return apology("Vacío")
 
+        # El resto de tu código parece estar bien
         # Obtener información de la acción usando lookup()
         stock = lookup(symbol)
         if stock is None:
-            return apology("Símbolo inválido")
+            return apology("Invalid symbol")
 
         # Consultar el saldo del usuario
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
@@ -97,7 +97,7 @@ def buy():
 
         # Verificar si el usuario tiene suficiente dinero
         if cash < total_cost:
-            return apology("Fondos insuficientes")
+            return apology("Not enough cash")
 
         # Procesar la compra: actualizar el saldo del usuario y registrar la transacción
         db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
@@ -108,7 +108,6 @@ def buy():
         return redirect("/")
     else:
         return render_template("buy.html")
-
 
 
 @app.route("/history")
