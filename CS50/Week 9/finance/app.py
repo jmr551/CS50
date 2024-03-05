@@ -43,7 +43,11 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        return post
+        symbol = request.get("symbol")
+        if symbol is None:
+            return apology("Vacío")
+        else:
+            return apology("Ahora hago esto")
     else:
         return apology("GET")
 
