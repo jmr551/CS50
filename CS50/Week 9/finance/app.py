@@ -48,7 +48,6 @@ def index():
             total_portfolio_value += stock_value
             portfolio.append({
                 "symbol": transaction["symbol"],
-                "name": stock["name"],
                 "shares": transaction["total_shares"],
                 "price": stock["price"],
                 "total": stock_value
