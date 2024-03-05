@@ -112,6 +112,36 @@ def history():
 
     return render_template("history.html", transactions=transactions)
 
+@app.route("/change_password", methods=["GET", "POST"])
+@login_required
+def change_password():
+    if request.method == "POST":
+        current_password = request.form.get("current_password")
+        new_password = request.form.get("new_password")
+        confirmation = request.form.get("confirmation")
+
+        # Verificar que la contraseña actual es correcta
+        user_info = db.execute("SELECT hash FROM users WHERE id = ?", session["user_id"])
+        if not check_password_hash(user_info[0]["hash"], current_password):
+            return apology("Invalid current password", 403)
+
+        # Verificar que la nueva contraseña y la confirmación coinciden
+        if new_password != confirmation:
+            return apology("Passwords do not match", 403)
+
+        # Opcional: Añade aquí cualquier validación adicional para la nueva contraseña
+        # como longitud mínima, caracteres especiales, etc.
+
+        # Actualizar la contraseña en la base de datos
+        new_hash = generate_password_hash(new_password)
+        db.execute("UPDATE users SET hash = ? WHERE id = ?", new_hash, session["user_id"])
+
+        # Redirigir al usuario a la página principal con un mensaje de éxito
+        return redirect("/")
+    else:
+        # Mostrar el formulario de cambio de contraseña
+        return render_template("change_password.html")
+
 
 
 @app.route("/login", methods=["GET", "POST"])
