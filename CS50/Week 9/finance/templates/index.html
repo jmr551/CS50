@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th>Symbol</th>
-                <th>Name</th>
                 <th>Shares</th>
                 <th>Price</th>
                 <th>Total</th>
@@ -20,7 +19,6 @@
             {% for stock in portfolio %}
             <tr>
                 <td>{{ stock.symbol }}</td>
-                <td>{{ stock.name }}</td>
                 <td>{{ stock.shares }}</td>
                 <td>{{ stock.price | default(0) | usd }}</td>
                 <td>{{ stock.total | default(0) | usd }}</td>
