@@ -50,7 +50,29 @@ def buy():
         elif float(shares) < 0:
             return apology("Numero negativo")
         else:
-            return apology(f"Ahora hago esto: {shares}")
+            # Obtener información de la acción usando lookup()
+        stock = lookup(symbol)
+        if stock is None:
+            return apology("Invalid symbol")
+
+        # Consultar el saldo del usuario
+        rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash = rows[0]["cash"]
+
+        # Calcular el costo total de la compra
+        total_cost = shares * stock["price"]
+
+        # Verificar si el usuario tiene suficiente dinero
+        if cash < total_cost:
+            return apology("Not enough cash")
+
+        # Procesar la compra: actualizar el saldo del usuario y registrar la transacción
+        db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", total_cost, session["user_id"])
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)",
+                   session["user_id"], symbol, shares, stock["price"])
+
+        # Redirigir al usuario a la página principal con un mensaje de éxito
+        return redirect("/")
     else:
         return render_template("buy.html")
 
