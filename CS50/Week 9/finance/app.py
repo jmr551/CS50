@@ -35,7 +35,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    transactions = db.execute("SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
+    transactions = db.execute(
+        "SELECT symbol, SUM(shares) as total_shares FROM transactions WHERE user_id = ? GROUP BY symbol HAVING total_shares > 0", session["user_id"])
     cash_row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     cash = cash_row[0]["cash"]
     portfolio = []
@@ -61,7 +62,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol").upper() # Asegúrate de normalizar el símbolo a mayúsculas
+        symbol = request.form.get("symbol").upper()
         shares = request.form.get("shares")
 
         # Valida que shares sea un número entero positivo
@@ -108,9 +109,11 @@ def buy():
 def history():
     """Show history of transactions"""
     user_id = session["user_id"]
-    transactions = db.execute("SELECT symbol, shares, price, transacted FROM transactions WHERE user_id = ? ORDER BY transacted DESC", user_id)
+    transactions = db.execute(
+        "SELECT symbol, shares, price, transacted FROM transactions WHERE user_id = ? ORDER BY transacted DESC", user_id)
 
     return render_template("history.html", transactions=transactions)
+
 
 @app.route("/change_password", methods=["GET", "POST"])
 @login_required
@@ -141,7 +144,6 @@ def change_password():
     else:
         # Mostrar el formulario de cambio de contraseña
         return render_template("change_password.html")
-
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -242,6 +244,7 @@ def register():
     else:
         return render_template("register.html")
 
+
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
@@ -253,7 +256,8 @@ def sell():
             return apology("Invalid symbol or shares")
 
         # Verificar cuántas acciones del símbolo posee el usuario
-        shares_owned = db.execute("SELECT SUM(shares) as total_shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", session["user_id"], symbol)[0]["total_shares"]
+        shares_owned = db.execute(
+            "SELECT SUM(shares) as total_shares FROM transactions WHERE user_id = ? AND symbol = ? GROUP BY symbol", session["user_id"], symbol)[0]["total_shares"]
 
         if shares_to_sell > shares_owned:
             return apology("Too many shares")
@@ -265,7 +269,8 @@ def sell():
         sale_value = shares_to_sell * stock["price"]
 
         # Registrar la venta (como transacción negativa)
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)", session["user_id"], symbol, -shares_to_sell, stock["price"])
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)",
+                   session["user_id"], symbol, -shares_to_sell, stock["price"])
 
         # Actualizar el efectivo del usuario
         db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", sale_value, session["user_id"])
@@ -274,5 +279,6 @@ def sell():
         return redirect("/")
     else:
         # Obtener la lista de stocks que el usuario posee
-        stocks = db.execute("SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
+        stocks = db.execute(
+            "SELECT symbol FROM transactions WHERE user_id = ? GROUP BY symbol HAVING SUM(shares) > 0", session["user_id"])
         return render_template("sell.html", stocks=stocks)
