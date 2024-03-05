@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Portfolio</h1>
+    <h2>Portfolio</h2>
     <table class="table">
         <thead>
             <tr>
@@ -17,21 +17,21 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in portfolio %}
-                <tr>
-                    <td>{{ item.symbol }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.shares }}</td>
-                    <td>{{ item.price | usd }}</td>
-                    <td>{{ item.total | usd }}</td>
-                </tr>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.price | usd }}</td>
+                <td>{{ stock.total | usd }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
     <div>
-        <h3>Cash Available: {{ cash | usd }}</h3>
+        <strong>Cash:</strong> {{ cash | usd }}
     </div>
     <div>
-        <h3>Total Portfolio Value: {{ total_portfolio_value | usd }}</h3>
+        <strong>Total Portfolio Value:</strong> {{ total | usd }}
     </div>
 {% endblock %}
