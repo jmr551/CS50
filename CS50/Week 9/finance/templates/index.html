@@ -17,21 +17,21 @@
             </tr>
         </thead>
         <tbody>
-            {% for stock in stocks %}
+            {% for stock in portfolio %}
             <tr>
                 <td>{{ stock.symbol }}</td>
                 <td>{{ stock.name }}</td>
                 <td>{{ stock.shares }}</td>
-                <td>{{ stock.price | usd }}</td>
-                <td>{{ stock.total | usd }}</td>
+                <td>{{ stock.price | default(0) | usd }}</td>
+                <td>{{ stock.total | default(0) | usd }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <div>
-        <strong>Cash:</strong> {{ cash | usd }}
+        <strong>Cash:</strong> {{ cash | default(0) | usd }}
     </div>
     <div>
-        <strong>Total Portfolio Value:</strong> {{ total | usd }}
+        <strong>Total Portfolio Value:</strong> {{ total_portfolio_value | default(0) | usd }}
     </div>
 {% endblock %}
