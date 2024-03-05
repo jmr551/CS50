@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <h3>
-        <p>Price: {{stock.price}}</p>
-        <p>Symbol: {{stock.symbol}}</p>
-    </h3>
+<h3>Quote</h3>
+<p>Symbol: {{ stock.symbol }}</p>
+<p>Price: {{ stock.price | usd }}</p>
 {% endblock %}

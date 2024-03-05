@@ -197,12 +197,14 @@ def logout():
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
-    """Get stock quote."""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
+        symbol = request.form.get("symbol").upper()
+
         stock = lookup(symbol)
-        if stock is None:
-            return apology("Symbol not found", 400)
+
+        if not stock:
+            return apology("Invalid symbol", 400)
+
         return render_template("quoted.html", stock=stock)
     else:
         return render_template("quote.html")
