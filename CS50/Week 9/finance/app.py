@@ -44,10 +44,13 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
         if symbol is None:
             return apology("Vacío")
+        elif float(shares) < 0:
+            return apology("Numero negativo")
         else:
-            return apology("Ahora hago esto")
+            return apology(f"Ahora hago esto: {shares}")
     else:
         return render_template("buy.html")
 
