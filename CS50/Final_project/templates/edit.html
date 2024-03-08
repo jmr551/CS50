@@ -45,14 +45,14 @@
                 var img = document.getElementById('originalImage');
                 var canvas = document.getElementById('canvas');
                 var ctx = canvas.getContext('2d');
-
                 var brightness = document.getElementById('brightness').value;
-
+                // Limpia el canvas antes de redibujar la imagen con el filtro aplicado
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+                // Configura el filtro de brillo
                 ctx.filter = 'brightness(' + brightness + '%)';
-
-                ctx.filter = 'none';
+                // Redibuja la imagen con el filtro aplicado
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                // Restablecer el filtro a 'none' no es necesario si se configura cada vez antes de dibujar
             }
         </script>
     </body>
