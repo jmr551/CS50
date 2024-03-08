@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Image</title>
+    </head>
+    <body>
+        <h1>Edit your image</h1>
+        <div>
+            <img src="{{ image_path }}" alt="Image to be edited" style="max-width:500px;">
+        </div>
+
+        <div>
+            <label for="brightness">Brightness</label>
+            <input type="range" id="brightness" name="brightness" min="0" max="200" value="100">
+        </div>
+    </body>
+</html>
