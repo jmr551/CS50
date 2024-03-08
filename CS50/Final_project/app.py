@@ -13,8 +13,8 @@ def upload_page():
 def handle_upload():
     if 'image' in request.files:
         file = request.files['image']
-        image = secure_filename(file.filename)
-        filepath = os.path.join("image", filename)
+        filename = secure_filename(file.filename)
+        filepath = os.path.join("images", filename)
         file.save(filepath)
         return redirect(url_for('edit_page', image_path=filepath))
     return 'Could not upload the image', 400
