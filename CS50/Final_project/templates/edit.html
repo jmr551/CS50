@@ -21,7 +21,22 @@
             <input type="range" id="brightness" name="brightness" min="0" max="200" value="100" onchange="updateImage()">
         </div>
 
-        
+        <div>
+            <label for="contrast">Contrast:</label>
+            <input type="range" id="contrast" name="contrast" min="0" max="200" value="100" onchange="updateImage()">
+        </div>
+
+        <div>
+            <label for="saturation">Saturation:</label>
+            <input type="range" id="saturation" name="saturation" min="0" max="200" value="100" onchange="updateImage()">
+        </div>
+
+        <div>
+            <label for="blur">Blur:</label>
+            <input type="range" id="blur" name="blur" min="0" max="10" value="0" onchange="updateImage()">
+        </div>
+
+
 
 
         <script>
@@ -49,13 +64,13 @@
                 var canvas = document.getElementById('canvas');
                 var ctx = canvas.getContext('2d');
                 var brightness = document.getElementById('brightness').value;
-                // Limpia el canvas antes de redibujar la imagen con el filtro aplicado
+                var contrast = document.getElementById('contrast').value;
+                var saturation = document.getElementById('saturation').value;
+                var blur = document.getElementById('blur').value;
+
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // Configura el filtro de brillo
-                ctx.filter = 'brightness(' + brightness + '%)';
-                // Redibuja la imagen con el filtro aplicado
+                ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px)`;
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                // Restablecer el filtro a 'none' no es necesario si se configura cada vez antes de dibujar
             }
         </script>
     </body>
