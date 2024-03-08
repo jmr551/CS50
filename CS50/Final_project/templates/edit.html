@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Edit Image</title>
-    </head>
-    <body>
-        <h1>Edit your image</h1>
-  <div>
-    <h2>Original Image</h2>
-    <img id="originalImage" src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
-  </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Image</title>
+</head>
+<body>
+    <h1>Edit your image</h1>
+    <div>
+        <h2>Original Image</h2>
+        <img id="originalImage" src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
+    </div>
 
-  <div>
-    <h2>Modified Image</h2>
-    <canvas id="canvas" style="max-width:500px;"></canvas>
-  </div>
+    <div>
+        <h2>Modified Image</h2>
+        <!-- Elemento img para mostrar la imagen procesada -->
+        <img id="modifiedImage" style="max-width:500px;" alt="Modified Image">
+    </div>
 
-  <div>
-    <label for="brightness">Brightness</label>
-    <input type="range" id="brightness" name="brightness" min="0" max="200" value="100" onchange="updateImage()">
-  </div>
+    <!-- Controles deslizantes -->
+    <div>
+        <label for="brightness">Brightness</label>
+        <input type="range" id="brightness" name="brightness" min="0" max="200" value="100" onchange="updateImage()">
+    </div>
+    <div>
+        <label for="contrast">Contrast:</label>
+        <input type="range" id="contrast" name="contrast" min="0" max="200" value="100" onchange="updateImage()">
+    </div>
+    <div>
+        <label for="saturation">Saturation:</label>
+        <input type="range" id="saturation" name="saturation" min="0" max="200" value="100" onchange="updateImage()">
+    </div>
+    <div>
+        <label for="blur">Blur:</label>
+        <input type="range" id="blur" name="blur" min="0" max="10" value="0" onchange="updateImage()">
+    </div>
 
-  <div>
-    <label for="contrast">Contrast:</label>
-    <input type="range" id="contrast" name="contrast" min="0" max="200" value="100" onchange="updateImage()">
-  </div>
+    <script>
+        function updateImage() {
+            var brightness = document.getElementById('brightness').value;
+            var contrast = document.getElementById('contrast').value;
+            var saturation = document.getElementById('saturation').value;
+            var blur = document.getElementById('blur').value;
+            var filename = "{{ image_path }}"; // Utiliza la variable image_path para obtener el nombre de archivo
 
-  <div>
-    <label for="saturation">Saturation:</label>
-    <input type="range" id="saturation" name="saturation" min="0" max="200" value="100" onchange="updateImage()">
-  </div>
+            var formData = new FormData();
+            formData.append('brightness', brightness);
+            formData.append('contrast', contrast);
+            formData.append('saturation', saturation);
+            formData.append('blur', blur);
+            formData.append('filename', filename); // Asegúrate de enviar el nombre del archivo
 
-  <div>
-    <label for="blur">Blur:</label>
-    <input type="range" id="blur" name="blur" min="0" max="10" value="0" onchange="updateImage()">
-  </div>
-
-
-
-  <script>
-    function updateImage() {
-        var brightness = document.getElementById('brightness').value;
-        var contrast = document.getElementById('contrast').value;
-        var saturation = document.getElementById('saturation').value;
-        var blur = document.getElementById('blur').value;
-
-        var formData = new FormData();
-        formData.append('brightness', brightness);
-        formData.append('contrast', contrast);
-        formData.append('saturation', saturation);
-        formData.append('blur', blur);
-
-        fetch('/process-image', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.blob())
-        .then(blob => {
-            var img = document.getElementById('modifiedImage');
-            img.src = URL.createObjectURL(blob);
-        });
-    }
+            fetch('/process-image', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                var img = document.getElementById('modifiedImage');
+                img.src = URL.createObjectURL(blob);
+            });
+        }
     </script>
 
-    </body>
+</body>
 </html>
-
-
