@@ -19,7 +19,10 @@ def handle_upload():
         return redirect(url_for('edit_page', image_path=filepath))
     return 'Could not upload the image', 400
 
-@app.route('/edit)
+@app.route('/edit')
+def edit_page():
+    image_path = request.args.get('image_path')
+    return render_template('edit.html', image_path=image_path)
 
 if __name__ == "__main__":
     app.run(debug=True)
