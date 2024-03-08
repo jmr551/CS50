@@ -36,10 +36,9 @@
             function drawImage(img) {
                 var canvas = document.getElementById('canvas');
                 var ctx = canvas.getContext('2d');
-                canvas.width = img.width;
-                canvas.height = img.height;
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                updateImage();
             }
 
             function updateImage() {
