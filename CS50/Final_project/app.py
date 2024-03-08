@@ -16,7 +16,7 @@ def handle_upload():
         filename = secure_filename(file.filename)
         filepath = os.path.join("images", filename)
         file.save(filepath)
-        return redirect(url_for('edit_page', image_path=filepath))
+        return redirect(url_for('edit_page', image_path=os.path.join("images", filename)))
     return 'Could not upload the image', 400
 
 @app.route('/edit')
