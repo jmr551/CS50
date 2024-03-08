@@ -7,7 +7,8 @@
     <body>
         <h1>Edit your image</h1>
         <div>
-            <img src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
+            <h2>Original Image</h2>
+            <img id="originalImage" src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
         </div>
 
         <div>
