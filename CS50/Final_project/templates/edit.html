@@ -38,38 +38,31 @@
 
 
 
-        <script>
-            function drawImage() {
-              var img = new Image();
-              img.onload = function() {
-                var canvas = document.getElementById('canvas');
-                var ctx = canvas.getContext('2d');
-                canvas.width = this.naturalWidth;
-                canvas.height = this.naturalHeight;
-                ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-                updateImage(); // Ensure initial filters are applied
-              };
-              img.src = document.getElementById('originalImage').src;
-            }
+  <script>
+    function updateImage() {
+        var brightness = document.getElementById('brightness').value;
+        var contrast = document.getElementById('contrast').value;
+        var saturation = document.getElementById('saturation').value;
+        var blur = document.getElementById('blur').value;
 
-            window.onload = drawImage;
+        var formData = new FormData();
+        formData.append('brightness', brightness);
+        formData.append('contrast', contrast);
+        formData.append('saturation', saturation);
+        formData.append('blur', blur);
 
-            function updateImage() {
-              var canvas = document.getElementById('canvas');
-              if (!canvas) return;
-              var ctx = canvas.getContext('2d');
+        fetch('/process-image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            var img = document.getElementById('modifiedImage');
+            img.src = URL.createObjectURL(blob);
+        });
+    }
+    </script>
 
-              // Get slider values
-              var brightness = document.getElementById('brightness').value;
-              var contrast = document.getElementById('contrast').value;
-              var saturation = document.getElementById('saturation').value;
-              var blur = document.getElementById('blur').value;
-
-              // Apply filters directly to the context (no need to redraw image)
-              ctx.filter = `-webkit-filter: brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px); filter: brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px);`;
-
-            }
-          </script>
     </body>
 </html>
 
