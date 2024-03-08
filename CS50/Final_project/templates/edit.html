@@ -39,38 +39,35 @@
 
         <script>
             function drawImage() {
-                var img = new Image(); // Crea una nueva instancia de Image
-                img.onload = function() {
-                    var canvas = document.getElementById('canvas');
-                    var ctx = canvas.getContext('2d');
-                    canvas.width = this.naturalWidth;
-                    canvas.height = this.naturalHeight;
-                    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-                    updateImage(); // Asegúrate de llamar a updateImage aquí para aplicar los filtros iniciales
-                }
-                img.src = document.getElementById('originalImage').src; // Asegúrate de que la src sea correcta
-            }
-            window.onload = drawImage; // Llama a drawImage cuando la página se cargue
-            function updateImage() {
+              var img = new Image();
+              img.onload = function() {
                 var canvas = document.getElementById('canvas');
-                if (!canvas) return; // Sale si no se encuentra el canvas
                 var ctx = canvas.getContext('2d');
-                // Obtén los valores de los controles deslizantes
-                var brightness = document.getElementById('brightness').value;
-                var contrast = document.getElementById('contrast').value;
-                var saturation = document.getElementById('saturation').value;
-                var blur = document.getElementById('blur').value;
-                // Aplica los filtros
-                ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px)`;
-                // Dibuja la imagen con los filtros aplicados
-                var img = new Image(); // Crea una nueva instancia para asegurarse de que la imagen se carga
-                img.onload = function() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
-                    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-                }
-                img.src = document.getElementById('originalImage').src; // Establece la src de la imagen original
+                canvas.width = this.naturalWidth;
+                canvas.height = this.naturalHeight;
+                ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+                updateImage(); // Ensure initial filters are applied
+              };
+              img.src = document.getElementById('originalImage').src;
             }
-        </script>
+
+            window.onload = drawImage;
+
+            function updateImage() {
+              var canvas = document.getElementById('canvas');
+              if (!canvas) return;
+              var ctx = canvas.getContext('2d');
+
+              // Get slider values
+              var brightness = document.getElementById('brightness').value;
+              var contrast = document.getElementById('contrast').value;
+              var saturation = document.getElementById('saturation').value;
+              var blur = document.getElementById('blur').value;
+
+              // Apply filters directly to the context (no need to redraw image)
+              ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px)`;
+            }
+          </script>
     </body>
 </html>
 
