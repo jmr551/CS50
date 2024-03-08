@@ -30,9 +30,9 @@ def edit_page():
 
 @app.route('/process-image', methods=['POST'])
 def process_image():
-    filename = request.form['filename']
-    filepath = os.path.join("static", "images", filename)
-    img = Image.open(filepath)
+    # Asumiendo que tienes una imagen cargada previamente en el servidor como punto de partida.
+    # De lo contrario, necesitarás ajustar este código para manejar la carga de la imagen.
+    img = Image.open('ruta/a/tu/imagen/original.jpg')
 
     # Ajustar la imagen según los valores recibidos
     brightness = float(request.form['brightness']) / 100

@@ -41,14 +41,12 @@
             var contrast = document.getElementById('contrast').value;
             var saturation = document.getElementById('saturation').value;
             var blur = document.getElementById('blur').value;
-            var filename = "{{ image_path }}"; // Utiliza la variable image_path para obtener el nombre de archivo
 
             var formData = new FormData();
             formData.append('brightness', brightness);
             formData.append('contrast', contrast);
             formData.append('saturation', saturation);
             formData.append('blur', blur);
-            formData.append('filename', filename); // Asegúrate de enviar el nombre del archivo
 
             fetch('/process-image', {
                 method: 'POST',
@@ -60,7 +58,8 @@
                 img.src = URL.createObjectURL(blob);
             });
         }
-    </script>
+        </script>
+
 
 </body>
 </html>
