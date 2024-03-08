@@ -14,8 +14,11 @@ def handle_upload():
     if 'image' in request.files:
         file = request.files['image']
         filename = secure_filename(file.filename)
-        filepath = os.path.join("images", filename)
+        # Cambia aquí la ruta para incluir "static"
+        filepath = os.path.join("static", "images", filename)
+        # Asegúrate de que la carpeta "static/images" exista
         file.save(filepath)
+        # Pasa la ruta relativa a la carpeta static para la redirección
         return redirect(url_for('edit_page', image_path=os.path.join("images", filename)))
     return 'Could not upload the image', 400
 
