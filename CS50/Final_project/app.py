@@ -27,5 +27,36 @@ def edit_page():
     image_path = request.args.get('image_path')
     return render_template('edit.html', image_path=image_path)
 
+@app.route('/process-image', methods=['POST'])
+def process_image():
+    # Asumiendo que tienes una imagen cargada previamente en el servidor como punto de partida.
+    # De lo contrario, necesitarás ajustar este código para manejar la carga de la imagen.
+    img = Image.open('ruta/a/tu/imagen/original.jpg')
+
+    # Ajustar la imagen según los valores recibidos
+    brightness = float(request.form['brightness']) / 100
+    contrast = float(request.form['contrast']) / 100
+    saturation = float(request.form['saturation']) / 100
+    blur = float(request.form['blur'])
+
+    enhancer = ImageEnhance.Brightness(img)
+    img = enhancer.enhance(brightness)
+
+    enhancer = ImageEnhance.Contrast(img)
+    img = enhancer.enhance(contrast)
+
+    enhancer = ImageEnhance.Color(img)
+    img = enhancer.enhance(saturation)
+
+    if blur > 0:
+        img = img.filter(ImageFilter.GaussianBlur(blur))
+
+    # Guardar la imagen modificada en un objeto BytesIO
+    img_io = io.BytesIO()
+    img.save(img_io, 'JPEG', quality=85)
+    img_io.seek(0)
+
+    return send_file(img_io, mimetype='image/jpeg')
+
 if __name__ == "__main__":
     app.run(debug=True)
