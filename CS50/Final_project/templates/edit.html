@@ -38,39 +38,37 @@
 
 
         <script>
-            window.onload = function() {
-                var img = document.getElementById('originalImage');
-                // Esta verificación asegura que si la imagen ya está cargada, se dibuja inmediatamente.
-                if (img.complete || img.naturalHeight !== 0) {
-                    drawImage(img);
-                } else {
-                    img.onload = function() {
-                        drawImage(img);
-                    };
+            function drawImage() {
+                var img = new Image(); // Crea una nueva instancia de Image
+                img.onload = function() {
+                    var canvas = document.getElementById('canvas');
+                    var ctx = canvas.getContext('2d');
+                    canvas.width = this.naturalWidth;
+                    canvas.height = this.naturalHeight;
+                    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+                    updateImage(); // Asegúrate de llamar a updateImage aquí para aplicar los filtros iniciales
                 }
-            };
-            function drawImage(img) {
-                var canvas = document.getElementById('canvas');
-                var ctx = canvas.getContext('2d');
-                canvas.width = img.naturalWidth;
-                canvas.height = img.naturalHeight;
-                // Limpia el canvas y dibuja la imagen base.
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img, 0, 0);
+                img.src = document.getElementById('originalImage').src; // Asegúrate de que la src sea correcta
             }
+            window.onload = drawImage; // Llama a drawImage cuando la página se cargue
             function updateImage() {
-                var img = document.getElementById('originalImage');
+                var canvas = document.getElementById('canvas');
+                if (!canvas) return; // Sale si no se encuentra el canvas
+                var ctx = canvas.getContext('2d');
+                // Obtén los valores de los controles deslizantes
                 var brightness = document.getElementById('brightness').value;
                 var contrast = document.getElementById('contrast').value;
                 var saturation = document.getElementById('saturation').value;
                 var blur = document.getElementById('blur').value;
-                var canvas = document.getElementById('canvas');
-                var ctx = canvas.getContext('2d');
-                // Limpia el canvas y establece los filtros.
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // Aplica los filtros
                 ctx.filter = `brightness(${brightness}%) contrast(${contrast}%) saturation(${saturation}%) blur(${blur}px)`;
-                // Redibuja la imagen con los filtros aplicados.
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                // Dibuja la imagen con los filtros aplicados
+                var img = new Image(); // Crea una nueva instancia para asegurarse de que la imagen se carga
+                img.onload = function() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
+                    ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+                }
+                img.src = document.getElementById('originalImage').src; // Establece la src de la imagen original
             }
         </script>
     </body>
