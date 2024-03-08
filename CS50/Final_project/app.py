@@ -11,6 +11,8 @@ def index():
 @app.route('/upload')
 def upload_image():
     if 'imagen' in request.files:
+        file = request.files['imagen']
+        image = Image.open(file.stream)
         
 
 if __name__ == "__main__":
