@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
-from PIL import Image
-import os
+from flask import Flask, render_template, request, redirect, url_for, send_file
+from PIL import Image, ImageEnhance, ImageFilter
+import os, io
 from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 
