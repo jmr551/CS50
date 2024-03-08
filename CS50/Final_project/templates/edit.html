@@ -6,35 +6,36 @@
     </head>
     <body>
         <h1>Edit your image</h1>
-        <div>
-            <h2>Original Image</h2>
-            <img id="originalImage" src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
-        </div>
+  <div>
+    <h2>Original Image</h2>
+    <img id="originalImage" src="{{ url_for('static', filename=image_path) }}" alt="Image to be edited" style="max-width:500px;">
+  </div>
 
-        <div>
-            <h2>Modified Image</h2>
-            <canvas id="canvas" style="max-width:500px;"></canvas>
-        </div>
+  <div>
+    <h2>Modified Image</h2>
+    <canvas id="canvas" style="max-width:500px;"></canvas>
+  </div>
 
-        <div>
-            <label for="brightness">Brightness</label>
-            <input type="range" id="brightness" name="brightness" min="0" max="200" value="100" onchange="updateImage()">
-        </div>
+  <div>
+    <label for="brightness">Brightness</label>
+    <input type="range" id="brightness" name="brightness" min="0" max="200" value="100" onchange="updateImage()">
+  </div>
 
-        <div>
-            <label for="contrast">Contrast:</label>
-            <input type="range" id="contrast" name="contrast" min="0" max="200" value="100" onchange="updateImage()">
-        </div>
+  <div>
+    <label for="contrast">Contrast:</label>
+    <input type="range" id="contrast" name="contrast" min="0" max="200" value="100" onchange="updateImage()">
+  </div>
 
-        <div>
-            <label for="saturation">Saturation:</label>
-            <input type="range" id="saturation" name="saturation" min="0" max="200" value="100" onchange="updateImage()">
-        </div>
+  <div>
+    <label for="saturation">Saturation:</label>
+    <input type="range" id="saturation" name="saturation" min="0" max="200" value="100" onchange="updateImage()">
+  </div>
 
-        <div>
-            <label for="blur">Blur:</label>
-            <input type="range" id="blur" name="blur" min="0" max="10" value="0" onchange="updateImage()">
-        </div>
+  <div>
+    <label for="blur">Blur:</label>
+    <input type="range" id="blur" name="blur" min="0" max="10" value="0" onchange="updateImage()">
+  </div>
+
 
 
         <script>
