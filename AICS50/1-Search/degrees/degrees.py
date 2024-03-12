@@ -105,6 +105,7 @@ def shortest_path(source, target):
                 persona = nodo_actual.state
                 peli = nodo_actual.action
                 solucion = [(peli, persona)]
+                
                 nodo_actual.parent
 
 
