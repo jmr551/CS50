@@ -100,10 +100,15 @@ def shortest_path(source, target):
             print(f"neighbor = {neighbor}")
             print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
     explored = [] # Nodos explorados
+    print(f"1: {queue.empty}")
+    print(f"2: {not queue.empty}")
+
 
     while(True):
         if not queue.empty:
+            print("Llego acá2")
             nodo_actual = queue.remove()
+            print("Sabemos que no está vació")
             if nodo_actual.state == target: #Encontramos, a casa.
                 print(f"Se cumplió: {nodo_actual.state} == {target}")
                 persona = nodo_actual.state
