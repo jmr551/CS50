@@ -105,7 +105,7 @@ def shortest_path(source, target):
                 persona = nodo_actual.state
                 peli = nodo_actual.action
                 solucion = [(peli, persona)]
-                while(persona != source)
+                while(not nodo_actual.parent)
                     for nodo_explorado in explored:
                         if nodo_actual.parent == nodo_explorado.state:
                             persona = nodo_explorado.state
@@ -113,9 +113,6 @@ def shortest_path(source, target):
                             solucion.append((peli, persona))
                             nodo_actual = nodo_explorado
                             break
-
-
-
                 return solucion.reverse()
             else:
                 # buscamos a todos sus nuevos vecinos
