@@ -122,6 +122,8 @@ def shortest_path(source, target):
                             peli = nodo_explorado.action
                             solucion.append((peli, persona))
                             padre = nodo_explorad.parent
+                            if padre == source:
+                                padre = None
                             break
                 return solucion.reverse()
             else:
