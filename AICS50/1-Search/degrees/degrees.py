@@ -135,6 +135,7 @@ def neighbors_for_person(person_id):
     """
     movie_ids = people[person_id]["movies"]
     neighbors = set()
+    explored = StackFrontier()
     for movie_id in movie_ids:
         for person_id in movies[movie_id]["stars"]:
             neighbors.add((movie_id, person_id))
