@@ -123,6 +123,7 @@ def shortest_path(source, target):
                             break
                     else:
                         print("Error. No se encontró")
+                        return 1
                 return solucion.reverse()
             else:
                 # buscamos a todos sus nuevos vecinos
