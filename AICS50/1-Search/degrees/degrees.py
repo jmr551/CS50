@@ -121,8 +121,7 @@ def shortest_path(source, target):
                             persona = nodo_explorado.state
                             peli = nodo_explorado.action
                             solucion.append((peli, persona))
-                            
-                            nodo_actual = nodo_explorado
+                            padre = nodo_explorad.parent
                             break
                     else:
                         print("Error. No se encontró")
