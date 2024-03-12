@@ -96,7 +96,7 @@ def shortest_path(source, target):
     queue = QueueFrontier()
     for neighbor in neighbors_for_person(source):
         queue.add(Node(neighbor[1], source, neighbor[0]))
-    explored = []
+    explored = [] # Nodos explorados
 
     while(True):
         if not queue.empty:
