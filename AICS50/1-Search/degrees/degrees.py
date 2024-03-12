@@ -102,7 +102,7 @@ def shortest_path(source, target):
         if not queue.empty:
             nodo_actual = queue.remove()
             if nodo_actual.state == target: #Encontramos, a casa.
-
+                
             else:
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
@@ -112,7 +112,6 @@ def shortest_path(source, target):
                             nodoNuevo = False
                     if nodoNuevo:
                         queue.add(Node(neighbor[1], nodo_actual.state, neighbor[0]))
-
 
                 # le pasamos a explorado
                 explored.append(nodo_actual)
