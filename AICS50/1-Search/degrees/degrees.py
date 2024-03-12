@@ -105,8 +105,11 @@ def shortest_path(source, target):
                 persona = nodo_actual.state
                 peli = nodo_actual.action
                 solucion = [(peli, persona)]
-                
-                nodo_actual.parent
+                for nodo_explorado in explored:
+                    if nodo_actual.parent == nodo_explorado.state:
+                        solucion.append((, nodo_actual.parent))
+                        break
+
 
 
                 return solucion.reverse()
