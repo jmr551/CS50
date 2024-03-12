@@ -99,7 +99,7 @@ def shortest_path(source, target):
         print(f"neighbor = {neighbor}")
         print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
     explored = [] # Nodos explorados
-
+    print(f"Hay {len(queue)} vecinos")
     while(True):
         if not queue.empty:
             nodo_actual = queue.remove()
