@@ -105,10 +105,13 @@ def shortest_path(source, target):
                 persona = nodo_actual.state
                 peli = nodo_actual.action
                 solucion = [(peli, persona)]
-                for nodo_explorado in explored:
-                    if nodo_actual.parent == nodo_explorado.state:
-                        solucion.append((, nodo_actual.parent))
-                        break
+                while(persona != source)
+                    for nodo_explorado in explored:
+                        if nodo_actual.parent == nodo_explorado.state:
+                            persona = nodo_actual.parent
+                            peli =nodo_explorado.action
+                            solucion.append((peli, persona))
+                            break
 
 
 
