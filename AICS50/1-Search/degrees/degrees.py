@@ -97,13 +97,13 @@ def shortest_path(source, target):
     for neighbor in neighbors_for_person(source):
         queue.add(Node(source, None, neighbor))
     explored = []
-    
-    while(True):
-        for neighbor in neighbors_for_person(source): # Primero, añado a todos los vecinos
-            queue.add(Node(neighbor[1], source, neighbor[0]))
-        if target:# si no es, sigo recorriendo, añado a los vecinos
 
-        else: # si es, ya encontré y veo qué hago
+    while(True):
+        if not queue.empty:
+            nodo_siguiente = queue.remove()
+            if 
+        else:
+            return None
 
 def person_id_for_name(name):
     """
