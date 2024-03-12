@@ -105,6 +105,7 @@ def shortest_path(source, target):
         if not queue.empty:
             nodo_actual = queue.remove()
             if nodo_actual.state == target: #Encontramos, a casa.
+                print(f"Se cumplió: {nodo_actual.state} == {target}")
                 persona = nodo_actual.state
                 peli = nodo_actual.action
                 solucion = [(peli, persona)]
