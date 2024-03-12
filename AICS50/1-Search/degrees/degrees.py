@@ -95,7 +95,7 @@ def shortest_path(source, target):
     # TODO
     queue = QueueFrontier()
     for neighbor in neighbors_for_person(source):
-        
+        queue.add(Node(source, source))
 
 
 def person_id_for_name(name):
