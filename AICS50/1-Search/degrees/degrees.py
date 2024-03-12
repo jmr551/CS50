@@ -96,7 +96,9 @@ def shortest_path(source, target):
     queue = QueueFrontier()
     for neighbor in neighbors_for_person(source):
         queue.add(Node(neighbor[1], source, neighbor[0]))
-        if 
+        if :# si no es, sigo recorriendo, añado a los vecinos
+
+        else: # si es, ya encontré y veo qué hago
 
 def person_id_for_name(name):
     """
