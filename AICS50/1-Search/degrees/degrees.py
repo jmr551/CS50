@@ -93,7 +93,8 @@ def shortest_path(source, target):
     """
 
     # TODO
-    neighbors_for_person(source
+    for node in neighbors_for_person(source):
+        
 
 
 def person_id_for_name(name):
