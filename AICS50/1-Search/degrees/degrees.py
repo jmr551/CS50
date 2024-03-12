@@ -100,8 +100,8 @@ def shortest_path(source, target):
 
     while(True):
         if not queue.empty:
-            nodo_siguiente = queue.remove()
-            if nodo_siguiente.
+            nodo_actual = queue.remove()
+            if nodo_actual.
         else:
             return None
 
