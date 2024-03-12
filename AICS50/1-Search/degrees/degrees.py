@@ -106,7 +106,7 @@ def shortest_path(source, target):
             else:
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
-                    
+                    nodo_actual.parent
 
                 # le pasamos a explorado
                 explored.append(nodo_actual)
