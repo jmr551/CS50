@@ -94,7 +94,8 @@ def shortest_path(source, target):
 
     # TODO
     queue = QueueFrontier()
-    sourceNode = Node(, None, )
+    sourceNode = Node(, None,)
+    explored = []
     while(True):
         for neighbor in neighbors_for_person(source):
             queue.add(Node(neighbor[1], source, neighbor[0]))
@@ -135,7 +136,6 @@ def neighbors_for_person(person_id):
     """
     movie_ids = people[person_id]["movies"]
     neighbors = set()
-    explored = StackFrontier()
     for movie_id in movie_ids:
         for person_id in movies[movie_id]["stars"]:
             neighbors.add((movie_id, person_id))
