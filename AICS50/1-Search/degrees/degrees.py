@@ -123,9 +123,6 @@ def shortest_path(source, target):
                             solucion.append((peli, persona))
                             padre = nodo_explorad.parent
                             break
-                    else:
-                        print("Error. No se encontró")
-                        return 1
                 return solucion.reverse()
             else:
                 # buscamos a todos sus nuevos vecinos
