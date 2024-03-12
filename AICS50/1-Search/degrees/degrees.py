@@ -98,6 +98,7 @@ def shortest_path(source, target):
         queue.add(Node(neighbor[1], source, neighbor[0]))
         print(f"neighbor = {neighbor}")
         print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
+        print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
     explored = [] # Nodos explorados
 
     while(True):
