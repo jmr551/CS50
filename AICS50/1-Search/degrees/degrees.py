@@ -115,6 +115,7 @@ def shortest_path(source, target):
                 while(nodo_actual.parent):
                     print(f"Imprimo el valor de nodo_actual.parent: {nodo_actual.parent}")
                     for nodo_explorado in explored:
+                        print(f"Pregunto si if {nodo_actual.parent} == {nodo_explorado.state}")
                         if nodo_actual.parent == nodo_explorado.state:
                             persona = nodo_explorado.state
                             peli = nodo_explorado.action
