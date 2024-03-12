@@ -104,13 +104,17 @@ def shortest_path(source, target):
     while(True):
         if not queue.empty():
             nodo_actual = queue.remove()
-            print(f"Se verifica si: {nodo_actual.state} == {target}")
+            #print(f"Se verifica si: {nodo_actual.state} == {target}")
             if nodo_actual.state == target: #Encontramos, a casa.
-                print(f"Se cumplió: {nodo_actual.state} == {target}")
+                #print(f"Se cumplió: {nodo_actual.state} == {target}")
                 persona = nodo_actual.state
+                print(f"persona: {persona}")
                 peli = nodo_actual.action
+                print(f"peli: {peli}")
                 solucion = [(peli, persona)]
-                while(not nodo_actual.parent):
+                print(f"solucion: {solucion}")
+                print(f"Imprimo el valor de not nodo_actual.parent: {not nodo_actual.parent}")
+                while(nodo_actual.parent):
                     for nodo_explorado in explored:
                         if nodo_actual.parent == nodo_explorado.state:
                             persona = nodo_explorado.state
