@@ -102,7 +102,13 @@ def shortest_path(source, target):
         if not queue.empty:
             nodo_actual = queue.remove()
             if nodo_actual.state == target: #Encontramos, a casa.
+                persona = nodo_actual.state
+                peli = nodo_actual.action
+                solucion = [(peli, persona)]
                 nodo_actual.parent
+
+
+                return solucion.reverse()
             else:
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
