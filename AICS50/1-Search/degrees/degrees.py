@@ -95,13 +95,13 @@ def shortest_path(source, target):
     # TODO
     queue = QueueFrontier()
     for neighbor in neighbors_for_person(source):
-        queue.add(Node(source, None, neighbor))
+        queue.add(Node(neighbor, source, neighbor))
     explored = []
 
     while(True):
         if not queue.empty:
             nodo_siguiente = queue.remove()
-            if 
+            if nodo_siguiente.
         else:
             return None
 
