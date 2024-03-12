@@ -111,7 +111,8 @@ def shortest_path(source, target):
                         if nodo_actual.parent == nodo_explorado.state:
                             nodoNuevo = False
                     if nodoNuevo:
-                        queue.add(Node())
+                        queue.add(Node(neighbor[1], nodo_actual.state, neighbor[0]))
+                        
 
                 # le pasamos a explorado
                 explored.append(nodo_actual)
