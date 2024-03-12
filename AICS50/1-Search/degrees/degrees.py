@@ -107,14 +107,13 @@ def shortest_path(source, target):
             #print(f"Se verifica si: {nodo_actual.state} == {target}")
             if nodo_actual.state == target: #Encontramos, a casa.
                 #print(f"Se cumplió: {nodo_actual.state} == {target}")
-                persona = nodo_actual.state
-                peli = nodo_actual.action
+                explored.append(nodo_actual)
+                persona = nodo_actual.state #Persona
+                peli = nodo_actual.action #Accion
                 solucion = [(peli, persona)]
+                # Ahora buscamos al padre
                 while(nodo_actual.parent):
                     print(f"Imprimo el valor de nodo_actual.parent: {nodo_actual.parent}")
-                    if nodo_actual.parent == source:
-
-
                     for nodo_explorado in explored:
                         if nodo_actual.parent == nodo_explorado.state:
                             persona = nodo_explorado.state
@@ -122,6 +121,8 @@ def shortest_path(source, target):
                             solucion.append((peli, persona))
                             nodo_actual = nodo_explorado
                             break
+                    else:
+                        print("Error. No se encontró")
                 return solucion.reverse()
             else:
                 # buscamos a todos sus nuevos vecinos
