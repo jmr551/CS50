@@ -137,7 +137,7 @@ def shortest_path(source, target):
                 for neighbor in neighbors_for_person(nodo_actual.state):
                     nodoNuevo = True
                     for nodo_explorado in explored:
-                        if neighbor[1] == nodo_explorado.state or :
+                        if neighbor[1] == nodo_explorado.state or neighbor[1] == nodo_actual.parent:
                             nodoNuevo = False
                     if nodoNuevo:
                         queue.add(Node(neighbor[1], nodo_actual.state, neighbor[0]))
