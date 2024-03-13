@@ -94,11 +94,11 @@ def shortest_path(source, target):
 
     # TODO
     queue = QueueFrontier()
-    source_node = Node(source, None, None, None)
+    source_node = Node(source, None, None)
     for neighbor in neighbors_for_person(source):
         print(neighbor)
         if neighbor[1]!=source:
-            queue.add(Node(neighbor[1], source_node, neighbor[0]), neighbor)
+            queue.add(Node(neighbor[1], source_node, neighbor[0]))
             print(f"neighbor = {neighbor}")
             print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
     explored = [] # Nodos explorados
