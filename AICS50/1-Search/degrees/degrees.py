@@ -114,10 +114,9 @@ def shortest_path(source, target):
                 peli = nodo_actual.action #Accion
                 solucion = [(peli, persona)] #creo que esto esta repetido ahora
                 print(f"Solución: {solucion}")
-                padre = nodo_actual.parent
                 print(f"Le buscamos al padre: {padre}")
                 # Ahora buscamos al padre
-                while(padre != source):
+                while(nodo_actual.parent != source):
                     '''for nodo_explorado in explored:
                         print(f"Pregunto si if {padre} == {nodo_explorado.state}")
                         if padre == nodo_explorado.state:
