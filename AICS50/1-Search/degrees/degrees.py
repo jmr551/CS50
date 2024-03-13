@@ -118,8 +118,7 @@ def shortest_path(source, target):
                 print(f"Le buscamos al padre: {padre}")
                 # Ahora buscamos al padre
                 while(padre != source):
-                    print(f"Imprimo el valor de nodo_actual.parent: {nodo_actual.parent}")
-                    for nodo_explorado in explored:
+                    '''for nodo_explorado in explored:
                         print(f"Pregunto si if {padre} == {nodo_explorado.state}")
                         if padre == nodo_explorado.state:
                             persona = nodo_explorado.state
@@ -129,6 +128,8 @@ def shortest_path(source, target):
                             if padre == source:
                                 padre = None
                             break
+                    '''
+                    nodo_actual = nodo_actual.parent
                 solucion.reverse()
                 print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
