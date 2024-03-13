@@ -104,7 +104,7 @@ def shortest_path(source, target):
     while(True):
         if not queue.empty():
             nodo_actual = queue.remove()
-            #print(f"Se verifica si: {nodo_actual.state} == {target}")
+            print(f"Se verifica si: {nodo_actual.state} == {target}")
             if nodo_actual.state == target: #Encontramos, a casa.
                 print(f"Se cumplió: {nodo_actual.state} == {target}")
                 explored.append(nodo_actual)
