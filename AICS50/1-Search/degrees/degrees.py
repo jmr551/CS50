@@ -113,7 +113,7 @@ def shortest_path(source, target):
                 solucion = [(peli, persona)] #creo que esto esta repetido ahora
                 padre = nodo_actual.parent
                 # Ahora buscamos al padre
-                while(padre):
+                while(padre != source):
                     print(f"Imprimo el valor de nodo_actual.parent: {nodo_actual.parent}")
                     for nodo_explorado in explored:
                         print(f"Pregunto si if {padre} == {nodo_explorado.state}")
