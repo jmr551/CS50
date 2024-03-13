@@ -148,7 +148,6 @@ def shortest_path(source, target):
 
         else:
             return None
-    '''
 
 def person_id_for_name(name):
     """
