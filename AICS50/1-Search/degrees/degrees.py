@@ -100,7 +100,7 @@ def shortest_path(source, target):
             print(f"neighbor = {neighbor}")
             print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
     explored = [] # Nodos explorados
-    
+
     while(True):
         if not queue.empty():
             nodo_actual = queue.remove()
@@ -127,7 +127,7 @@ def shortest_path(source, target):
                             if padre == source:
                                 padre = None
                             break
-                solucion=solucion.reverse()
+                #solucion=solucion.reverse()
                 print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
             else:
