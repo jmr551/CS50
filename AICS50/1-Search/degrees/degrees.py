@@ -111,7 +111,9 @@ def shortest_path(source, target):
                 persona = nodo_actual.state #Persona
                 peli = nodo_actual.action #Accion
                 solucion = [(peli, persona)] #creo que esto esta repetido ahora
+                print(f"Solución: {solucion}")
                 padre = nodo_actual.parent
+                print(f"Le buscamos al padre: {padre}")
                 # Ahora buscamos al padre
                 while(padre != source):
                     print(f"Imprimo el valor de nodo_actual.parent: {nodo_actual.parent}")
@@ -125,7 +127,9 @@ def shortest_path(source, target):
                             if padre == source:
                                 padre = None
                             break
-                return solucion.reverse()
+                solucion=solucion.reverse()
+                print(f"Hasta ahora, la solución es: {solucion}")
+                return solucion
             else:
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
