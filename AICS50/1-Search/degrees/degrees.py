@@ -106,27 +106,15 @@ def shortest_path(source, target):
     while(True):
         if not queue.empty():
             nodo_actual = queue.remove()
-            #print(f"Se verifica si: {nodo_actual.state} == {target}")
             if nodo_actual.state == target: #Encontramos, a casa.
-                print(f"Se cumplió: {nodo_actual.state} == {target}")
+                #print(f"Se cumplió: {nodo_actual.state} == {target}")
                 explored.append(nodo_actual)
                 persona = nodo_actual.state #Persona
                 peli = nodo_actual.action #Accion
                 solucion = [(peli, persona)] #creo que esto esta repetido ahora
-                print(f"Solución: {solucion}")
+                #print(f"Solución: {solucion}")
                 # Ahora buscamos al padre
                 while(nodo_actual.parent.state != source):
-                    '''for nodo_explorado in explored:
-                        print(f"Pregunto si if {padre} == {nodo_explorado.state}")
-                        if padre == nodo_explorado.state:
-                            persona = nodo_explorado.state
-                            peli = nodo_explorado.action
-                            solucion.append((peli, persona))
-                            padre = nodo_explorado.parent
-                            if padre == source:
-                                padre = None
-                            break
-                    '''
                     nodo_actual = nodo_actual.parent
                     solucion.append((nodo_actual.action, nodo_actual.state))
 
@@ -145,8 +133,6 @@ def shortest_path(source, target):
                             nodoNuevo = False
                     if nodoNuevo:
                         queue.add(Node(neighbor[1], nodo_actual, neighbor[0]))
-
-
         else:
             return None
 
