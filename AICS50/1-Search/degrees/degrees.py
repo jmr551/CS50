@@ -135,15 +135,15 @@ def shortest_path(source, target):
             else:
                 # le pasamos a explorado
                 explored.append(nodo_actual)
-                
+
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
                     nodoNuevo = True
                     for nodo_explorado in explored:
-                        if neighbor[1] == nodo_explorado.state:
+                        if neighbor[1] == nodo_explorado.state and neighbor[0] == nodo_explorado.action:
                             nodoNuevo = False
                     if nodoNuevo:
-                        queue.add(Node(neighbor[1], nodo_actual.state, neighbor[0]))
+                        queue.add(Node(neighbor[1], nodo_actual, neighbor[0]))
 
 
         else:
