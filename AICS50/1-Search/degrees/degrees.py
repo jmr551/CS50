@@ -130,7 +130,7 @@ def shortest_path(source, target):
                             break
                     '''
                     nodo_actual = nodo_actual.parent
-                    
+                    solucion.append((nodo_actual.action, nodo_actual.state))
 
                 solucion.reverse()
                 print(f"Hasta ahora, la solución es: {solucion}")
