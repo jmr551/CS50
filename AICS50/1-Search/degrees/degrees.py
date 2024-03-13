@@ -133,17 +133,19 @@ def shortest_path(source, target):
                 print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
             else:
+                # le pasamos a explorado
+                explored.append(nodo_actual)
+                
                 # buscamos a todos sus nuevos vecinos
                 for neighbor in neighbors_for_person(nodo_actual.state):
                     nodoNuevo = True
                     for nodo_explorado in explored:
-                        if neighbor[1] == nodo_explorado.state or neighbor[1] == nodo_actual.parent:
+                        if neighbor[1] == nodo_explorado.state:
                             nodoNuevo = False
                     if nodoNuevo:
                         queue.add(Node(neighbor[1], nodo_actual.state, neighbor[0]))
 
-                # le pasamos a explorado
-                explored.append(nodo_actual)
+
         else:
             return None
     '''
