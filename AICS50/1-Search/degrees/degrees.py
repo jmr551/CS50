@@ -94,7 +94,7 @@ def shortest_path(source, target):
 
     # TODO
     queue = QueueFrontier()
-    source_node = Node(source, None, None)
+    source_node = Node(source, None, None, None)
     for neighbor in neighbors_for_person(source):
         print(neighbor)
         if neighbor[1]!=source:
@@ -147,7 +147,7 @@ def shortest_path(source, target):
         else:
             return None
     '''
-    
+
 def person_id_for_name(name):
     """
     Returns the IMDB id for a person's name,
