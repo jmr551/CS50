@@ -119,7 +119,7 @@ def shortest_path(source, target):
                     solucion.append((nodo_actual.action, nodo_actual.state))
 
                 solucion.reverse()
-                print(f"Hasta ahora, la solución es: {solucion}")
+                # print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
             else:
                 # le pasamos a explorado
