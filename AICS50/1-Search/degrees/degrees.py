@@ -123,7 +123,7 @@ def shortest_path(source, target):
                             persona = nodo_explorado.state
                             peli = nodo_explorado.action
                             solucion.append((peli, persona))
-                            padre = nodo_explorad.parent
+                            padre = nodo_explorado.parent
                             if padre == source:
                                 padre = None
                             break
