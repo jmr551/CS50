@@ -98,30 +98,26 @@ def shortest_path(source, target):
     queue = QueueFrontier()
     source_node = Node(source, None, None)
     for neighbor in neighbors_for_person(source):
-        #print(neighbor)
-        if neighbor[1]!=source:
+        # print(neighbor)
+        if neighbor[1] != source:
             queue.add(Node(neighbor[1], source_node, neighbor[0]))
-            #print(f"neighbor = {neighbor}")
-            #print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
-    explored = [] # Nodos explorados
+            # print(f"neighbor = {neighbor}")
+            # print(f"Instruccion: queue.add(Node({neighbor[1]}, {source}, {neighbor[0]}))")
+    explored = []  # Nodos explorados
 
-    while(True):
+    while (True):
         if not queue.empty():
             nodo_actual = queue.remove()
-            if nodo_actual.state == target: #Encontramos, a casa.
-                #print(f"Se cumplió: {nodo_actual.state} == {target}")
+            if nodo_actual.state == target:
                 explored.append(nodo_actual)
-                persona = nodo_actual.state #Persona
-                peli = nodo_actual.action #Accion
-                solucion = [(peli, persona)] #creo que esto esta repetido ahora
-                #print(f"Solución: {solucion}")
-                # Ahora buscamos al padre
-                while(nodo_actual.parent.state != source):
+                persona = nodo_actual.state
+                peli = nodo_actual.action
+                solucion = [(peli, persona)]
+                while (nodo_actual.parent.state != source):
                     nodo_actual = nodo_actual.parent
                     solucion.append((nodo_actual.action, nodo_actual.state))
 
                 solucion.reverse()
-                # print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
             else:
                 # le pasamos a explorado
@@ -137,6 +133,7 @@ def shortest_path(source, target):
                         queue.add(Node(neighbor[1], nodo_actual, neighbor[0]))
         else:
             return None
+
 
 def person_id_for_name(name):
     """
