@@ -127,7 +127,7 @@ def shortest_path(source, target):
                             if padre == source:
                                 padre = None
                             break
-                #solucion=solucion.reverse()
+                solucion.reverse()
                 print(f"Hasta ahora, la solución es: {solucion}")
                 return solucion
             else:
