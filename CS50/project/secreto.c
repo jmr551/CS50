@@ -33,8 +33,23 @@ int main (int argc, char *argv[])
 
     int cyp = strcmp(argv[1], "enc") == 0;
 
-    if (!cyp && strcmp(argv[1], "des"))
+    if (!cyp && strcmp(argv[1], "dec"))
     {
-        printf("You should put enc or des to ")
+        printf("You should put enc or dec to encrypt or decrypt\n");
+        return 2;
+    }
+
+    int key = atoi(argv[2]);
+    FILE *input = fopen(argv[3], "r");
+    if (!input)
+    {
+        printf("Error. Could not open the input file.\n);
+        return 3;
+    }
+
+    FILE *output = fopen(argv[4], "w");
+    if (!output)
+    {
+        printf("Error. Could not open the output file")
     }
 }
