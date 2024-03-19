@@ -1,44 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    FILE *file;
-    char *filename = "plain_text.txt"; // Nombre del archivo a leer
-    char *buffer;
-    long fileLength;
+int main(int argc, char *argv[]) {
+    FILE *archivo;
+    char buffer[1024];
 
-    // Abre el archivo en modo de lectura binaria
-    file = fopen(filename, "rb");
-    if (file == NULL) {
-        perror("Error al abrir el archivo");
+    if (argc < 2) {
+        printf("Usage: %s <file>\n", argv[0]);
         return 1;
     }
 
-    // Busca el final del archivo para determinar su tamaño
-    fseek(file, 0, SEEK_END);
-    fileLength = ftell(file); // Obtiene el tamaño del archivo
-    rewind(file); // Vuelve al inicio del archivo
-
-    // Asigna memoria para almacenar el contenido completo del archivo
-    buffer = (char *)malloc((fileLength+1) * sizeof(char));
-    if (buffer == NULL) {
-        fprintf(stderr, "Error de memoria\n");
-        fclose(file);
-        return 1;
+    archivo = fopen(argv[1], "r");
+    if (archivo == NULL) {
+        perror("Error");
+        return 2; // Retorna 1 para indicar un error
     }
 
-    // Lee el archivo en el buffer
-    fread(buffer, fileLength, 1, file);
-    buffer[fileLength] = '\0'; // Asegura que el buffer sea una cadena válida
+    // Lee el contenido del archivo en el búfer
+    // Esta simple demostración asume que el contenido del archivo es menor que el tamaño del búfer
+    if (fgets(buffer, sizeof(buffer), archivo) != NULL) {
+        printf("Contenido del archivo: %s", buffer);
+    } else {
+        printf("No se pudo leer el contenido del archivo o el archivo está vacío.\n");
+    }
 
     // Cierra el archivo
-    fclose(file);
+    fclose(archivo);
 
-    // Aquí puedes procesar el contenido del buffer como desees
-    printf("Contenido del archivo:\n%s", buffer);
-
-    // Libera la memoria asignada
-    free(buffer);
-
-    return 0;
+    return 0; // Finaliza con éxito
 }
