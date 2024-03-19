@@ -9,7 +9,7 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
     while ((c = fgetc(input)) != EOF)
     {
         if (c == '\n' || c == '\r') {
-            fputc(c, salida);
+            fputc(c, output);
         }
         else
         {
