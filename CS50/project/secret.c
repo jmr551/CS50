@@ -8,7 +8,6 @@ void cifrarAES(unsigned char *textoPlano, int longitudTextoPlano, unsigned char 
 void descifrarAES(unsigned char *textoCifrado, int longitudTextoCifrado, unsigned char *clave, unsigned char *iv, unsigned char *textoPlano);
 
 int main(int argc, char *argv[]) {
-    // Verifica los argumentos de la línea de comandos
     if (argc < 5) {
         fprintf(stderr, "Uso: %s <cifrar/descifrar> <archivo de entrada> <archivo de salida> <clave>\n", argv[0]);
         exit(1);
