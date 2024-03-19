@@ -7,7 +7,7 @@ void cifrarDescifrar(FILE *entrada, FILE *salida, int clave, int cifrar) {
     srand(clave); // Establece la semilla para la generación de números aleatorios
     int c;
     while ((c = fgetc(entrada)) != EOF) {
-        int delta = rand() % 127; // Genera un número aleatorio y lo reduce módulo 127
+        int delta = rand(); // Genera un número aleatorio y lo reduce módulo 127
         int resultado;
         if (cifrar) {
             resultado = (c + delta) % 127; // Cifrado
