@@ -16,12 +16,8 @@ int main(int argc, char *argv[]) {
         return 2; // Retorna 1 para indicar un error
     }
 
-    // Lee el contenido del archivo en el búfer
-    // Esta simple demostración asume que el contenido del archivo es menor que el tamaño del búfer
-    if (fgets(buffer, sizeof(buffer), archivo) != NULL) {
-        printf("Contenido del archivo: %s", buffer);
-    } else {
-        printf("No se pudo leer el contenido del archivo o el archivo está vacío.\n");
+    while (fgets(buffer, sizeof(buffer), archivo) != NULL) {
+        printf("%s", buffer); // Imprime cada línea leída
     }
 
     // Cierra el archivo
