@@ -1,34 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 void cifrarDescifrar(FILE *entrada, FILE *salida, int clave, int cifrar) {
     srand(clave); // Establece la semilla para la generación de números aleatorios
     int c;
     while ((c = fgetc(entrada)) != EOF) {
-        int delta = rand(); // Genera un número aleatorio y lo reduce módulo 127
+        int delta = rand() % (128 - 32); // Genera un número aleatorio dentro del rango ajustado
         int resultado;
         if (cifrar) {
-            resultado = (c + delta) % 127; // Cifrado
+            resultado = ((c - 32 + delta) % (128 - 32)) + 32; // Cifrado
         } else {
-            resultado = (c - delta) % 127; // Descifrado
-            if (resultado < 0) resultado += 127; // Ajuste para casos negativos
+            resultado = ((c - 32 - delta + (128 - 32)) % (128 - 32)) + 32; // Descifrado, ajuste para el módulo negativo
         }
-        if (resultado < 32) resultado += 32; // Evita caracteres de control
         fputc(resultado, salida);
     }
 }
 
 int main(int argc, char *argv[]) {
     if (argc != 5) {
-        printf("Uso: %s <enc/des> <clave> <archivo de entrada> <archivo de salida>\n", argv[0]);
+        fprintf(stderr, "Uso: %s <enc/des> <clave> <archivo de entrada> <archivo de salida>\n", argv[0]);
         return 1;
     }
 
     int cifrar = strcmp(argv[1], "enc") == 0;
     if (!cifrar && strcmp(argv[1], "des") != 0) {
-        printf("El primer argumento debe ser 'enc' para encriptar o 'des' para desencriptar.\n");
+        fprintf(stderr, "El primer argumento debe ser 'enc' para encriptar o 'des' para desencriptar.\n");
         return 1;
     }
 
@@ -42,7 +39,7 @@ int main(int argc, char *argv[]) {
     FILE *salida = fopen(argv[4], "w");
     if (!salida) {
         perror("Error al abrir el archivo de salida");
-        fclose(entrada);
+        fclose(entrada); // Asegura que el archivo de entrada se cierre antes de salir
         return 1;
     }
 
