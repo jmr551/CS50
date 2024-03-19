@@ -13,7 +13,8 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Uso: %s <cifrar/descifrar> <archivo de entrada> <archivo de salida> <clave>\n", argv[0]);
         exit(1);
     }
-    FILE *file = fopen("entrada.bin", "rb"); // Abrir para lectura binaria
+    FILE *file = fopen(argv[2], "rb"); // Usa el archivo especificado por el usuario
+
     if (file == NULL) {
         perror("Error abriendo archivo");
         return 1;
