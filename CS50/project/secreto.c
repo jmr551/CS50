@@ -8,18 +8,24 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
     int c;
     while ((c = fgetc(input)) != EOF)
     {
-        int delta = rand() % (128 - 32); //Generates a pseudorandom number accordind to the seed
-        int res;
-
-        if (cyp)
-        {
-            res = ((c - 32 + delta) % (128 - 32)) + 32;
+        if (c == '\n' || c == '\r') {
+            fputc(c, salida);
         }
         else
         {
-            res = ((c - 32 - delta + (128 - 32)) % (128 - 32)) + 32;
+            int delta = rand() % (128 - 32); //Generates a pseudorandom number accordind to the seed
+            int res;
+
+            if (cyp)
+            {
+                res = ((c - 32 + delta) % (128 - 32)) + 32;
+            }
+            else
+            {
+                res = ((c - 32 - delta + (128 - 32)) % (128 - 32)) + 32;
+            }
+            fputc(res, output);
         }
-        fputc(res, output);
     }
 }
 
