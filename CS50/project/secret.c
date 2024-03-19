@@ -13,6 +13,21 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Uso: %s <cifrar/descifrar> <archivo de entrada> <archivo de salida> <clave>\n", argv[0]);
         exit(1);
     }
+    FILE *file = fopen("entrada.bin", "rb"); // Abrir para lectura binaria
+    if (file == NULL) {
+        perror("Error abriendo archivo");
+        return 1;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fsize = ftell(file);
+    fseek(file, 0, SEEK_SET);
+
+    unsigned char *string = malloc(fsize + 1);
+    fread(string, 1, fsize, file);
+    fclose(file);
+
+    string[fsize] = 0; // Terminador nulo para el caso de texto, opcional para datos binarios
 
     // Asume que argv[1] es "cifrar" o "descifrar", argv[2] es el archivo de entrada, argv[3] es el archivo de salida, y argv[4] es la clave
     // Aquí iría la lógica para leer el archivo de entrada, cifrarlo o descifrarlo, y escribir el archivo de salida
