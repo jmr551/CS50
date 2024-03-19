@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
 {
     if (argc != 5)
     {
-        printf("Usage: %s <enc/des> <key> <input_file> <output_file>\n", argv[0]);
+        printf("Usage: %s <enc/dec> <key> <input_file> <output_file>\n", argv[0]);
         return 1;
     }
 
