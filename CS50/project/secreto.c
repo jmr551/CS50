@@ -43,13 +43,21 @@ int main (int argc, char *argv[])
     FILE *input = fopen(argv[3], "r");
     if (!input)
     {
-        printf("Error. Could not open the input file.\n);
+        printf("Error. Could not open the input file.\n");
         return 3;
     }
 
     FILE *output = fopen(argv[4], "w");
     if (!output)
     {
-        printf("Error. Could not open the output file")
+        printf("Error. Could not open the output file.\n");
+        return 4;
     }
+
+    cypherDescypher(input, output, key, cyp);
+
+    fclose(input);
+    fclose(output);
+
+    return 0;
 }
