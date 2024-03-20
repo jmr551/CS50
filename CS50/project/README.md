@@ -6,4 +6,5 @@ This project implements a basic cypher/decypher of ASCII text as input, using a 
 ## How does it work?
 This code is written in C and uses the `rand()` function from the C standard library.
 The seed is initialised with the key provided by the user through command line.
+```
 
