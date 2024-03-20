@@ -18,7 +18,6 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
 
             if (cyp)
             {
-                res = ((c - 32 + delta) % (128 - 32)) + 32;
                 res = ((c - 32 + delta) % (127 - 32)) + 32;
             }
             else
