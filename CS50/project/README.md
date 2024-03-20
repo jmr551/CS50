@@ -9,10 +9,10 @@ The idea of this code, written in C, was inspired in the Caesar cipher, but inst
 Since not every ASCII character could be read by a text editor, I propose to use just the ASCII characters that can be seen (This arbitrary decision, added to the randomness added to the characters, favors the difficulty for an attacker to know how to decrypt the file).
 
 The characters that could be read are in the range from 32 to 126. So the delta should be in this range:
-`int delta = rand() % (128 - 32);`
+`int delta = rand() % (127 - 32);`
 So, I read every character from the text file, obtain the corresponding delta and add to the ASCII character.
 But, in order to avoid overflow, the result needs to be circular, that is if the result is, for example, 128, that should map to 32, 129 to 33 and so on. I can get that by doing this:
-`res = ((c - 32 + delta) % (128 - 32)) + 32;`
+`res = ((c - 32 + delta) % (127 - 32)) + 32;`
 So, I substract 32 (like zeroing), I add the corresponding delta.
 
 ## Limitations

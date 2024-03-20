@@ -13,7 +13,7 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
         }
         else
         {
-            int delta = rand() % (128 - 32); //Generates a pseudorandom number accordind to the seed
+            int delta = rand() % (127 - 32); //Generates a pseudorandom number accordind to the seed
             int res;
 
             if (cyp)
@@ -22,7 +22,7 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
             }
             else
             {
-                res = ((c - 32 - delta + (128 - 32)) % (128 - 32)) + 32;
+                res = ((c - 32 - delta + (127 - 32)) % (128 - 32)) + 32;
             }
             fputc(res, output);
         }
