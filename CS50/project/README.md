@@ -8,8 +8,11 @@ The idea of this code, written in C, was inspired in the Caesar cipher, but inst
 
 Since not every ASCII character could be read by a text editor, I propose to use just the ASCII characters that can be seen (This arbitrary decision, added to the randomness added to the characters, favors the difficulty for an attacker to know how to decrypt the file).
 
-In order to do so, I propose the
+The characters that could be read are in the range from 32 to 127. So the delta should be in this range:
+`int delta = rand() % (128 - 32);`
+So, I read every character from the text file, obtain the corresponding delta and add to the ASCII character.
+But, in order to avoid
 
 ## Limitations
-I know this is not the safest encription that exists and that there are a lot of algorithms there that are better that this, but I'm this algorithm can be used as a way to learn and practise programming or just for fun. I know that the principle of a secure algorithm is that the code is open but even though it is very hard to decypher the file if you do not have the key.
+I know this is not the safest encription that exists and that there are a lot of algorithms there that are better that this, but I'm this algorithm can be used as a way to learn and practise programming or just for fun. I know that the principle of a secure algorithm is that the code is open but even though it is very hard to decypher the file if you do not have the key. So the conclusion is that this algorithm relies on the secrecy of the idea of the algoritm (and a bit in the key xD).
 
