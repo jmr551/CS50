@@ -24,13 +24,18 @@ def player(board):
     """
     x = 0;
     o = 0;
+    empty = 0;
     for row in board:
         for st in row:
             if st == X:
                 x += 1
             elif st == O:
                 o += 1
-    if x > o:
+            else:
+                empty+=1
+    if empty == 0:
+        return 0
+    elif x > o:
         return O
     else:
         return X
