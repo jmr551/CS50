@@ -78,3 +78,6 @@ def minimax(board):
     """
     raise NotImplementedError
 
+if __name__ == "__main__":
+    b = initial_state()
+    print (b)
