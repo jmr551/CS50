@@ -71,7 +71,10 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    raise NotImplementedError
+    for symbol in [X, O]:
+        for i in range(3):
+            for j in range(3):
+
 
 
 def terminal(board):
