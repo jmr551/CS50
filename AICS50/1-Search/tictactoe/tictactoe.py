@@ -34,7 +34,7 @@ def player(board):
             else:
                 empty+=1
     if empty == 0:
-        return 0
+        return None
     elif x > o:
         return O
     else:
@@ -72,7 +72,7 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
 
-    for i in range(3): 
+    for i in range(3):
         if board[i][0] == board[i][1] == board[i][2]:
             return board[i][0]
         if board[0][i] == board[1][i] == board[2][i]:
@@ -91,8 +91,10 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    raise NotImplementedError
-
+    if winner(board) != None or player(board) == None:
+        return True
+    else:
+        return False
 
 def utility(board):
     """
