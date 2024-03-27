@@ -152,6 +152,7 @@ def main():
     b = result(b,(1, 2))
     b = result(b,(2, 2))
     b = result(b,(0, 1))
+    print(b)
     print(minimax(b))
     #b = result(b,(2, 0))
     #print(terminal(b))
