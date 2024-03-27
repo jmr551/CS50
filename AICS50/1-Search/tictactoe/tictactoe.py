@@ -64,6 +64,7 @@ def result(board, action):
 
     new_board = deepcopy(board)
     new_board[action[0]][action[1]] = player(board)
+    return new_board
 
 
 def winner(board):
