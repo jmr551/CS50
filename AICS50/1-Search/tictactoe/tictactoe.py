@@ -153,7 +153,7 @@ def main():
     b = result(b,(2, 2))
     b = result(b,(0, 1))
     b = result(b,(2, 0))
-
+    print(terminal(b))
     print (b)
     print(utility(b))
 
