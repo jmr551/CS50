@@ -132,9 +132,9 @@ def minimax(board):
         eval = -2
     else:
         eval = 2
-    
+
     for action in actions(board):
-        result(board, action)
+        res = result(board, action)
 
 
 def main():
