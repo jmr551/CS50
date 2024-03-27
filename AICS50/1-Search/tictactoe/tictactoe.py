@@ -136,14 +136,17 @@ def minimax(board):
     for action in actions(board):
         res = result(board, action)
         if terminal(res):
-            if (to_play == X and utility(res) > ut) or (to_play == O and utility(res) < ut):
-                best_action = action
+            ut_actual = utility(res)
         else:
-            if utility(minimax(res))
+            ut_actual = utility(minimax(res))
+        if (to_play == X and ut_actual > ut) or (to_play == O and ut_actual < ut):
+                best_action = action
+    return action
 
 def main():
     b = initial_state()
     print(actions(b))
+    print(minimax([[X,,],[,,],[,,]]))
 
 if __name__ == "__main__":
     main()
