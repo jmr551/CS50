@@ -125,7 +125,13 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
+    if terminal(board):
+        return None
     to_play = player(board)
+    if to_play == X: # Si X-> max, O->min
+        eval = -2
+    else:
+        eval = 
     for action in actions(board):
         result(board, action)
 
