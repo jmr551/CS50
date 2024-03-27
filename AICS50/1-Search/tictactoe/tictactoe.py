@@ -34,7 +34,7 @@ def player(board):
             else:
                 empty+=1
     if empty == 0:
-        return 0
+        return 0t
     elif x > o:
         return O
     else:
