@@ -90,6 +90,4 @@ def minimax(board):
 
 if __name__ == "__main__":
     b = initial_state()
-    print (b)
-    print(player(b))
     print(actions(b))
