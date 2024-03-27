@@ -46,9 +46,11 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
+    action_set = set()
     for i in range(len(board)):
         for j in range(len(board[i])):
-            print(board[i][j],end=' ')
+            if board[i][j] == EMPTY:
+                action_set.append((i, j))
 
 
 
