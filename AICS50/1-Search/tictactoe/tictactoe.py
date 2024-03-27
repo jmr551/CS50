@@ -46,9 +46,13 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    for row in board:
-        for st in row:
-            
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            print(board[i][j],end=' ')
+        print()
+
+
+
 
 def result(board, action):
     """
@@ -88,3 +92,4 @@ if __name__ == "__main__":
     b = initial_state()
     print (b)
     print(player(b))
+    print(actions(b))
