@@ -100,6 +100,7 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
+    ut = 0
     for i in range(3):
         if board[i][0] == board[i][1] == board[i][2]:
             return board[i][0]
