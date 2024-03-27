@@ -136,6 +136,7 @@ def minimax(board):
     for action in actions(board):
         res = result(board, action)
         if terminal(res):
+            
 
 def main():
     b = initial_state()
