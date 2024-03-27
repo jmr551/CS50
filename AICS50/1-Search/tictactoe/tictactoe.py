@@ -142,7 +142,7 @@ def minimax(board):
             ut_actual = utility(minimax(res))
         if (to_play == X and ut_actual > ut) or (to_play == O and ut_actual < ut):
                 best_action = action
-    return action
+    return best_action
 
 def main():
     b = initial_state()
@@ -152,10 +152,11 @@ def main():
     b = result(b,(1, 2))
     b = result(b,(2, 2))
     b = result(b,(0, 1))
-    b = result(b,(2, 0))
-    print(terminal(b))
-    print (b)
-    print(utility(b))
+    print(minimax(b))
+    #b = result(b,(2, 0))
+    #print(terminal(b))
+    #print (b)
+    #print(utility(b))
 
     #print (minimax(b))
     # b = result(b,(1, 0))
