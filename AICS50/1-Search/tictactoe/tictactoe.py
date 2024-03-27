@@ -63,7 +63,7 @@ def result(board, action):
         raise ValueError("Action is not valid")
 
     new_board = deepcopy(board)
-    
+    new_board[action[0]][action[1]] = player(board)
 
 
 def winner(board):
