@@ -129,14 +129,15 @@ def minimax(board):
         return None
     to_play = player(board)
     if to_play == X: # Si X-> max, O->min
-        eval = -2
+        ut = -2
     else:
-        eval = 2
+        ut = 2
 
     for action in actions(board):
         res = result(board, action)
         if terminal(res):
-            
+            if utility(res) > ut:
+                
 
 def main():
     b = initial_state()
