@@ -127,7 +127,7 @@ def minimax(board):
     """
     to_play = player(board)
     for action in actions(board):
-        
+        result(board, action)
 
 
 def main():
