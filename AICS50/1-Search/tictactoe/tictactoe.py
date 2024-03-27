@@ -139,7 +139,7 @@ def minimax(board):
             if (to_play == X and utility(res) > ut) or (to_play == O and utility(res) < ut):
                 best_action = action
         else:
-            
+            if minimax(res)
 
 def main():
     b = initial_state()
