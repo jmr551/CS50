@@ -49,8 +49,6 @@ def actions(board):
     for i in range(len(board)):
         for j in range(len(board[i])):
             print(board[i][j],end=' ')
-        print("A")
-
 
 
 
@@ -91,7 +89,7 @@ def minimax(board):
 
 def main():
     b = initial_state()
-    print(actions(b))
+    actions(b)
     return 0
 
 if __name__ == "__main__":
