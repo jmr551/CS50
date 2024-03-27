@@ -50,7 +50,8 @@ def actions(board):
     for i in range(len(board)):
         for j in range(len(board[i])):
             if board[i][j] == EMPTY:
-                action_set.append((i, j))
+                action_set.add((i, j))
+    return action_set
 
 
 
@@ -91,8 +92,7 @@ def minimax(board):
 
 def main():
     b = initial_state()
-    actions(b)
-    return 0
+    print(actions(b))
 
 if __name__ == "__main__":
     main()
