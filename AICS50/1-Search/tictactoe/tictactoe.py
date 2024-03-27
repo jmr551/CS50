@@ -131,7 +131,8 @@ def minimax(board):
     if to_play == X: # Si X-> max, O->min
         eval = -2
     else:
-        eval = 
+        eval = 2
+    
     for action in actions(board):
         result(board, action)
 
