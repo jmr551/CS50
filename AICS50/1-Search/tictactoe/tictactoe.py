@@ -72,7 +72,7 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
 
-    for i in range(3):
+    for i in range(3): 
         if board[i][0] == board[i][1] == board[i][2]:
             return board[i][0]
         if board[0][i] == board[1][i] == board[2][i]:
