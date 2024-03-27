@@ -74,7 +74,7 @@ def winner(board):
     for symbol in [X, O]:
         for i in range(3):
             for j in range(3):
-
+                
 
 
 def terminal(board):
