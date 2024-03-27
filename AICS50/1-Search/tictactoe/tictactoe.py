@@ -151,8 +151,10 @@ def main():
     b = result(b,(2, 1))
     b = result(b,(1, 2))
     b = result(b,(0, 0))
+    b = result(b,(1, 0))
+
     print (b)
-    print (minimax(b))
+    #print (minimax(b))
     # b = result(b,(1, 0))
 
     # print(minimax([[X,,],[,,],[,,]]))
