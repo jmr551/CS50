@@ -59,8 +59,11 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    if board[action[0]][action[1]] != EMPTY:
-        raise
+    if board[action[0]][action[1]] != EMPTY or action is None:
+        raise ValueError("Action is not valid")
+
+    new_board = deepcopy(board)
+    
 
 
 def winner(board):
