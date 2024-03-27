@@ -47,11 +47,9 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     for i in range(len(board)):
-        print(i)
         for j in range(len(board[i])):
-            print(j)
             print(board[i][j],end=' ')
-        print(" ")
+        print("A")
 
 
 
@@ -90,6 +88,11 @@ def minimax(board):
     """
     raise NotImplementedError
 
-if __name__ == "__main__":
+
+def main():
     b = initial_state()
     print(actions(b))
+    return 0
+
+if __name__ == "__main__":
+    main()
