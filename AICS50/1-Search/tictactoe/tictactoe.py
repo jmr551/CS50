@@ -47,7 +47,9 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     for i in range(len(board)):
+        print(i)
         for j in range(len(board[i])):
+            print(j)
             print(board[i][j],end=' ')
         print(" ")
 
