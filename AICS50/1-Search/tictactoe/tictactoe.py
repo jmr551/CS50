@@ -132,14 +132,14 @@ def minimax(board):
         ut = -2
     else:
         ut = 2
-    best_action = 
+
     for action in actions(board):
         res = result(board, action)
         if terminal(res):
-            if to_play == X:
-                if utility(res) > ut:
-                    act
-
+            if (to_play == X and utility(res) > ut) or (to_play == O and utility(res) < ut):
+                best_action = action
+        else:
+            
 
 def main():
     b = initial_state()
