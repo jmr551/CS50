@@ -3,6 +3,7 @@ Tic Tac Toe Player
 """
 
 import math
+import copy
 
 X = "X"
 O = "O"
@@ -62,7 +63,7 @@ def result(board, action):
     if board[action[0]][action[1]] != EMPTY or action is None:
         raise ValueError("Action is not valid")
 
-    new_board = deepcopy(board)
+    new_board = copy.deepcopy(board)
     new_board[action[0]][action[1]] = player(board)
     return new_board
 
@@ -146,7 +147,8 @@ def minimax(board):
 def main():
     b = initial_state()
     print(actions(b))
-    print(result(b,actions(b)[0]))
+
+    print(result(b,(0,1)))
     # print(minimax([[X,,],[,,],[,,]]))
 
 if __name__ == "__main__":
