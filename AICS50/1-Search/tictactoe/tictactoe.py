@@ -150,10 +150,11 @@ def main():
     b = result(b,(1, 1))
     b = result(b,(2, 1))
     b = result(b,(1, 2))
-    b = result(b,(0, 0))
-    b = result(b,(1, 0))
-
+    b = result(b,(2, 2))
+    b = result(b,(0, 1))
     print (b)
+    print(utility(b))
+
     #print (minimax(b))
     # b = result(b,(1, 0))
 
