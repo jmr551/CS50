@@ -146,7 +146,8 @@ def minimax(board):
 def main():
     b = initial_state()
     print(actions(b))
-    print(minimax([[X,,],[,,],[,,]]))
+    print(result(b,actions(b)[0]))
+    # print(minimax([[X,,],[,,],[,,]]))
 
 if __name__ == "__main__":
     main()
