@@ -72,18 +72,22 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-
     for i in range(3):
+        # print(f"Dentro del {i}: {board[i][0]}, {board[i][0]}, {board[i][0]}")
         if board[i][0] == board[i][1] == board[i][2]:
-            return board[i][0]
+            if board[i][0] != None:
+                return board[i][0]
         if board[0][i] == board[1][i] == board[2][i]:
-            return board[0][i]
+            if board[0][i] != None:
+                return board[0][i]
 
     if board[0][0] == board[1][1] == board[2][2]:
-        return board[0][0]
+        if board[0][0] != None:
+            return board[0][0]
 
     if board[0][2] == board[1][1] == board[2][0]:
-        return board[0][2]
+        if board[0][2]!= None:
+            return board[0][2]
 
     return None
 
@@ -126,39 +130,51 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
+    # board: tablero sin jugar
     if terminal(board):
         return None
-    to_play = player(board)
+    to_play = player(board) # Ahora juega A
     if to_play == X: # Si X-> max, O->min
         ut = -2
     else:
         ut = 2
 
-    for action in actions(board):
-        res = result(board, action) #tablero resultante
-        if terminal(res):
-            if ((to_play == X and utility(res) > ut) or (to_play == O and utility(res) < ut)):
-                ut = utility(res)
-                best_action = action
-        else:
-            result(res, minimax(res))
-        #    ut_actual = utility(result(res, minimax(res)))
-        #    if (to_play == X and ut_actual > ut) or (to_play == O and ut_actual < ut):
-        #        best_action = action
-    return best_action
+    for actionA in actions(board):
+        board1 = result(board, actionA) #tablero resultante de que A haya jugado (ahora le toca a B)
+        if terminal(board1):
+            if ((to_play == X and utility(board1) > ut) or (to_play == O and utility(board1) < ut)):
+                ut = utility(board1)
+                best_action_A = action
+        else: #Ahora le toca a B, y B quiere lo opuesto a A
+            act2 = minimax(board1) # Obtenemos la mejor acción de B
+            board2 = result(board1, act2) # B juega su mejor opción y le toca a A
+            if terminated(board2):
+                #Se terminó, qué hago en este caso?
+            act3 = minimax(board2)
+            board3 = result(board2, act3)
+            ut3 = utility(board3)
+            if (to_play == X and ut3 > ut) or (to_play == O and ut3 < ut):
+                best_action = act2
+                ut = ut2
+    return best_action_A
+def print_tab(board):
+    for i in range(3):
+        print(board[i])
+    print("")
 
 def main():
     b = initial_state()
-    print(actions(b))
     b = result(b,(1, 1))
     b = result(b,(2, 1))
-    b = result(b,(1, 2))
-    b = result(b,(2, 2))
-    b = result(b,(0, 1))
-    print(b)
+    b = result(b,(0, 0))
+    # b = result(b,(2, 2))
+    #b = result(b,(1, 0))
+    print_tab(b)
+    #print(winner(b))
+    #print(terminal(b))
     print(minimax(b))
     #b = result(b,(2, 0))
-    #print(terminal(b))
+    #
     #print (b)
     #print(utility(b))
 
