@@ -125,9 +125,15 @@ def utility(board):
         return 0
 
 def minimax(board):
-    if player(board) == X: # Queremos maximizar
-        for action
-    else: # Queremos minimizar
+    if player(board) == X: # Queremos MAXimizar
+        for action in actions(board):
+            board1 = result(board, action)
+
+
+    else: # Queremos MINimizar
+        for action in actions(board):
+            board1 = result(board, action)
+            
 
 
 def minimax(board):
