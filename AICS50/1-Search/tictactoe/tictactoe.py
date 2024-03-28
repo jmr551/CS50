@@ -126,7 +126,7 @@ def utility(board):
 
 def minimax(board):
     if player(board) == X: # Queremos maximizar
-
+        for action
     else: # Queremos minimizar
 
 
