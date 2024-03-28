@@ -150,7 +150,7 @@ def minimax(board):
             board2 = result(board1, act2) # B juega su mejor opción y le toca a A
             if terminated(board2):
                 #Se terminó, qué hago en este caso?
-                
+                utility(board2)
             act3 = minimax(board2)
             board3 = result(board2, act3)
             ut3 = utility(board3)
