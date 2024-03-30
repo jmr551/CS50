@@ -322,12 +322,35 @@ def prueba_utility():
              [O, X, EMPTY]]
     check_utility(board, 0)  # Asumimos que utility manejará esto como un caso no terminal y retornará 0
 
+def prueba_minimax():
+    def check_minimax(board, expected_move):
+        actual_move = minimax(board)
+        if actual_move == expected_move:
+            print(f"Prueba pasada. Jugada esperada: {expected_move}, Jugada obtenida: {actual_move}")
+        else:
+            print(f"Prueba fallida. Jugada esperada: {expected_move}, Jugada obtenida: {actual_move}")
+
+    print("Prueba de Minimax donde Minimax debe bloquear:")
+    board = [[X, EMPTY, EMPTY],
+             [O, X, EMPTY],
+             [EMPTY, O, EMPTY]]
+    check_minimax(board, (2, 2))  # Debe bloquear a X de ganar
+
+    print("\nPrueba de Minimax donde Minimax debe ganar:")
+    board = [[O, X, X],
+             [X, O, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_minimax(board, (2, 2))  # O puede ganar inmediatamente
+
+    # Agrega más pruebas según sea necesario, incluidas aquellas para empates y para jugadas iniciales óptimas.
 
 
 def main():
     #prueba_winner()
     #prueba_terminal()
-    prueba_utility()
+    #prueba_utility()
     #prueba_final()
+    prueba_minimax()
+
 if __name__ == "__main__":
     main()
