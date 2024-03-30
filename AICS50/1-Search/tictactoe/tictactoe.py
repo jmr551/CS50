@@ -445,6 +445,7 @@ def prueba_minimax():
              [O, X, EMPTY],
              [EMPTY, O, EMPTY]]
     print_tab(board)
+    print(f"Ahora tiene que jugar {player(board)}" )
     check_minimax(board, (2, 2))  # Debe bloquear a X de ganar
 '''
     print("\nPrueba de Minimax donde Minimax debe ganar:")
