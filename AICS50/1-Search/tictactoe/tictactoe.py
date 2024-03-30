@@ -133,6 +133,7 @@ def min_value(board):
 
 
 def max_value(board):
+    print_tab(board)
     if terminal(board):
         return utility(board), None
     v = float("-inf")
