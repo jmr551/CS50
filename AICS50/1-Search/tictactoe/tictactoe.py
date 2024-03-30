@@ -454,23 +454,6 @@ def prueba_minimax():
 
     # Agrega más pruebas según sea necesario, incluidas aquellas para empates y para jugadas iniciales óptimas.
 
-def prueba_minimax_decision():
-    board = [[X, O, X],
-             [O, X, EMPTY],
-             [EMPTY, EMPTY, O]]  # Estado del tablero que requiere una decisión estratégica
-
-    expected_action = (2, 0)  # Una jugada esperada podría ser (2, 0) para bloquear o apuntar a una estrategia a largo plazo
-
-    print("Prueba específica para la decisión de Minimax:")
-    action = minimax(board)
-    print(f"Acción elegida por Minimax: {action}")
-
-    if action == expected_action:
-        print("Minimax eligió la jugada esperada. Prueba pasada.")
-    else:
-        print(f"Prueba fallida. Se esperaba que Minimax eligiera {expected_action}.")
-
-
 def main():
     prueba_minimax()
 
