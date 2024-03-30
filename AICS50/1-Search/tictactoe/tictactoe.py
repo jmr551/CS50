@@ -60,6 +60,12 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    if action[0] < 0 or action[0] > 2 or action[1] < 0 or action[1] > 2:
+        raise ValueError("Move is out of bounds")
+
+    if board[action[0]][action[1]] is not None:
+        raise ValueError("Move is not allowed; position already taken")
+    
     if board[action[0]][action[1]] != EMPTY or action is None:
         raise ValueError("Action is not valid")
 
