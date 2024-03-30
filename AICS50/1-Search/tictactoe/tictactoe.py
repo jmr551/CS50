@@ -453,23 +453,37 @@ def prueba_minimax():
 
 
 def main():
-    print("Verificación Directa de la Inmutabilidad del Tablero en `result`:")
-    board_original = initial_state()
-    action = (0, 0)  # Una acción válida arbitraria
-    print("Tablero original antes de `result`:", board_original)
+    print("\nCaso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno")
 
-    # Hacemos una copia profunda para comparar después
-    board_copy_for_comparison = copy.deepcopy(board_original)
+    # Define el tablero inicial basado en el escenario de la prueba fallida
+    board = [[X, EMPTY, EMPTY],
+             [O, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    print("Tablero original antes de `result`:", board)
 
-    # Aplicamos la acción
-    board_after_result = result(board_original, action)
-    print("Tablero después de `result`:", board_after_result)
+    # Define la acción que causó la falla en la prueba
+    action = (1, 1)  # Supongamos que esta es la acción que no funcionó como se esperaba
+    expected_board = [[X, EMPTY, EMPTY],
+                      [O, X, EMPTY],  # Asumiendo que es el turno de X
+                      [EMPTY, EMPTY, EMPTY]]
 
-    # Verificamos si el tablero original ha cambiado
-    if board_original == board_copy_for_comparison:
-        print("El tablero original NO ha sido modificado por `result`.")
+    # Aplica la acción usando `result`
+    new_board = result(board, action)
+    print("Tablero después de `result`:", new_board)
+
+    # Verifica si el nuevo tablero coincide con el esperado
+    if new_board == expected_board:
+        print("El nuevo tablero coincide con el esperado. Prueba pasada.")
     else:
-        print("El tablero original HA sido modificado por `result`.")
+        print("El nuevo tablero NO coincide con el esperado. Prueba fallida.")
+
+    # Verifica si el tablero original ha cambiado
+    if board == [[X, EMPTY, EMPTY],
+                 [O, EMPTY, EMPTY],
+                 [EMPTY, EMPTY, EMPTY]]:
+        print("El tablero original NO ha sido modificado por `result`. Prueba pasada.")
+    else:
+        print("El tablero original HA sido modificado por `result`. Prueba fallida.")
 
 if __name__ == "__main__":
     main()
