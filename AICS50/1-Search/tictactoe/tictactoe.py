@@ -133,12 +133,14 @@ def min_value(board):
 
 
 def max_value(board):
+    print("Estamos en max_value")
     print_tab(board)
     if terminal(board):
         return utility(board), None
     v = float("-inf")
     best_action = None
     for action in actions(board):
+        print(f"Consideramos la accion {action} de {player(board)}")
         result_board = result(board, action)
         new_v, _ = min_value(result_board)
         print(f"max_value evaluando acción {action} con valor {new_v}")  # Depuración
