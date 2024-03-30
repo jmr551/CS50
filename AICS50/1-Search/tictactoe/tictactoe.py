@@ -149,7 +149,48 @@ def print_tab(board):
         print(board[i])
     print("")
 
+def prueba_player():
+    def check_player(board, expected_player):
+        result = player(board)
+        if result == expected_player:
+            print(f"Prueba pasada. Esperado: {expected_player}, Obtenido: {result}")
+        else:
+            print(f"Prueba fallida. Esperado: {expected_player}, Obtenido: {result}")
 
+    # Caso de prueba 1: Tablero vacío - Debe ser el turno de X
+    print("Caso de prueba 1: Tablero vacío")
+    board = [[EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_player(board, X)
+
+    # Caso de prueba 2: Un movimiento - Debe ser el turno de O
+    print("\nCaso de prueba 2: Un movimiento")
+    board = [[X, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_player(board, O)
+
+    # Caso de prueba 3: Tablero con número igual de X y O - Debe ser el turno de X
+    print("\nCaso de prueba 3: Tablero con número igual de X y O")
+    board = [[X, O, X],
+             [O, X, O],
+             [EMPTY, EMPTY, EMPTY]]
+    check_player(board, X)
+
+    # Caso de prueba 4: Tablero casi lleno, turno de O
+    print("\nCaso de prueba 4: Tablero casi lleno, turno de O")
+    board = [[X, O, X],
+             [X, O, X],
+             [O, X, EMPTY]]
+    check_player(board, O)
+
+    # Caso de prueba 5: Tablero lleno - No hay siguiente jugador
+    print("\nCaso de prueba 5: Tablero lleno")
+    board = [[X, O, X],
+             [X, O, X],
+             [O, X, O]]
+    check_player(board, None)
 
 def compare_moves(actual_move, expected_move):
     if actual_move == expected_move:
@@ -348,11 +389,12 @@ def prueba_minimax():
 
 
 def main():
+    prueba_player()
     #prueba_winner()
     #prueba_terminal()
     #prueba_utility()
     #prueba_final()
-    prueba_minimax()
+    #prueba_minimax()
 
 if __name__ == "__main__":
     main()
