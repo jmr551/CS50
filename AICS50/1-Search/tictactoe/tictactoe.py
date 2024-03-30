@@ -161,26 +161,68 @@ def print_tab(board):
         print(board[i])
     print("")
 
+def compare_moves(actual_move, expected_move):
+    if actual_move == expected_move:
+        print(f"Resultado correcto: {actual_move}")
+    else:
+        print(f"Resultado incorrecto: {actual_move}, se esperaba: {expected_move}")
+
 def main():
+    # Caso de prueba 1: Tablero vacío (la jugada esperada puede variar ya que todas son igualmente válidas)
+    print("Caso de prueba 1: Tablero vacío")
     b = initial_state()
-    b = result(b,(1, 1))
-    b = result(b,(2, 1))
-    b = result(b,(0, 0))
-    # b = result(b,(2, 2))
-    #b = result(b,(1, 0))
     print_tab(b)
-    #print(winner(b))
-    #print(terminal(b))
-    print(minimax(b))
-    #b = result(b,(2, 0))
-    #
-    #print (b)
-    #print(utility(b))
+    move = minimax(b)
+    # Para este caso, no especificamos una jugada esperada ya que cualquier primera jugada es válida.
+    print("Mejor movimiento: ", move)
 
-    #print (minimax(b))
-    # b = result(b,(1, 0))
+    # Caso de prueba 2: X está a punto de ganar
+    print("\nCaso de prueba 2: X está a punto de ganar")
+    b = [[X, O, X],
+         [O, X, EMPTY],
+         [EMPTY, EMPTY, O]]
+    print_tab(b)
+    move = minimax(b)
+    compare_moves(move, (2, 2))  # Esperamos que X complete su línea en (2, 2)
 
-    # print(minimax([[X,,],[,,],[,,]]))
+    # Caso de prueba 3: O está a punto de ganar
+    print("\nCaso de prueba 3: O está a punto de ganar")
+    b = [[O, X, X],
+         [X, O, EMPTY],
+         [EMPTY, EMPTY, EMPTY]]
+    print_tab(b)
+    move = minimax(b)
+    compare_moves(move, (2, 2))  # Esperamos que O complete su línea en (2, 2)
+
+    # Caso de prueba 4: Bloquear a X de ganar
+    print("\nCaso de prueba 4: Bloquear a X de ganar")
+    b = [[X, EMPTY, EMPTY],
+         [O, X, EMPTY],
+         [EMPTY, O, EMPTY]]
+    print_tab(b)
+    move = minimax(b)
+    compare_moves(move, (2, 2))  # Esperamos que O bloquee a X en (2, 2)
+
+    # Caso de prueba 5: Solo queda un movimiento
+    print("\nCaso de prueba 5: Solo queda un movimiento")
+    b = [[X, O, X],
+         [X, O, O],
+         [O, X, EMPTY]]
+    print_tab(b)
+    move = minimax(b)
+    compare_moves(move, (2, 2))  # El único movimiento restante
+
+    # Caso de prueba 6: Tablero que lleva a un empate
+    print("\nCaso de prueba 6: Tablero que lleva a un empate")
+    b = [[X, O, X],
+         [X, EMPTY, O],
+         [O, X, EMPTY]]
+    print_tab(b)
+    move = minimax(b)
+    # En este caso, puede haber más de una jugada "correcta" que lleve a un empate.
+    print("Mejor movimiento: ", move)
+
+    # Añade más casos de prueba según lo veas necesario.
 
 if __name__ == "__main__":
     main()
