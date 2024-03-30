@@ -151,6 +151,7 @@ def max_value(board):
     if terminal(board):
         return utility(board), None
     v = float("-inf")
+    best_action = None
     for action in actions(board):
         value, _ = min_value(result(board, action))
         if value > v:
