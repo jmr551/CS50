@@ -98,27 +98,15 @@ def terminal(board):
         return False
 
 def utility(board):
-    """
-    Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
-    """
-    win = None
-    for i in range(3):
-        if board[i][0] == board[i][1] == board[i][2]:
-            win =  board[i][0]
-        if board[0][i] == board[1][i] == board[2][i]:
-            win = board[0][i]
-
-    if board[0][0] == board[1][1] == board[2][2]:
-        win = board[0][0]
-
-    if board[0][2] == board[1][1] == board[2][0]:
-        win = board[0][2]
+    # Asume que `winner` retorna 'X' si X gana, 'O' si O gana, y None si no hay ganador.
+    win = winner(board)
     if win == X:
         return 1
     elif win == O:
         return -1
     else:
-        return 0
+        return 0  # Esto incluye empates y juegos no terminales, aunque utility idealmente solo se llama en estados terminales.
+
 
 def minimax(board):
     """
