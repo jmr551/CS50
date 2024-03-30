@@ -365,6 +365,41 @@ def prueba_terminal():
              [O, X, X]]
     check_terminal(board, True)
 
+def prueba_result():
+    def check_result(board, action, player_symbol, expected_board):
+        new_board = result(board, action)
+        if new_board == expected_board:
+            print(f"Prueba pasada. Nuevo tablero esperado coincide con el obtenido.")
+        else:
+            print(f"Prueba fallida. Nuevo tablero esperado y obtenido no coinciden.")
+        # Verificar si el tablero original no se ha modificado
+        if board == initial_state():
+            print("Prueba pasada. El tablero original no se modificó.")
+        else:
+            print("Prueba fallida. El tablero original fue modificado.")
+
+    # Caso de prueba 1: Aplicar un movimiento en un tablero vacío
+    print("Caso de prueba 1: Aplicar un movimiento en un tablero vacío")
+    board = initial_state()
+    action = (0, 0)
+    player_symbol = X
+    expected_board = [[player_symbol, EMPTY, EMPTY],
+                      [EMPTY, EMPTY, EMPTY],
+                      [EMPTY, EMPTY, EMPTY]]
+    check_result(copy.deepcopy(board), action, player_symbol, expected_board)
+
+    # Caso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno
+    print("\nCaso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno")
+    board = [[X, EMPTY, EMPTY],
+             [O, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    action = (1, 1)  # O juega en el centro
+    player_symbol = O  # Suponiendo que es el turno de O
+    expected_board = [[X, EMPTY, EMPTY],
+                      [O, player_symbol, EMPTY],
+                      [EMPTY, EMPTY, EMPTY]]
+    check_result(copy.deepcopy(board), action, player_symbol, expected_board)
+
 def prueba_utility():
     def check_utility(board, expected_utility):
         result = utility(board)
@@ -425,8 +460,9 @@ def prueba_minimax():
 
 
 def main():
-    prueba_actions()
+    #prueba_actions()
     #prueba_player()
+    prueba_result()
     #prueba_winner()
     #prueba_terminal()
     #prueba_utility()
