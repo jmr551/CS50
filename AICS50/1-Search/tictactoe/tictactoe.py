@@ -451,39 +451,25 @@ def prueba_minimax():
 
     # Agrega más pruebas según sea necesario, incluidas aquellas para empates y para jugadas iniciales óptimas.
 
+def prueba_minimax_decision():
+    board = [[X, O, X],
+             [O, X, EMPTY],
+             [EMPTY, EMPTY, O]]  # Estado del tablero que requiere una decisión estratégica
+
+    expected_action = (2, 0)  # Una jugada esperada podría ser (2, 0) para bloquear o apuntar a una estrategia a largo plazo
+
+    print("Prueba específica para la decisión de Minimax:")
+    action = minimax(board)
+    print(f"Acción elegida por Minimax: {action}")
+
+    if action == expected_action:
+        print("Minimax eligió la jugada esperada. Prueba pasada.")
+    else:
+        print(f"Prueba fallida. Se esperaba que Minimax eligiera {expected_action}.")
+
 
 def main():
-    print("\nCaso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno")
-
-    # Define el tablero inicial basado en el escenario de la prueba fallida
-    board = [[X, EMPTY, EMPTY],
-             [O, EMPTY, EMPTY],
-             [EMPTY, EMPTY, EMPTY]]
-    print("Tablero original antes de `result`:", board)
-
-    # Define la acción que causó la falla en la prueba
-    action = (1, 1)  # Supongamos que esta es la acción que no funcionó como se esperaba
-    expected_board = [[X, EMPTY, EMPTY],
-                      [O, X, EMPTY],  # Asumiendo que es el turno de X
-                      [EMPTY, EMPTY, EMPTY]]
-
-    # Aplica la acción usando `result`
-    new_board = result(board, action)
-    print("Tablero después de `result`:", new_board)
-
-    # Verifica si el nuevo tablero coincide con el esperado
-    if new_board == expected_board:
-        print("El nuevo tablero coincide con el esperado. Prueba pasada.")
-    else:
-        print("El nuevo tablero NO coincide con el esperado. Prueba fallida.")
-
-    # Verifica si el tablero original ha cambiado
-    if board == [[X, EMPTY, EMPTY],
-                 [O, EMPTY, EMPTY],
-                 [EMPTY, EMPTY, EMPTY]]:
-        print("El tablero original NO ha sido modificado por `result`. Prueba pasada.")
-    else:
-        print("El tablero original HA sido modificado por `result`. Prueba fallida.")
-
+    prueba_minimax_decision()
+    
 if __name__ == "__main__":
     main()
