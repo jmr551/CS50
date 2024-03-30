@@ -192,6 +192,42 @@ def prueba_player():
              [O, X, O]]
     check_player(board, None)
 
+def prueba_actions():
+    def check_actions(board, expected_actions):
+        result = actions(board)
+        if result == expected_actions:
+            print(f"Prueba pasada. Acciones esperadas: {expected_actions}, Acciones obtenidas: {result}")
+        else:
+            print(f"Prueba fallida. Acciones esperadas: {expected_actions}, Acciones obtenidas: {result}")
+
+    # Caso de prueba 1: Tablero vacío - Todas las casillas están disponibles
+    print("Caso de prueba 1: Tablero vacío")
+    board = [[EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_actions(board, {(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)})
+
+    # Caso de prueba 2: Un movimiento realizado
+    print("\nCaso de prueba 2: Un movimiento realizado")
+    board = [[X, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_actions(board, {(0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)})
+
+    # Caso de prueba 3: Tablero casi lleno
+    print("\nCaso de prueba 3: Tablero casi lleno")
+    board = [[X, O, X],
+             [X, O, X],
+             [O, EMPTY, O]]
+    check_actions(board, {(2, 1)})
+
+    # Caso de prueba 4: Tablero lleno - No hay acciones disponibles
+    print("\nCaso de prueba 4: Tablero lleno")
+    board = [[X, O, X],
+             [X, O, O],
+             [O, X, X]]
+    check_actions(board, set())
+
 def compare_moves(actual_move, expected_move):
     if actual_move == expected_move:
         print(f"Resultado correcto: {actual_move}")
@@ -389,7 +425,8 @@ def prueba_minimax():
 
 
 def main():
-    prueba_player()
+    prueba_actions()
+    #prueba_player()
     #prueba_winner()
     #prueba_terminal()
     #prueba_utility()
