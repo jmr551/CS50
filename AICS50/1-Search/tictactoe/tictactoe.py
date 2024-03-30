@@ -125,49 +125,40 @@ def utility(board):
         return 0
 
 def minimax(board):
-    if player(board) == X: # Queremos MAXimizar
-        for action in actions(board):
-            board1 = result(board, action)
-
-
-    else: # Queremos MINimizar
-        for action in actions(board):
-            board1 = result(board, action)
-            
-
-
-def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    # board: tablero sin jugar
-    if terminal(board):
-        return None
-    to_play = player(board) # Ahora juega A
-    if to_play == X: # Si X-> max, O->min
-        ut = -2
+    if player(board) == X: # Queremos MAXimizar
+        value, action = max_value(board)
     else:
-        ut = 2
+        value, action = min_value(board)
+    return action
 
-    for actionA in actions(board):
-        board1 = result(board, actionA) #tablero resultante de que A haya jugado (ahora le toca a B)
-        if terminal(board1):
-            if ((to_play == X and utility(board1) > ut) or (to_play == O and utility(board1) < ut)):
-                ut = utility(board1)
-                best_action_A = action
-        else: #Ahora le toca a B, y B quiere lo opuesto a A
-            act2 = minimax(board1) # Obtenemos la mejor acción de B
-            board2 = result(board1, act2) # B juega su mejor opción y le toca a A
-            if terminated(board2):
-                #Se terminó, qué hago en este caso?
-                utility(board2)
-            act3 = minimax(board2)
-            board3 = result(board2, act3)
-            ut3 = utility(board3)
-            if (to_play == X and ut3 > ut) or (to_play == O and ut3 < ut):
-                best_action = act2
-                ut = ut2
-    return best_action_A
+def min_value(board):
+    if terminal(board):
+        return utility(board), None
+    v = float("inf")
+    best_action = None
+    for action in actions(board):
+        value, _ = max_value(result(board, action))
+        if value < v:
+            v = value
+            best_action = action
+    return v, best_action
+
+
+def max_value(board):
+    if terminal(board):
+        return utility(board), None
+    v = float("-inf")
+    for action in actions(board):
+        value, _ = min_value(result(board, action))
+        if value > v:
+            v = value
+            best_action = action
+    return v, best_action
+
+
 def print_tab(board):
     for i in range(3):
         print(board[i])
