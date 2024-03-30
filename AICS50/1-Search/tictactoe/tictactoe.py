@@ -453,14 +453,23 @@ def prueba_minimax():
 
 
 def main():
-    #prueba_actions()
-    #prueba_player()
-    #prueba_result()
-    #prueba_winner()
-    #prueba_terminal()
-    prueba_utility()
-    #prueba_final()
-    #prueba_minimax()
+    print("Verificación Directa de la Inmutabilidad del Tablero en `result`:")
+    board_original = initial_state()
+    action = (0, 0)  # Una acción válida arbitraria
+    print("Tablero original antes de `result`:", board_original)
+
+    # Hacemos una copia profunda para comparar después
+    board_copy_for_comparison = copy.deepcopy(board_original)
+
+    # Aplicamos la acción
+    board_after_result = result(board_original, action)
+    print("Tablero después de `result`:", board_after_result)
+
+    # Verificamos si el tablero original ha cambiado
+    if board_original == board_copy_for_comparison:
+        print("El tablero original NO ha sido modificado por `result`.")
+    else:
+        print("El tablero original HA sido modificado por `result`.")
 
 if __name__ == "__main__":
     main()
