@@ -298,9 +298,47 @@ def prueba_terminal():
              [O, X, X]]
     check_terminal(board, True)
 
+def prueba_utility():
+    def check_utility(board, expected_utility):
+        result = utility(board)
+        if result == expected_utility:
+            print(f"Prueba pasada. Esperado: {expected_utility}, Obtenido: {result}")
+        else:
+            print(f"Prueba fallida. Esperado: {expected_utility}, Obtenido: {result}")
+
+    # Victoria de X
+    print("Prueba de victoria de X:")
+    board = [[X, X, X],
+             [O, O, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_utility(board, 1)
+
+    # Victoria de O
+    print("Prueba de victoria de O:")
+    board = [[O, O, O],
+             [X, X, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_utility(board, -1)
+
+    # Empate
+    print("Prueba de Empate:")
+    board = [[X, O, X],
+             [X, O, O],
+             [O, X, X]]
+    check_utility(board, 0)
+
+    # Juego no terminal (este caso no debería ocurrir en uso normal, pero es útil para la prueba)
+    print("Prueba de Juego No Terminal (uso no típico):")
+    board = [[X, O, X],
+             [X, EMPTY, O],
+             [O, X, EMPTY]]
+    check_utility(board, 0)  # Asumimos que utility manejará esto como un caso no terminal y retornará 0
+
+
 
 def main():
     #prueba_winner()
-    prueba_terminal()
+    #prueba_terminal()
+    prueba_utility()
 if __name__ == "__main__":
     main()
