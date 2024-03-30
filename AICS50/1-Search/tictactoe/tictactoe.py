@@ -149,6 +149,8 @@ def print_tab(board):
         print(board[i])
     print("")
 
+
+
 def compare_moves(actual_move, expected_move):
     if actual_move == expected_move:
         print(f"Resultado correcto: {actual_move}")
