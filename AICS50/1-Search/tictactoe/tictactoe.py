@@ -144,6 +144,7 @@ def max_value(board):
         if new_v > v:
             v = new_v
             best_action = action
+            print(f"Por lo tanto la evaluacion nueva es {v} y la mejor accion de {player(board)} es {best_action}")
     return v, best_action
 
 
