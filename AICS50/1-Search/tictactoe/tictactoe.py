@@ -205,7 +205,7 @@ def prueba_winner():
 
 
 
-def main():
+def prueba_final():
     # Caso de prueba 1: Tablero vacío (la jugada esperada puede variar ya que todas son igualmente válidas)
     print("Caso de prueba 1: Tablero vacío")
     b = initial_state()
@@ -261,6 +261,10 @@ def main():
     print("Mejor movimiento: ", move)
 
     # Añade más casos de prueba según lo veas necesario.
+
+
+def main():
+    prueba_winner()
 
 if __name__ == "__main__":
     main()
