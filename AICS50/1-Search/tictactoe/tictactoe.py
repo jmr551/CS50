@@ -461,8 +461,55 @@ def prueba_minimax():
 
     # Agrega más pruebas según sea necesario, incluidas aquellas para empates y para jugadas iniciales óptimas.
 '''
+def print_board(board):
+    """Imprime el tablero de juego."""
+    for row in board:
+        print(" | ".join([cell if cell is not None else " " for cell in row]))
+        print("-" * 9)
+
+def human_move(board, player):
+    """Permite al jugador humano hacer una jugada."""
+    print(f"Jugador {player}, es tu turno.")
+    available_actions = actions(board)
+    while True:
+        try:
+            row = int(input("Elige la fila (0, 1, 2): "))
+            col = int(input("Elige la columna (0, 1, 2): "))
+            if (row, col) in available_actions:
+                return (row, col)
+            else:
+                print("Esa jugada no está disponible. Por favor, intenta de nuevo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingresa números.")
+
 def main():
-    prueba_minimax()
+    board = initial_state()
+    print("Bienvenido al Tic Tac Toe!")
+    user_player = input("¿Quieres ser X o O? ").upper()
+    if user_player not in ["X", "O"]:
+        user_player = "X"
+        print("Selección inválida. Serás X por defecto.")
+    ai_player = "O" if user_player == "X" else "X"
+
+    current_player = "X"  # X siempre inicia
+    while not terminal(board):
+        print_board(board)
+        if current_player == user_player:
+            move = human_move(board, user_player)
+        else:
+            print("Turno del algoritmo Minimax...")
+            move = minimax(board)
+            if move is None:  # Si minimax no puede hacer una jugada (tablero lleno)
+                break
+            print(f"Minimax ({ai_player}) juega en la fila {move[0]}, columna {move[1]}")
+        board = result(board, move)
+        current_player = "O" if current_player == "X" else "X"  # Cambiar de jugador
+
+    print_board(board)
+    if winner(board) is None:
+        print("¡Es un empate!")
+    else:
+        print(f"El ganador es {winner(board)}!")
 
 if __name__ == "__main__":
     main()
