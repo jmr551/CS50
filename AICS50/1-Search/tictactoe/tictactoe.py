@@ -458,9 +458,9 @@ def main():
     #prueba_result()
     #prueba_winner()
     #prueba_terminal()
-    #prueba_utility()
+    prueba_utility()
     #prueba_final()
-    prueba_minimax()
+    #prueba_minimax()
 
 if __name__ == "__main__":
     main()
