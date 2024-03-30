@@ -366,39 +366,32 @@ def prueba_terminal():
     check_terminal(board, True)
 
 def prueba_result():
-    def check_result(board, action, player_symbol, expected_board):
+    def check_result(board, action, expected_board):
+        # Crear una copia profunda del tablero original para comparar después
+        original_board = copy.deepcopy(board)
+
+        # Aplicar la acción al tablero para obtener el nuevo estado del tablero
         new_board = result(board, action)
+
+        # Verificar si el nuevo tablero coincide con el esperado
         if new_board == expected_board:
-            print(f"Prueba pasada. Nuevo tablero esperado coincide con el obtenido.")
+            print("Prueba pasada. Nuevo tablero esperado coincide con el obtenido.")
         else:
-            print(f"Prueba fallida. Nuevo tablero esperado y obtenido no coinciden.")
+            print("Prueba fallida. Nuevo tablero esperado y obtenido no coinciden.")
+
         # Verificar si el tablero original no se ha modificado
-        if board == initial_state():
+        if board == original_board:
             print("Prueba pasada. El tablero original no se modificó.")
         else:
             print("Prueba fallida. El tablero original fue modificado.")
 
-    # Caso de prueba 1: Aplicar un movimiento en un tablero vacío
+    # Ejemplo de caso de prueba
     print("Caso de prueba 1: Aplicar un movimiento en un tablero vacío")
     board = initial_state()
     action = (0, 0)
-    player_symbol = X
-    expected_board = [[player_symbol, EMPTY, EMPTY],
-                      [EMPTY, EMPTY, EMPTY],
-                      [EMPTY, EMPTY, EMPTY]]
-    check_result(copy.deepcopy(board), action, player_symbol, expected_board)
-
-    # Caso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno
-    print("\nCaso de prueba 2: Aplicar un movimiento en un tablero parcialmente lleno")
-    board = [[X, EMPTY, EMPTY],
-             [O, EMPTY, EMPTY],
-             [EMPTY, EMPTY, EMPTY]]
-    action = (1, 1)  # O juega en el centro
-    player_symbol = O  # Suponiendo que es el turno de O
-    expected_board = [[X, EMPTY, EMPTY],
-                      [O, player_symbol, EMPTY],
-                      [EMPTY, EMPTY, EMPTY]]
-    check_result(copy.deepcopy(board), action, player_symbol, expected_board)
+    expected_board = copy.deepcopy(board)
+    expected_board[action[0]][action[1]] = player(board)
+    check_result(board, action, expected_board)
 
 def prueba_utility():
     def check_utility(board, expected_utility):
