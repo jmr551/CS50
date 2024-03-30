@@ -137,9 +137,10 @@ def max_value(board):
     v = float("-inf")
     best_action = None
     for action in actions(board):
-        value, _ = min_value(result(board, action))
-        if value > v:
-            v = value
+        new_v, _ = min_value(result(board, action))
+        print(f"max_value evaluando acción {action} con valor {new_v}")  # Depuración
+        if new_v > v:
+            v = new_v
             best_action = action
     return v, best_action
 
