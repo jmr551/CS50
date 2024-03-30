@@ -262,9 +262,45 @@ def prueba_final():
 
     # Añade más casos de prueba según lo veas necesario.
 
+def prueba_terminal():
+    def check_terminal(board, expected_result):
+        result = terminal(board)
+        if result == expected_result:
+            print("Prueba pasada.")
+        else:
+            print(f"Prueba fallida. Esperado: {expected_result}, Obtenido: {result}")
+
+    # Caso donde el juego todavía no termina
+    print("Prueba de Juego No Terminal:")
+    board = [[X, O, X],
+             [X, EMPTY, O],
+             [O, X, EMPTY]]
+    check_terminal(board, False)
+
+    # Caso donde X gana
+    print("Prueba de Juego Terminal con victoria de X:")
+    board = [[X, X, X],
+             [O, O, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_terminal(board, True)
+
+    # Caso donde O gana
+    print("Prueba de Juego Terminal con victoria de O:")
+    board = [[O, O, O],
+             [X, X, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    check_terminal(board, True)
+
+    # Caso de empate
+    print("Prueba de Juego Terminal con Empate:")
+    board = [[X, O, X],
+             [X, O, O],
+             [O, X, X]]
+    check_terminal(board, True)
+
 
 def main():
-    prueba_winner()
-
+    #prueba_winner()
+    prueba_terminal()
 if __name__ == "__main__":
     main()
