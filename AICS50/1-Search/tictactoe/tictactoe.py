@@ -469,7 +469,7 @@ def prueba_minimax_decision():
 
 
 def main():
-    prueba_minimax_decision()
-    
+    prueba_minimax()
+
 if __name__ == "__main__":
     main()
