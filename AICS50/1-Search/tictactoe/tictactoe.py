@@ -176,14 +176,14 @@ def main():
     # Para este caso, no especificamos una jugada esperada ya que cualquier primera jugada es válida.
     print("Mejor movimiento: ", move)
 
-    # Caso de prueba 2: X está a punto de ganar
-    print("\nCaso de prueba 2: X está a punto de ganar")
-    b = [[X, O, X],
-         [O, X, EMPTY],
-         [EMPTY, EMPTY, O]]
+    print("\nCaso de prueba 2 corregido: X está a punto de ganar")
+    b = [[X, O, O],
+        [X, EMPTY, EMPTY],
+        [EMPTY, EMPTY, EMPTY]]
     print_tab(b)
     move = minimax(b)
-    compare_moves(move, (2, 2))  # Esperamos que X complete su línea en (2, 2)
+    compare_moves(move, (2, 0))  # Esperamos que X complete su línea y gane en (2, 0)
+
 
     # Caso de prueba 3: O está a punto de ganar
     print("\nCaso de prueba 3: O está a punto de ganar")
