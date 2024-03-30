@@ -167,6 +167,44 @@ def compare_moves(actual_move, expected_move):
     else:
         print(f"Resultado incorrecto: {actual_move}, se esperaba: {expected_move}")
 
+def prueba_winner():
+    def check_winner(board, expected_winner):
+        result = winner(board)
+        if result == expected_winner:
+            print("Prueba pasada.")
+        else:
+            print(f"Prueba fallida. Esperado: {expected_winner}, Obtenido: {result}")
+
+    # Victoria Horizontal
+    print("Prueba de Victoria Horizontal para X:")
+    check_winner([[X, X, X], [EMPTY, O, EMPTY], [O, EMPTY, EMPTY]], X)
+
+    print("Prueba de Victoria Horizontal para O:")
+    check_winner([[X, X, EMPTY], [O, O, O], [X, EMPTY, EMPTY]], O)
+
+    # Victoria Vertical
+    print("Prueba de Victoria Vertical para X:")
+    check_winner([[X, O, EMPTY], [X, O, EMPTY], [X, EMPTY, EMPTY]], X)
+
+    print("Prueba de Victoria Vertical para O:")
+    check_winner([[X, O, EMPTY], [X, O, EMPTY], [EMPTY, O, EMPTY]], O)
+
+    # Victoria Diagonal
+    print("Prueba de Victoria Diagonal para X (izquierda a derecha):")
+    check_winner([[X, EMPTY, O], [O, X, EMPTY], [EMPTY, EMPTY, X]], X)
+
+    print("Prueba de Victoria Diagonal para O (derecha a izquierda):")
+    check_winner([[X, EMPTY, O], [EMPTY, O, X], [O, X, EMPTY]], O)
+
+    # Sin Ganador (Empate o Juego Incompleto)
+    print("Prueba de Empate sin Ganador:")
+    check_winner([[X, O, X], [X, O, O], [O, X, X]], None)
+
+    print("Prueba de Juego Incompleto sin Ganador:")
+    check_winner([[X, O, X], [X, EMPTY, O], [O, X, EMPTY]], None)
+
+
+
 def main():
     # Caso de prueba 1: Tablero vacío (la jugada esperada puede variar ya que todas son igualmente válidas)
     print("Caso de prueba 1: Tablero vacío")
