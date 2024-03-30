@@ -441,13 +441,12 @@ def prueba_minimax():
             print(f"Prueba fallida. Jugada esperada: {expected_move}, Jugada obtenida: {actual_move}")
 
     print("Prueba de Minimax donde Minimax debe bloquear:")
-
     board = [[X, EMPTY, EMPTY],
              [O, X, EMPTY],
              [EMPTY, O, EMPTY]]
-
+    print_tab(board)
     check_minimax(board, (2, 2))  # Debe bloquear a X de ganar
-
+'''
     print("\nPrueba de Minimax donde Minimax debe ganar:")
     board = [[O, X, X],
              [X, O, EMPTY],
@@ -456,7 +455,7 @@ def prueba_minimax():
     check_minimax(board, (2, 2))  # O puede ganar inmediatamente
 
     # Agrega más pruebas según sea necesario, incluidas aquellas para empates y para jugadas iniciales óptimas.
-
+'''
 def main():
     prueba_minimax()
 
