@@ -51,11 +51,14 @@ def valido(board):
         for j in range(9): # para cada numero de la fila
             if board[i][j] != 0:
                 for k in range(j + 1, 9):
-                    if board[i][j] == board[i][k]:
+                    if board[i][j] == board[i][k]: # misma fila
                         return False
             if board[j][i] != 0:
                 for k in range(i + 1, 9):
-                    if board[j][i] == board[j][k]
+                    if board[j][i] == board[k][i]: # misma columna
+                        return False
+
+            
 
 def solve(board):
     for i in range(9):
