@@ -27,13 +27,14 @@ def candidate_numbers(board, position):
     cands = []
     for n in range(1, 10): # es un posible candidato
         # Verifico si no está en la fila
+        candidato = True
         if n in board[position[0]]:
-            continue
+            candidato = False
 
         # Verifico si no está en la columna
         for i in range(9):
             if n == board[i][position[1]]:
-                continue
+                candidato = False
 
         # Verifico si no está en la submatriz 3x3
         in_x = position[0]//3
@@ -41,9 +42,9 @@ def candidate_numbers(board, position):
         for i in range(in_x, in_x + 3):
             for j in range(in_y, in_y + 3):
                 if n == board[i][j]:
-                    continue
-
-        cands.append(n)
+                    candidato = False
+        if candidato:
+            cands.append(n)
     return cands
 
 def valido(board):
