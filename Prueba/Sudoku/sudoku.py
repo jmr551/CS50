@@ -32,7 +32,7 @@ def candidate_numbers(board, position):
 
         # Verifico si no está en la columna
         for i in range(9):
-            if n in board[i][position[1]]:
+            if n == board[i][position[1]]:
                 next
 
         # Verifico si no está en la submatriz 3x3
