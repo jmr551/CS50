@@ -47,24 +47,24 @@ def candidate_numbers(board, position):
     return cands
 
 def valido(board):
-    for i in range(9): #para cada fila
-        for j in range(9): # para cada numero de la fila
+    for i in range(9):  # para cada fila
+        for j in range(9):  # para cada numero de la fila
             if board[i][j] != 0:
+                # Verificar la fila
                 for k in range(j + 1, 9):
-                    if board[i][j] == board[i][k]: # misma fila
+                    if board[i][j] == board[i][k]:  # misma fila
                         return False
 
-            if board[j][i] != 0:
+                # Verificar la columna
                 for k in range(i + 1, 9):
-                    if board[j][i] == board[k][i]: # misma columna
+                    if board[j][i] == board[k][i]:  # misma columna
                         return False
 
-            if board[i][j] != 0:
-                for k_i in range((i//3)*3, (i//3+1)*3):
-                    for k_j in range((j//3)*3, (j//3+1)*3):
-                        if i!=k_i and j!= k_j:
-                            if board[i][j] == board[k_i][k_j]:
-                                return False
+                # Verificar la submatriz 3x3
+                for k_i in range(3 * (i//3), 3 * (i//3) + 3):
+                    for k_j in range(3 * (j//3), 3 * (j//3) + 3):
+                        if (i != k_i or j != k_j) and board[i][j] == board[k_i][k_j]:
+                            return False
     return True
 
 def solve(board):
