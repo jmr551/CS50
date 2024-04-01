@@ -54,7 +54,6 @@ def valido(board):
                     if board[i][j] == board[i][k]: # misma fila
                         return False
 
-
             if board[j][i] != 0:
                 for k in range(i + 1, 9):
                     if board[j][i] == board[k][i]: # misma columna
@@ -63,18 +62,22 @@ def valido(board):
             if board[i][j] != 0:
                 for k_i in range(i//3, i//3+3):
                     for k_j in range(j//3, j//3+3):
-                        
-                        if board[i][j]
+                        if i!=k_i and j!= k_j:
+                            if board[i][j] == board[k_i][k_j]:
+                                return False
+    return True
 
 def solve(board):
     for i in range(9):
         for j in range(9):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
-
+                    if valido(play_move(board, c))
 
 
 board = create_board()
-print_board(board)
+
 board = play_move(board, (0, 0), 1)
+board = play_move(board, (0, 1), 1)
 print_board(board)
+print(valido(board))
