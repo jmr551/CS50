@@ -53,14 +53,17 @@ def valido(board):
                 for k in range(j + 1, 9):
                     if board[i][j] == board[i][k]: # misma fila
                         return False
+
+
             if board[j][i] != 0:
                 for k in range(i + 1, 9):
                     if board[j][i] == board[k][i]: # misma columna
                         return False
 
-            in_x = i // 3
-            in_y = j // 3
-            
+            if board[i][j] != 0:
+                in_x = i // 3
+                in_y = j // 3
+
 
 def solve(board):
     for i in range(9):
