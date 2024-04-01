@@ -46,12 +46,15 @@ def candidate_numbers(board, position):
         cands.append(n)
     return cands
 
+def valido(board):
+    
+
 def solve(board):
     for i in range(9):
         for j in range(9):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
-                    
+
 
 
 board = create_board()
