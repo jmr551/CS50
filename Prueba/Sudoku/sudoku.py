@@ -79,9 +79,8 @@ def solve(board):
                         if solve(board):
                             return board
                     board[i][j] = 0
-    if free_places:
-        return board
-    return None
+    return board if not free_places(board) else None
+
 
 def create_board_1():
     board = [
