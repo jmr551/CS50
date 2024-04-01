@@ -15,12 +15,12 @@ def play_move(board, position, number):
     return new_board
 
 def free_places(board):
-    free = []
+    free = True
     for i in range(9):
         for j in range(9):
             if board[i][j] == 0:
-                free.append((i, j))
-    return free
+                return False
+    return True
 
 
 def candidate_numbers(board, position):
