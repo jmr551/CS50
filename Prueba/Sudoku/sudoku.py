@@ -73,9 +73,14 @@ def solve(board):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
                     board[i][j] = c
+                    print(f"Trying number {c} at position ({i}, {j}):")
+                    print_board(board)
                     if valido(board):
                         if solve(board):
                             return board
+                        else:
+                            print(f"Backtracking on number {c} at position ({i}, {j})")
+
                     board[i][j] = 0
     return board if not free_places(board) else None
 
