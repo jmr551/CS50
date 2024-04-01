@@ -60,11 +60,11 @@ def valido(board):
                     if board[j][i] == board[k][i]: # misma columna
                         return False
 
-    if board[i][j] != 0:
-        for 
-                in_x = i // 3
-                in_y = j // 3
-
+            if board[i][j] != 0:
+                for k_i in range(i//3, i//3+3):
+                    for k_j in range(j//3, j//3+3):
+                        
+                        if board[i][j]
 
 def solve(board):
     for i in range(9):
