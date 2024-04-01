@@ -78,7 +78,9 @@ def solve(board):
                         if not free_places(board):
                             return new_board
                         else:
-                           return solve(new_board)
+                           new_solution = solve(new_board)
+                           if new_solution != None:
+                               return new_solution
 
     return None
 
