@@ -81,8 +81,8 @@ def solve(board):
                         if solve(board):
                             print(board)
                             return board
-                        #else:
-                            #print(f"Backtracking on number {c} at position ({i}, {j})")
+                        else:
+                            print(f"No hubo solucion aqui. Backtracking on number {c} at position ({i}, {j})")
 
                     board[i][j] = 0
     return board if not free_places(board) else None
