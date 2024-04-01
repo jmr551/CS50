@@ -58,6 +58,8 @@ def valido(board):
                     if board[j][i] == board[k][i]: # misma columna
                         return False
 
+            in_x = i // 3
+            in_y = j // 3
             
 
 def solve(board):
