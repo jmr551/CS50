@@ -79,7 +79,7 @@ def solve(board):
                             return board
                         else:
                            new_solution = solve(new_board)
-                           if new_solution is not None:
+                           if new_solution: #is not None:
                                return new_solution
                     board[i][j] = 0
     return None
