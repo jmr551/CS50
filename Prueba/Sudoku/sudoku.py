@@ -85,8 +85,8 @@ def solve(board):
                             #print(f"Backtracking on number {c} at position ({i}, {j})")
 
                     board[i][j] = 0
-    #return board if not free_places(board) else None
-    return None
+    return board if not free_places(board) else None
+    #return None
 
 def create_board_1():
     board = [
@@ -104,4 +104,6 @@ def create_board_1():
 
 
 board = create_board_1()
-print(solve(board))
+print_board(board)
+print(candidate_numbers(board, (0, 0)))
+#print(solve(board))
