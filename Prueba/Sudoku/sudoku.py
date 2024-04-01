@@ -85,6 +85,8 @@ def solve(board):
                             print(f"No hubo solucion aqui. Backtracking on number {c} at position ({i}, {j})")
 
                     board[i][j] = 0
+                print(f"No hubo candidato para {print_board(board)} en la posición {(i, j)}")
+                break
     return board if not free_places(board) else None
     #return None
 
