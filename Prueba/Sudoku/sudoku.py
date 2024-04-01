@@ -15,12 +15,11 @@ def play_move(board, position, number):
     return new_board
 
 def free_places(board):
-    free = True
     for i in range(9):
         for j in range(9):
             if board[i][j] == 0:
-                return False
-    return True
+                return True
+    return False
 
 
 def candidate_numbers(board, position):
@@ -66,7 +65,9 @@ def valido(board):
                         if i!=k_i and j!= k_j:
                             if board[i][j] == board[k_i][k_j]:
                                 return False
-    return True
+    if not free_places(board):
+        return board
+    return None
 
 def solve(board):
     for i in range(9):
@@ -75,14 +76,10 @@ def solve(board):
                 for c in candidate_numbers(board, (i, j)):
                     board[i][j] = c
                     if valido(board):
-                        if not free_places(board):
-                            print_board(board)
+                        if solve(board):
                             return board
-                        else:
-                           new_solution = solve(board)
-                           if new_solution: #is not None:
-                               return new_solution
                     board[i][j] = 0
+    if free_places
     return None
 
 def create_board_1():
