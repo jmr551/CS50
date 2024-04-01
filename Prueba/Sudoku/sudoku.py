@@ -38,8 +38,8 @@ def candidate_numbers(board, position):
         # Verifico si no está en la submatriz 3x3
         in_x = position[0]//3
         in_y = position[1]//3
-        for i in range(in_x, in_x + 3):
-            for j in range(in_y, in_y + 3):
+        for i in range(3*in_x, 3*in_x + 3):
+            for j in range(3*in_y, 3*in_y + 3):
                 if n == board[i][j]:
                     candidato = False
         if candidato:
@@ -104,6 +104,6 @@ def create_board_1():
 
 
 board = create_board_1()
-print_board(board)
-print(candidate_numbers(board, (0, 0)))
-#print(solve(board))
+#print_board(board)
+#print(candidate_numbers(board, (0, 0)))
+print(solve(board))
