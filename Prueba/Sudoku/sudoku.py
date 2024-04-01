@@ -47,25 +47,31 @@ def candidate_numbers(board, position):
     return cands
 
 def valido(board):
-    for i in range(9):  # para cada fila
-        for j in range(9):  # para cada numero de la fila
-            if board[i][j] != 0:
-                # Verificar la fila
-                for k in range(j + 1, 9):
-                    if board[i][j] == board[i][k]:  # misma fila
-                        return False
+    # Verificar cada fila
+    for i in range(9):
+        fila = [board[i][j] for j in range(9) if board[i][j] != 0]
+        if len(fila) != len(set(fila)):
+            return False
 
-                # Verificar la columna
-                for k in range(i + 1, 9):
-                    if board[j][i] == board[k][i]:  # misma columna
-                        return False
+    # Verificar cada columna
+    for j in range(9):
+        columna = [board[i][j] for i in range(9) if board[i][j] != 0]
+        if len(columna) != len(set(columna)):
+            return False
 
-                # Verificar la submatriz 3x3
-                for k_i in range(3 * (i//3), 3 * (i//3) + 3):
-                    for k_j in range(3 * (j//3), 3 * (j//3) + 3):
-                        if (i != k_i or j != k_j) and board[i][j] == board[k_i][k_j]:
-                            return False
+    # Verificar cada submatriz 3x3
+    for box_row in range(3):
+        for box_col in range(3):
+            caja = []
+            for i in range(box_row*3, box_row*3 + 3):
+                for j in range(box_col*3, box_col*3 + 3):
+                    if board[i][j] != 0:
+                        caja.append(board[i][j])
+            if len(caja) != len(set(caja)):
+                return False
+
     return True
+
 
 def solve(board):
     for i in range(9):
@@ -110,8 +116,8 @@ def create_board_1():
 
 
 board = create_board_1()
-board[0][0] = 6
-print(valido(board))
+#board[0][0] = 6
+#print(valido(board))
 #print_board(board)
 #print(candidate_numbers(board, (0, 0)))
-#print(solve(board))
+print(solve(board))
