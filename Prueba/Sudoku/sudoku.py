@@ -78,6 +78,8 @@ def solve(board):
                     #print(f"Trying number {c} at position ({i}, {j}):")
                     #print_board(board)
                     if valido(board):
+                        print(f"Candidate {c} for position {(i, j)} fue valido.")
+                        print_board(board)
                         if solve(board):
                             print(board)
                             return board
