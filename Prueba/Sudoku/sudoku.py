@@ -110,6 +110,8 @@ def create_board_1():
 
 
 board = create_board_1()
+board[0][0] = 6
+print(valido(board))
 #print_board(board)
 #print(candidate_numbers(board, (0, 0)))
-print(solve(board))
+#print(solve(board))
