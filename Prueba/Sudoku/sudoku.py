@@ -60,8 +60,8 @@ def valido(board):
                         return False
 
             if board[i][j] != 0:
-                for k_i in range(i//3, i//3+3):
-                    for k_j in range(j//3, j//3+3):
+                for k_i in range((i//3)*3, (i//3+1)*3):
+                    for k_j in range((j//3)*3, (j//3+1)*3):
                         if i!=k_i and j!= k_j:
                             if board[i][j] == board[k_i][k_j]:
                                 return False
