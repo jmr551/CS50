@@ -23,7 +23,12 @@ def free_places(board):
     return free
 
 def candidate_numbers(board, position):
-    for i in range
+    for n in range(1, 10): # es un posible candidato
+        cumple = True
+        if n in board[position[0]]: # Está en la fila
+            next
+        
+
 
 
 board = create_board()
