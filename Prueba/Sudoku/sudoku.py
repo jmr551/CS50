@@ -47,9 +47,10 @@ def candidate_numbers(board, position):
     return cands
 
 def valido(board):
-    for i in range(9):
-        for j in range(9):
-            for n in range(1, 10):
+    for i in range(9): #para cada fila
+        for j in range(9): # para cada numero de la fila
+            if board[i][j] != 0:
+                
 
 def solve(board):
     for i in range(9):
