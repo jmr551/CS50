@@ -25,9 +25,14 @@ def free_places(board):
 def candidate_numbers(board, position):
     for n in range(1, 10): # es un posible candidato
         cumple = True
-        if n in board[position[0]]: # Está en la fila
+        # Verifico si no está en la fila
+        if n in board[position[0]]:
             next
-        
+
+        # Verifico si no está en la columna
+        for i in range(9):
+            if n in board
+
 
 
 
