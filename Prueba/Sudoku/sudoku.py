@@ -22,7 +22,9 @@ def free_places(board):
                 free.append((i, j))
     return free
 
+
 def candidate_numbers(board, position):
+    cands = []
     for n in range(1, 10): # es un posible candidato
         # Verifico si no está en la fila
         if n in board[position[0]]:
@@ -34,9 +36,22 @@ def candidate_numbers(board, position):
                 next
 
         # Verifico si no está en la submatriz 3x3
-        
+        in_x = position[0]//3
+        in_y = position[1]//3
+        for i in range(in_x, in_x + 3):
+            for j in range(in_y, in_y + 3):
+                if n == board[i][j]:
+                    next
 
+        cands.append(n)
+    return cands
 
+def solve(board):
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == 0:
+                for c in candidate_numbers(board, (i, j)):
+                    
 
 
 board = create_board()
