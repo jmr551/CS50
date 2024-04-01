@@ -72,8 +72,14 @@ def solve(board):
         for j in range(9):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
-                    if valido(play_move(board, c))
+                    new_board = play_move(board, c)
+                    if valido(new_board):
+                        if not free_places:
+                            return new_board
+                        else:
+                           solve(new_board)
 
+    return None
 
 board = create_board()
 
