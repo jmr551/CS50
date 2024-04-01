@@ -50,8 +50,12 @@ def valido(board):
     for i in range(9): #para cada fila
         for j in range(9): # para cada numero de la fila
             if board[i][j] != 0:
-                for k in range(j+1, 9):
-                    if board[i][j] == 
+                for k in range(j + 1, 9):
+                    if board[i][j] == board[i][k]:
+                        return False
+            if board[j][i] != 0:
+                for k in range(i + 1, 9):
+                    if board[j][i] == board[j][k]
 
 def solve(board):
     for i in range(9):
