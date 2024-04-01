@@ -76,6 +76,7 @@ def solve(board):
                     board[i][j] = c
                     if valido(board):
                         if not free_places(board):
+                            print_board(board)
                             return board
                         else:
                            new_solution = solve(new_board)
