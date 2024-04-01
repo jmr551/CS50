@@ -65,9 +65,7 @@ def valido(board):
                         if i!=k_i and j!= k_j:
                             if board[i][j] == board[k_i][k_j]:
                                 return False
-    if not free_places(board):
-        return board
-    return None
+    return True
 
 def solve(board):
     for i in range(9):
