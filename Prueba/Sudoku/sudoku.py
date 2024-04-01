@@ -14,6 +14,17 @@ def play_move(board, position, number):
     new_board[row][col] = number
     return new_board
 
+def free_places(board):
+    free = []
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] == 0:
+                free.append((i, j))
+    return free
+
+def candidate_numbers(board, position):
+    for i in range
+
 
 board = create_board()
 print_board(board)
