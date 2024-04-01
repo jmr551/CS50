@@ -78,24 +78,24 @@ def solve(board):
         for j in range(9):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
-                    print(f"Candidate {c} for position {(i, j)}")
+                    #print(f"Candidate {c} for position {(i, j)}")
                     board[i][j] = c
-                    print_board(board)
+                    #print_board(board)
                     #print(f"Trying number {c} at position ({i}, {j}):")
                     #print_board(board)
                     if valido(board):
-                        print(f"Candidate {c} for position {(i, j)} fue valido.")
-                        print_board(board)
+                        #print(f"Candidate {c} for position {(i, j)} fue valido.")
+                        #print_board(board)
                         if solve(board):
                             print(board)
                             return board
-                        else:
+                        #else:
                             print(f"No hubo solucion aqui. Backtracking on number {c} at position ({i}, {j})")
 
                     board[i][j] = 0
-                print(f"Para el tablero:")
-                print_board(board)
-                print(f"No hubo candidato en la posición {(i, j)} ###")
+                #print(f"Para el tablero:")
+                #print_board(board)
+                #print(f"No hubo candidato en la posición {(i, j)} ###")
                 break
     return board if not free_places(board) else None
     #return None
