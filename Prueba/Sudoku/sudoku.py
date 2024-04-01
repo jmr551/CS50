@@ -73,15 +73,15 @@ def solve(board):
         for j in range(9):
             if board[i][j] == 0:
                 for c in candidate_numbers(board, (i, j)):
-                    new_board = play_move(board, (i, j), c)
-                    if valido(new_board):
+                    board[i][j] = c
+                    if valido(board):
                         if not free_places(board):
-                            return new_board
+                            return board
                         else:
                            new_solution = solve(new_board)
                            if new_solution is not None:
                                return new_solution
-
+                    board[i][j] = 0
     return None
 
 def create_board_1():
