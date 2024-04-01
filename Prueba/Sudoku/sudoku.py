@@ -47,7 +47,9 @@ def candidate_numbers(board, position):
     return cands
 
 def valido(board):
-    
+    for i in range(9):
+        for j in range(9):
+            for n in range(1, 10):
 
 def solve(board):
     for i in range(9):
