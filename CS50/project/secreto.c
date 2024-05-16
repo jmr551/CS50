@@ -4,16 +4,16 @@
 
 void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
 {
-    srand(key);
+    srand(key); // Initialise the random number generator with the seed (key)
     int c;
     while ((c = fgetc(input)) != EOF)
     {
         if (c == '\n' || c == '\r') {
-            fputc(c, output);
+            fputc(c, output); // Preserve newlines and carriage returns
         }
         else
         {
-            int delta = rand() % (127 - 32); //Generates a pseudorandom number accordind to the seed
+            int delta = rand() % (127 - 32); //Generates a pseudorandom number according to the seed
             int res;
 
             if (cyp)
