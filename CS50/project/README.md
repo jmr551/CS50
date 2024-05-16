@@ -20,4 +20,22 @@ I know this is not the safest encription that exists and that there are a lot of
 
 ## How to Execute
 1. Compile the program:
-``` gcc -o cypher cypher.c```
+```
+gcc -o secreto secreto.c
+```
+2. Run the program
+- To encrypt a file:
+```
+./secreto enc <key> <input_file> <output_file>
+```
+
+- To decrypt a file:
+```
+./secreto dec <key> <input_file> <output_file>
+```
+
+### Example
+```
+./secreto enc 12345 archivo_entrada.txt archivo_salida.txt
+./secreto dec 12345 archivo_salida.txt recuperado.txt
+```
