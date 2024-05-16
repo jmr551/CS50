@@ -35,9 +35,15 @@ gcc -o secreto secreto.c
 ```
 
 ### Use Example
+#### My example
 ```
 ./secreto enc 12345 archivo_entrada.txt archivo_salida.txt
 ./secreto dec 12345 archivo_salida.txt recuperado.txt
+```
+#### General example
+```
+./secreto enc 12345 input_file.txt output_file.txt
+./secreto dec 12345 output_file.txt recovered.txt
 ```
 
 And recuperado.txt should be the same as archivo_entrada.txt.
