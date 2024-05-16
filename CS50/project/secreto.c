@@ -18,13 +18,13 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
 
             if (cyp)
             {
-                res = ((c - 32 + delta) % (127 - 32)) + 32;
+                res = ((c - 32 + delta) % (127 - 32)) + 32; // Encrypt the character
             }
             else
             {
-                res = ((c - 32 - delta + (127 - 32)) % (128 - 32)) + 32;
+                res = ((c - 32 - delta + (127 - 32)) % (128 - 32)) + 32; // Decrypt the character
             }
-            fputc(res, output);
+            fputc(res, output); // Write the result to the output file
         }
     }
 }
