@@ -1,5 +1,5 @@
 # Basic ASCII Encryptor/Decryptor with Seed-Based Randomisation
-#### Video Demo:
+#### Video Demo: https://www.youtube.com/watch?v=PB1OknxbwIA
 #### Description:
 This project implements a basic cypher/decypher of ASCII text as input, using a seed as a key in order to generate random numbers that will be the delta that will cypher or decypher the text for each character, and then it will produce a textfile as the output.
 
