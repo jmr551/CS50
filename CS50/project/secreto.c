@@ -22,7 +22,7 @@ void cypherDescypher(FILE *input, FILE *output, int key, int cyp)
             }
             else
             {
-                res = ((c - 32 - delta + (127 - 32)) % (128 - 32)) + 32; // Decrypt the character
+                res = ((c - 32 - delta + (127 - 32)) % (127 - 32)) + 32; // Decrypt the character
             }
             fputc(res, output); // Write the result to the output file
         }
