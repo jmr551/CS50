@@ -18,3 +18,6 @@ So, I substract 32 (like zeroing), I add the corresponding delta.
 ## Limitations
 I know this is not the safest encription that exists and that there are a lot of algorithms there that are better that this, but I'm this algorithm can be used as a way to learn and practise programming or just for fun. I know that the principle of a secure algorithm is that the code is open but even though it is very hard to decypher the file if you do not have the key. So the conclusion is that this algorithm relies on the secrecy of the idea of the algoritm (and a bit in the key xD).
 
+## How to Execute
+1. Compile the program:
+``` gcc -o cypher cypher.c```
