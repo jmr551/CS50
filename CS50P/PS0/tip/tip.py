@@ -10,7 +10,7 @@ def dollars_to_float(d):
 
 
 def percent_to_float(p):
-    # TODO
+    return float(p.removesuffix("%"))/100
 
 
 main()
