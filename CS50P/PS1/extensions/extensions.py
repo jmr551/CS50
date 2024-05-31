@@ -15,4 +15,5 @@ match file[-1]:
         print("")
     case "zip":
         print("")
-    d
+    case _:
+        print("application/octet-stream")
