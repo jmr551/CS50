@@ -1,19 +1,20 @@
-file = input("File name: ").split(".")
+file = input("File name: ").strip().lower().split(".")
 
 match file[-1]:
     case "gif":
-        print("")
+        print("image/gif")
     case "jpg":
-        print("")
+        print("image/jpeg")
     case "jpeg":
-        print("")
+        print("image/jpeg")
     case "png":
-        print("")
+        print("image/png")
     case "pdf":
-        print("")
+        print("application/pdf")
     case "txt":
-        print("")
+        print("text/plain")
     case "zip":
-        print("")
+        print("application/zip")
     case _:
         print("application/octet-stream")
+
