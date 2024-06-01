@@ -13,11 +13,15 @@ def is_valid(s):
     # 2 chars
     if not s[0].isaplha() or not s[1].isaplha():
         return False
-
+    num_phase = False
     for c in s:
         if not c.isalnum():
             return False
-        if c.isnum
+        if not num_phase and c.isnumeric():
+            num_phase = True
+            if c == "0":
+                return False
+            
 
 
 main()
