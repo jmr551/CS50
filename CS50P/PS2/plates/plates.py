@@ -15,7 +15,9 @@ def is_valid(s):
         return False
 
     for c in s:
-        c.isalnum()
+        if not c.isalnum():
+            return False
+        if c.isnum
 
 
 main()
