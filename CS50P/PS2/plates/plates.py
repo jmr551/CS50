@@ -17,11 +17,16 @@ def is_valid(s):
     for c in s:
         if not c.isalnum():
             return False
+
         if not num_phase and c.isnumeric():
             num_phase = True
             if c == "0":
                 return False
-            
+            continue
+
+        if num_phase and c.isalpha():
+            return False
+    return True
 
 
 main()
