@@ -8,11 +8,13 @@ def main():
 
 def is_valid(s):
     # Len
-    if 2 < len(s) or len(s) > 6:
+    if 2 > len(s) or len(s) > 6:
+        print(s)
+        print(len(s))
         print("Falla en len")
         return False
     # 2 chars
-    if not s[0].isaplha() or not s[1].isaplha():
+    if not s[0].isalpha() or not s[1].isalpha():
         print("No cumple los dos primeros alfa")
         return False
     num_phase = False
