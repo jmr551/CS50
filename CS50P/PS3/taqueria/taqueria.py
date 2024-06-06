@@ -13,9 +13,15 @@ price = {
 total = 0
 
 while True:
-    item = input("Item: ").title()
     try:
+        item = input("Item: ").title()
         total += price[item]
         print(f"Total: ${total:.2f}")
-    except:
+    except KeyboardInterrupt:
+        print()
+        break
+    except EOFError:
+        print()
+        break
+    except ValueError:
         continue
