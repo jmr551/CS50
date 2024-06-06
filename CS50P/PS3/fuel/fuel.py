@@ -17,7 +17,7 @@ def main():
             elif f >= 99:
                 print("F")
             else:
-                print(f)
+                print(f"{f}%")
             break
 
 main()
