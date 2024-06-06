@@ -4,5 +4,19 @@ def main():
         try:
             x = int(x)
             y = int(y)
-        except 
+            f = round(x / y * 100)
+        except ValueError:
+            continue
+        except ZeroDivisionError:
+            continue
+        else:
+            if f <= 1:
+                print("E")
+            elif f >= 99:
+                print("F")
+            else:
+                print(f)
+                break
+
+main()
 
