@@ -1,7 +1,7 @@
 def main():
     while True:
-        x, y = input("Fraction: ").split("/")
         try:
+            x, y = input("Fraction: ").split("/")
             x = int(x)
             y = int(y)
             f = round(x / y * 100)
