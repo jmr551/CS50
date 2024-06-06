@@ -17,10 +17,11 @@ months = [
 while True:
     fecha = input("Date: ")
 
-    # mes/dia/anho
+    # formato mes/dia/anho
     if "/" in fecha:
         try:
             m, d, a = list(map(int, fecha.split("/")))
-
         except ValueError:
             continue
+    # formato Setiembre 5, 1968
+    else:
