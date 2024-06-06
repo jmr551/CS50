@@ -1,5 +1,7 @@
 items = {}
 while True:
     try:
-        input("").upper()
+        items[input("").upper()} += 1
+    except :
+
 
