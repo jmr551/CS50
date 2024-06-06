@@ -15,7 +15,7 @@ months = [
 
 
 while True:
-    fecha = input("Date: ")
+    fecha = input("Date: ").title()
 
     # formato mes/dia/anho
     if "/" in fecha:
@@ -25,6 +25,13 @@ while True:
             continue
     # formato Setiembre 5, 1968
     else:
+        try:
+            m, d, a = fecha.split()
+        except ValueError:
+            
+            continue
         if m in months:
             m = months.index(m) + 1
-        print (m)
+            print (m)
+        else:
+            continue
