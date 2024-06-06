@@ -16,7 +16,7 @@ def main():
                 print("F")
             else:
                 print(f)
-                break
+            break
 
 main()
 
