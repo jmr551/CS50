@@ -36,4 +36,7 @@ while True:
             print (m)
         else:
             continue
-        
+    if not (1 <= d <= 31) or a < 0: # Pongo que el año sea menor a 0?
+        continue
+
+    print(f"{a}")
