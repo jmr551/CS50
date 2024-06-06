@@ -1,5 +1,4 @@
 def imprimir(items):
-    print()
     for item in sorted(items.keys()):
         print(f"{item}: {items[item]}")
 items = {}
