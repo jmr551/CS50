@@ -15,6 +15,7 @@ total = 0
 while True:
     item = input("Item: ").title()
     try:
-        
+        total += price[item]
+        print(f"Total: ${total}.2f")
     except:
         continue
