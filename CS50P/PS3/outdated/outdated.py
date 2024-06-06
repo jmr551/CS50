@@ -15,4 +15,7 @@ months = [
 
 
 while True:
-    
+    fecha = input("Date: ")
+    try:
+        m, d, a = fecha.split("/")
+    print
