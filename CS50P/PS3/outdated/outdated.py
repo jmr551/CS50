@@ -27,7 +27,7 @@ while True:
     else:
         try:
             m, d, a = fecha.split()
-            d = int(d)
+            d = int(d[:-1])
             a = int(a)
         except ValueError:
             continue
