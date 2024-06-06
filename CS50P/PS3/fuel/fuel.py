@@ -10,6 +10,8 @@ def main():
         except ZeroDivisionError:
             continue
         else:
+            if x > y:
+                continue
             if f <= 1:
                 print("E")
             elif f >= 99:
