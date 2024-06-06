@@ -1,6 +1,6 @@
 def imprimir(items):
     for item in sorted(items.keys()):
-        print(f"{item}: {items[item]}")
+        print(f"{items[item]} {item}")
 items = {}
 while True:
     try:
