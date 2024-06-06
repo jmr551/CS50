@@ -24,4 +24,5 @@ while True:
         print()
         break
     except ValueError:
+        print("Vaule error")
         continue
