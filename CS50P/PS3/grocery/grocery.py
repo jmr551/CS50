@@ -1,4 +1,5 @@
 def imprimir(items):
+    print()
     for item in items:
         print(f"{item}: {items[item]}")
 items = {}
