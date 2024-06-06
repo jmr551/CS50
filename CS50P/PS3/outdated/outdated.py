@@ -26,4 +26,5 @@ while True:
     # formato Setiembre 5, 1968
     else:
         if m in months:
-            months
+            m = months.index(m) + 1
+        print (m)
