@@ -1,4 +1,5 @@
 def main():
     while True:
-        try:
-            fraction = input("Fraction: ")
+        x, y = input("Fraction: ").split("/")
+        
+
