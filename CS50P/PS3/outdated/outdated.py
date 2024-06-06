@@ -40,3 +40,4 @@ while True:
         continue
 
     print(f"{a:04}/{m:02}/{d:02}")
+    break
