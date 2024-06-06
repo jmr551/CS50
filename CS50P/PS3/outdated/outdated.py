@@ -20,9 +20,7 @@ while True:
     # mes/dia/anho
     if "/" in fecha:
         try:
-            m, d, a = fecha.split("/")
-            m = int(m)
-            d = int(d)
-            a = int(a)
+            m, d, a = list(map(int, fecha.split("/")))
+
         except ValueError:
             continue
