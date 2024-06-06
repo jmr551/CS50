@@ -27,11 +27,13 @@ while True:
     else:
         try:
             m, d, a = fecha.split()
+            d = int(d)
+            a = int(a)
         except ValueError:
-            
             continue
         if m in months:
             m = months.index(m) + 1
             print (m)
         else:
             continue
+        
