@@ -35,7 +35,7 @@ while True:
             m = months.index(m) + 1
         else:
             continue
-    if not (1 <= d <= 31) or a < 0 or 1 <= m <= 12: # Pongo que el año sea menor a 0?
+    if not (1 <= d <= 31) or a < 0 or not(1 <= m <= 12): # Pongo que el año sea menor a 0?
         continue
 
     print(f"{a:04}-{m:02}-{d:02}")
