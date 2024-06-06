@@ -25,3 +25,5 @@ while True:
             continue
     # formato Setiembre 5, 1968
     else:
+        if m in months:
+            months
