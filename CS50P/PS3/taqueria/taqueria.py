@@ -14,4 +14,7 @@ total = 0
 
 while True:
     item = input("Item: ").title()
-    
+    try:
+        
+    except:
+        continue
