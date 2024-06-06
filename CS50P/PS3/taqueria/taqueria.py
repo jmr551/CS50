@@ -9,3 +9,6 @@ price = {
     "Taco": 3.00,
     "Tortilla Salad": 8.00
 }
+
+while True:
+    item = input("Item: ").title()
