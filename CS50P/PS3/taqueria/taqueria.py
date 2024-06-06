@@ -23,6 +23,5 @@ while True:
     except EOFError:
         print()
         break
-    except ValueError:
-        print("Vaule error")
+    except KeyError:
         continue
