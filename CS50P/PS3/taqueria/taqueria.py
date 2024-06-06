@@ -10,5 +10,8 @@ price = {
     "Tortilla Salad": 8.00
 }
 
+total = 0
+
 while True:
     item = input("Item: ").title()
+    
