@@ -1,6 +1,10 @@
 def main():
-    gr = input("Greeting: ")
-    print (value(gr))
+    try:
+        gr = input("Greeting: ")
+        print(value(gr))
+    except Exception as e:
+        print(e)
+        sys.exit(1)
 
 
 def value(gr):
