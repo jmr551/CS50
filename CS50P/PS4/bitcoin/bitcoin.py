@@ -6,9 +6,12 @@ if len(sys.argv) == 1:
 elif len(sys.argv) > 2:
     sys.exit("Too many arguments")
 try:
-    money = 
+    money = float(sys.argv[1])
+except ValueError:
+    sys.exit("Command-line argument is not a number")
 
-try:
-    ...
-except requests.RequestException:
-    ...
+
+#try:
+#    ...
+#except requests.RequestException:
+#    ...
