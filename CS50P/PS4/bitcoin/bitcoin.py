@@ -11,7 +11,7 @@ except ValueError:
     sys.exit("Command-line argument is not a number")
 
 
-#try:
-#    ...
+try:
+    requests.get()
 #except requests.RequestException:
 #    ...
