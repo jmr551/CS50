@@ -24,3 +24,6 @@ def test_noalpha():
 
 def test_noalpha():
     assert is_valid("12HOLA") == False
+
+def test_vacio():
+    assert is_valid("") == False
