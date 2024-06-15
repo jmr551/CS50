@@ -18,3 +18,6 @@ def test_H():
 
 def test_OUTATIME():
     assert is_valid("OUTATIME") == False
+
+def test_noalpha():
+    assert is_valid("123A") == False
