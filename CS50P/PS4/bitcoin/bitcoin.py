@@ -19,5 +19,5 @@ except requests.RequestException:
     sys.exit("Error al realizar el request.")
 else:
     respuesta = respuesta["bpi"]["USD"]["rate"].split(",")
-    amount = 1000*float(respuesta[0]) + float(respuesta[1]) * n
+    amount = (1000*float(respuesta[0]) + float(respuesta[1])) * n
     print(f"${amount:,.4f}")
