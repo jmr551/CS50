@@ -1,15 +1,17 @@
+import re
 def main():
     print(shorten(input("")))
 
 
 def shorten(word):
-    wrd = ""
-    for c in word:
-        c_min = c.lower()
-        if c_min != "a" and c_min != "e" and c_min != "i" and c_min != "o" and c_min != "u":
-            wrd += c
-    return "Output: " + wrd
+    if re.search(r'[0-9]', word):
+        raise ValueError("El texto no debe contener números")
+    if re.search(r'[^\w\s]', word):
+        raise ValueError("El texto no debe contener puntuación")
 
+    z = "aeiouAEIOU"
+    tabla = str.maketrans("", "", z)
+    return word.translate(tabla)
 
 
 if __name__ == "__main__":
