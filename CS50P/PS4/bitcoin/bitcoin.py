@@ -18,5 +18,4 @@ try:
 except requests.RequestException:
     sys.exit("Error al realizar el request.")
 else:
-    for k in respuesta:
-        print (respuesta[k])
+    print(float(respuesta["bpi"]["USD"]["rate"]))
