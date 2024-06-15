@@ -3,7 +3,9 @@ def main():
 
 
 def shorten(word):
-    ...
+    z = "aeiouAEIOU"
+    tabla = str.maketrans("", "", z)
+    return word.translate(tabla)
 
 
 if __name__ == "__main__":
