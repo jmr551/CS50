@@ -1,3 +1,4 @@
+import json
 import requests
 import sys
 
@@ -12,8 +13,8 @@ except ValueError:
 
 
 try:
-    respuesta = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+    respuesta = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json").content
 except requests.RequestException:
     sys.exit("Error al realizar el request.")
 else:
-    print(respuesta)
+    print(respuesta.content)
