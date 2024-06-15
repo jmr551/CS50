@@ -17,10 +17,11 @@ def main():
 
 
 def printNames(names):
-    goodbye = "Adieu, adieu, to "
-    for i in range(len(names)-1):
+    goodbye = "Adieu, adieu, to " + names[0]
+
+    for i in range(1, len(names)-1):
         goodbye += (names[i] +", to")
-    goodbye += 
+    
     print(goodbye)
 
 if __name__ == "__main__":
