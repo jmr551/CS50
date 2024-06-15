@@ -12,6 +12,8 @@ except ValueError:
 
 
 try:
-    requests.get()
-#except requests.RequestException:
-#    ...
+    respuesta = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+except requests.RequestException:
+    sys.exit("Error al realizar el request.")
+else:
+    print(respuesta)
