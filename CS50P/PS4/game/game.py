@@ -18,9 +18,8 @@ while True:
         continue
     else:
         if guess < num:
-            print("")
+            print("Too small!")
         elif guess > num:
-            print("")
+            print("Too large!")
         else:
-            print("")
-            sys.exit()
+            sys.exit("Just right!")
