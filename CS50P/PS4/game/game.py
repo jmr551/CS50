@@ -1,8 +1,9 @@
 import random
+import sys
 
 while True:
     try:
-        lev = int(input(""))
+        lev = int(input("Level: "))
     except ValueError:
         continue
     else:
@@ -11,4 +12,15 @@ while True:
 
 num = random.randint(1, lev)
 while True:
-    guess = int(input(""))
+    try:
+        guess = int(input("Guess: "))
+    except ValueError:
+        continue
+    else:
+        if guess < num:
+            print("")
+        elif guess > num:
+            print("")
+        else:
+            print("")
+            sys.exit()
