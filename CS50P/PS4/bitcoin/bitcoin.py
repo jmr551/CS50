@@ -13,8 +13,8 @@ except ValueError:
 
 
 try:
-    respuesta = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json").content
+    respuesta = json.load(requests.get("https://api.coindesk.com/v1/bpi/currentprice.json").content)
 except requests.RequestException:
     sys.exit("Error al realizar el request.")
 else:
-    print(respuesta.content)
+    print(respuesta)
