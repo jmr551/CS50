@@ -10,7 +10,7 @@ def main():
         correct = False
         for i in range(3):
             try:
-                res = int(input(f"{a} + {b}"))
+                res = int(input(f"{a} + {b} = "))
             except ValueError:
                 print("EEE")
                 continue
