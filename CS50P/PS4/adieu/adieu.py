@@ -17,5 +17,6 @@ def main():
 
 def printNames(names):
     goodbye = "Adieu, adieu, to "
-    
+    for i in range(len(names)-1):
+        goodbye += (names[i] +", to")
 
