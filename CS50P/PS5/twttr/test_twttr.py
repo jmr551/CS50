@@ -1,12 +1,11 @@
-import pytest
 from twttr import shorten
 
 
-def minusculas():
+def test_minusculas():
     assert shorten("aeiou") == ""
     assert shorten("murcielago") == "mrclg"
 
 
-def mayusculas():
+def test_mayusculas():
     assert shorten("AEIOU") == ""
     assert shorten("MURCIELAGO") == "MRCLG"
