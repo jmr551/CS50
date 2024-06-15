@@ -5,7 +5,25 @@ def main():
     lev = get_level()
     score = 0
     for i in range(2):
-        
+        a = generate_integer(lev)
+        b = generate_integer(lev)
+        correct = False
+        for i in range(3):
+            try:
+                res = int(input(f""))
+            except ValueError:
+                print("EEE")
+                continue
+            else:
+                if res == a + b:
+                    correct = True
+                    score += 1
+                    break
+                else:
+                    print("EEE")
+        if not correct:
+            print(f"{a} + {b} = {a + b}")
+    print(f"Score: {score}")
 
 def get_level():
     while True:
