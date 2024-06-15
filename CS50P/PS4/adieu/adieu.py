@@ -7,13 +7,10 @@ def main():
         try:
             name = input()
         except (EOFError, KeyboardInterrupt):
+            printNames(names)
             sys.exit()
         else:
-            if name == "":
-                printNames(names)
-                names = []
-            else:
-                names.append(name)
+            names.append(name)
 
 
 def printNames(names):
