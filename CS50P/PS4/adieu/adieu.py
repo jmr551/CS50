@@ -4,7 +4,7 @@ names = []
 def main():
     while True:
         try:
-            name = input("Name")
+            name = input("Name: ")
         except EOFError:
             sys.exit()
         else:
@@ -20,3 +20,6 @@ def printNames(names):
     for i in range(len(names)-1):
         goodbye += (names[i] +", to")
 
+
+if __name__ == "__main__":
+    main()
