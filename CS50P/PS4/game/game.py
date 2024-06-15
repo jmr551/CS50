@@ -3,8 +3,8 @@ import random
 while True:
     try:
         lev = int(input(""))
-    except EOFError:
-        print("eoferror")
+    except ValueError:
+        continue
     else:
         if lev > 0:
             break
