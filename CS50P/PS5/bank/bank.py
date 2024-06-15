@@ -1,16 +1,16 @@
 def main():
-    ...
-
-
-def value(greeting):
     gr = input("Greeting: ").strip().lower()
+    print (value(gr))
+
+
+def value(gr):
 
     if gr[:5] == "hello":
         return ("$0")
     elif gr[0] == 'h':
-        print("$20")
+        return ("$20")
     else:
-        print("$100")
+        return ("$100")
 
 
 if __name__ == "__main__":
