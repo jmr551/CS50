@@ -19,7 +19,7 @@ def printNames(names):
     for i in range(1, len(names)-1):
         goodbye += (", " + names[i])
     if len(names) > 1:
-        goodbye += " and " + names[-1]
+        goodbye += ", and " + names[-1]
     print(goodbye)
 
 if __name__ == "__main__":
