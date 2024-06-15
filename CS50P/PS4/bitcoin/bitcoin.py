@@ -18,4 +18,6 @@ try:
 except requests.RequestException:
     sys.exit("Error al realizar el request.")
 else:
-    print(float(respuesta["bpi"]["USD"]["rate"]))
+    respuesta = respuesta["bpi"]["USD"]["rate"].split(",")
+    value = 1000*float(respuesta[0]) + float(respuesta[1])
+    print(value * n)
