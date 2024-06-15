@@ -3,7 +3,9 @@ import random
 
 def main():
     lev = get_level()
-    print(generate_integer(lev))
+    score = 0
+    for i in range(2):
+        
 
 def get_level():
     while True:
