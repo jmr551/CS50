@@ -16,5 +16,6 @@ def main():
 
 
 def printNames(names):
-    goodbye = ""
+    goodbye = "Adieu, adieu, to "
     
+
