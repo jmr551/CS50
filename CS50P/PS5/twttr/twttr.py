@@ -1,5 +1,5 @@
 def main():
-    print(shorten(input(""))
+    print(shorten(input("")))
 
 
 def shorten(word):
