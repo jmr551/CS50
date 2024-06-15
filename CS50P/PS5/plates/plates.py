@@ -4,6 +4,7 @@ def main():
         print("Valid")
     else:
         print("Invalid")
+        sys.exit(1)  
 
 
 def is_valid(s):
