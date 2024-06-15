@@ -5,6 +5,7 @@ def main():
     while True:
         try:
             name = input("Name: ")
+            print("pasé sin problemas")
         except EOFError:
             sys.exit()
         else:
@@ -12,6 +13,7 @@ def main():
                 printNames(names)
                 names = []
             else:
+                print("Ya entré en el else")
                 names.append(name)
 
 
