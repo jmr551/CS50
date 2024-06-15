@@ -20,7 +20,7 @@ def test_OUTATIME():
     assert is_valid("OUTATIME") == False
 
 def test_noalpha():
-    assert is_valid("123A") == False
+    assert is_valid("123ABC") == False
 
 def test_noalpha():
     assert is_valid("12HOLA") == False
