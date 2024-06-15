@@ -39,7 +39,7 @@ def get_level():
 def generate_integer(level):
     if level == 1:
         inicio = 0
-    else
+    else:
         inicio = 10 ** (level - 1)
     return random.randint(inicio , 10**level - 1)
 
