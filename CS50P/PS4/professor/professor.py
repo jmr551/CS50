@@ -4,7 +4,7 @@ import random
 def main():
     lev = get_level()
     score = 0
-    for i in range(2):
+    for i in range(10):
         a = generate_integer(lev)
         b = generate_integer(lev)
         correct = False
