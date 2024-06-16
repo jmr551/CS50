@@ -8,6 +8,6 @@ def test_convert_well():
     assert convert("1/2") == 50
 
 def test_convert_wrong():
-    with pytest.raises(ValueError)
-        convert(2/1)
+    with pytest.raises(ValueError):
+        convert("2/1")
 
