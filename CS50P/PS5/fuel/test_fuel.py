@@ -1,1 +1,3 @@
-from fuel import 
+from fuel import convert, gauge
+
+
