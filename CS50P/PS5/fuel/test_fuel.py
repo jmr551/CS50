@@ -11,3 +11,7 @@ def test_convert_wrong():
     with pytest.raises(ValueError):
         convert("2/1")
 
+def test_gauge():
+    assert gauge(100) == "F"
+    assert gauge(0) == "E"
+    assert gauge(30) == "30%"
