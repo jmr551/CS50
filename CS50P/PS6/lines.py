@@ -9,4 +9,5 @@ elif len(sys.argv) > 2:
 
 count = 0
 with open(sys.argv[1]) as file:
-    print(file.readline())
+    for line in file:
+        print(file.readline())
