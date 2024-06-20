@@ -8,3 +8,6 @@ elif len(sys.argv) > 2:
 elif len(sys.argv[1]) < 4 or not (sys.argv[1][-4:] == ".csv")
     sys.exit("Not a CSV file")
 
+with open(sys.argv[1]) as file:
+    reader = csv.DictReader(file)
+    print(reader)
