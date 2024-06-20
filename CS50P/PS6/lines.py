@@ -10,4 +10,7 @@ elif len(sys.argv) > 2:
 count = 0
 with open(sys.argv[1]) as file:
     for line in file:
-        print(line.strip())
+        if len(line) > 0 and line[0] != "#":
+            count += 1
+
+print(count)
