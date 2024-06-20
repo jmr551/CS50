@@ -13,4 +13,8 @@ with open(sys.argv[1]) as file:
         if len(line) > 0 and line[0] != "#":
             count += 1
 
+        if count == 3:
+            print("linea:", line)
+            print(len(line))
+
 print(count)
