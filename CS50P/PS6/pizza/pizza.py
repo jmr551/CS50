@@ -11,5 +11,5 @@ elif len(sys.argv[1]) < 4 or not (sys.argv[1][-4:] == ".csv"):
 
 with open(sys.argv[1]) as file:
     reader = csv.DictReader(file)
-    print(tabulate(reader, headers="keys", tablefmt="asciidoc"))
+    print(tabulate(reader, headers="keys", tablefmt="asciitable"))
 
