@@ -7,3 +7,6 @@ elif len(sys.argv[1][-3:]) < 3 or not(sys.argv[1][-3:] == ".py"):
 elif len(sys.argv) > 2:
     sys.exit("Too many command-line arguments")
 
+count = 0
+with open(sys.argv[1]) as file:
+    print(file.readline())
