@@ -1,4 +1,5 @@
 import csv
 import sys
 
-sys.argv
+if len(sys.argv) == 1:
+    sys.exit("Too few arguments")
