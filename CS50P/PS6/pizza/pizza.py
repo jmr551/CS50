@@ -1,4 +1,5 @@
 import csv
+from tabulate import tabulate
 import sys
 
 if len(sys.argv) == 1:
@@ -10,5 +11,5 @@ elif len(sys.argv[1]) < 4 or not (sys.argv[1][-4:] == ".csv"):
 
 with open(sys.argv[1]) as file:
     reader = csv.DictReader(file)
-    for row in reader:
-        print(row)
+    print(tabulate(reader, headers="keys"))
+
