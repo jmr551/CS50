@@ -21,5 +21,7 @@ except FileNotFoundError:
     sys.exit("Could not read "+ sys.argv[1])
 
 with open(sys.argv[2],"w") as file:
+    writer = csv.DictWriter(sys.argv[2], fieldnames = ["first", "last", "house"])
+    writer.writeheader()
     for line in new:
-        writer = csv.DictWriter(sys.argv[2], fieldnames = ["first", "last", "house"])
+        
