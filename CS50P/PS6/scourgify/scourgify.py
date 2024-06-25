@@ -9,8 +9,13 @@ elif len(sys.argv) > 3:
 try:
     with open(sys.argv[1]) as file:
         reader = csv.DictReader(file)
+        new = []
         for line in reader:
-            print(line)
+            d = {}
+            d["first"] =
+            d["last"] =
+            d["house"] =
+
 except FileNotFoundError:
     sys.exit("Could not read "+ sys.argv[1])
 
