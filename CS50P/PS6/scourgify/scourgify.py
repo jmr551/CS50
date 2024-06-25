@@ -12,10 +12,9 @@ try:
         new = []
         for line in reader:
             d = {}
-            d["first"] =
-            d["last"] =
-            d["house"] =
-
+            d["first"], d["last"] = 
+            d["house"] = line["house"]
+            new.append(d)
 except FileNotFoundError:
     sys.exit("Could not read "+ sys.argv[1])
 
