@@ -22,4 +22,4 @@ except FileNotFoundError:
 
 with open(sys.argv[2],"w") as file:
     for line in new:
-        csv.DictWriter()
+        writer = csv.DictWriter(sys.argv[2], fieldnames = ["first", "last", "house"])
