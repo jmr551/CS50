@@ -12,9 +12,8 @@ try:
         new = []
         for line in reader:
             d = {}
-            d["last"], d["first"] = line["name"].split(",")
-            d["first"] = d["first"].strip()
-            d["last"] = d["last"].strip()
+            l, f = line["name"].split(",")
+            d["first"], d["last"] = (f.strip(), l.strip())
             d["house"] = line["house"]
             new.append(d)
             print(d)
