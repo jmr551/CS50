@@ -12,7 +12,7 @@ try:
         new = []
         for line in reader:
             d = {}
-            d["first"], d["last"] = line["name"].split(",")
+            d["last"], d["first"] = line["name"].split(",")
             d["first"] = d["first"].strip()
             d["last"] = d["last"].strip()
             d["house"] = line["house"]
@@ -22,5 +22,5 @@ except FileNotFoundError:
     sys.exit("Could not read "+ sys.argv[1])
 
 with open(sys.argv[2],"w") as file:
-    for line in
-    csv.DictWriter()
+    for line in new:
+        print(line)
