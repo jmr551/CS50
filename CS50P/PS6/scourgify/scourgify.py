@@ -22,4 +22,4 @@ except FileNotFoundError:
 
 with open(sys.argv[2],"w") as file:
     for line in new:
-        print(line)
+        csv.DictWriter()
