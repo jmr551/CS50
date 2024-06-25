@@ -21,3 +21,6 @@ try:
 except FileNotFoundError:
     sys.exit("Could not read "+ sys.argv[1])
 
+with open(sys.argv[2],"w") as file:
+    for line in
+    csv.DictWriter()
