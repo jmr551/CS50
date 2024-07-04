@@ -12,7 +12,11 @@ else:
         try:
             with PIL.Image.open(sys.argv[1]) as im:
                 im.show()
-                PIL.ImageOps.fit()
+                shirt = Image.open("shirt.png")
+                print(shirt.size)
+                print(type(shirt.size))
+
+                #PIL.ImageOps.fit()
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
 
