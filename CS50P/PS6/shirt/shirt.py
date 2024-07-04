@@ -9,6 +9,8 @@ elif len(sys.argv) > 3:
 else:
     if not (len(sys.argv[1]) > 3 and len(sys.argv[2]) > 3 and sys.argv[1][-4:] in [".jpg", ".jpeg", ".pgn"] and sys.argv[1][-4:] == sys.argv[2][-4:]):
         sys.exit("Input and output have different extensions")
+
+        Invalid output
     else:
         try:
             with Image.open(sys.argv[1]) as im:
@@ -17,7 +19,7 @@ else:
 
                 im2 = PIL.ImageOps.fit(im, shirt.size)
         except FileNotFoundError:
-            sys.exit("The specified input does not exist")
+            sys.exit("Input does not exist")
         else:
             im2.paste(shirt, (0, 0), shirt)
             im2.save(sys.argv[2])
