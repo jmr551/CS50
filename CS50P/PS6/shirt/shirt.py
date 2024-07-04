@@ -14,9 +14,8 @@ else:
             with Image.open(sys.argv[1]) as im:
                 im.show()
                 shirt = Image.open("shirt.png")
-                shirt.size
 
-                im2 = PIL.ImageOps.fit(im, )
+                im2 = PIL.ImageOps.fit(im, shirt.size)
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
 
