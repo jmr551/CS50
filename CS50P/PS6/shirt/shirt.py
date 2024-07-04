@@ -1,4 +1,5 @@
 import PIL
+from PIL import Image
 import sys
 
 if len(sys.argv) < 3:
@@ -10,13 +11,12 @@ else:
         sys.exit("Input and output have different extensions")
     else:
         try:
-            with PIL.Image.open(sys.argv[1]) as im:
+            with Image.open(sys.argv[1]) as im:
                 im.show()
-                shirt = PIL.Image.open("shirt.png")
-                print(shirt.size)
-                print(type(shirt.size))
+                shirt = Image.open("shirt.png")
+                shirt.size
 
-                #PIL.ImageOps.fit()
+                im2 = PIL.ImageOps.fit(im, )
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
 
