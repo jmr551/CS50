@@ -12,7 +12,8 @@ else:
         try:
             with PIL.Image.open(sys.argv[1]) as im:
                 im.show()
+                PIL.ImageOps.
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
-        
+
 
