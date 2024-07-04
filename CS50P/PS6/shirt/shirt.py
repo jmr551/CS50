@@ -12,7 +12,7 @@ else:
         try:
             with PIL.Image.open(sys.argv[1]) as im:
                 im.show()
-                shirt = Image.open("shirt.png")
+                shirt = PIL.Image.open("shirt.png")
                 print(shirt.size)
                 print(type(shirt.size))
 
