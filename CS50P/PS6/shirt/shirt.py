@@ -12,7 +12,7 @@ else:
         try:
             with Image.open(sys.argv[1]) as im:
                 im.show()
-        except:
+        except FileNotFoundError:
             sys.exit("The specified input does not exist")
 
 
