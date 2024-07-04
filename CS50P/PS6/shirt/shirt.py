@@ -1,4 +1,4 @@
-from PIL import Image
+import PIL
 import sys
 
 if len(sys.argv) < 3:
@@ -10,9 +10,9 @@ else:
         sys.exit("Input and output have different extensions")
     else:
         try:
-            with Image.open(sys.argv[1]) as im:
+            with PIL.Image.open(sys.argv[1]) as im:
                 im.show()
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
-
+        
 
