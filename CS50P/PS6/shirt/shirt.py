@@ -18,5 +18,6 @@ else:
                 im2 = PIL.ImageOps.fit(im, shirt.size)
         except FileNotFoundError:
             sys.exit("The specified input does not exist")
-
+        else:
+            
 
