@@ -20,5 +20,5 @@ else:
             sys.exit("The specified input does not exist")
         else:
             im2.paste(shirt, (0, 0), shirt)
-            im2.save("output)
+            im2.save(sys.argv[2])
 
