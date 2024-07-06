@@ -7,7 +7,7 @@ def main():
 
 
 def validate(ip):
-    re.search()
+    re.search("$n\.\.\.^")
 
 
 if __name__ == "__main__":
