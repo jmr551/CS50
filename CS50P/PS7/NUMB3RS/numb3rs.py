@@ -10,6 +10,7 @@ def validate(ip):
     if matches := re.match(r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$", ip):
         for i in range(1,5):
             if int(matches.group(i)) > 255:
+                print(i+": "+ matches.group(i))
                 return False
             return True
     else:
