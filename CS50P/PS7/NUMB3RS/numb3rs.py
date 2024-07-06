@@ -12,6 +12,8 @@ def validate(ip):
             if int(matches.group(i)) > 255:
                 return False
             return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
