@@ -7,11 +7,7 @@ def main():
 
 
 def validate(ip):
-    ...
-
-
-...
-
+    co
 
 if __name__ == "__main__":
     main()
