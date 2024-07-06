@@ -7,5 +7,8 @@ def test_valid():
 
 def test_invalid():
     assert validate("275.3.6.28") == False
+    assert validate("27.256.6.28") == False
+    assert validate("275.3.256.28") == False
+    assert validate("275.3.6.256") == False
     assert validate("cat") == False
     assert validate("255.255.0") == False
