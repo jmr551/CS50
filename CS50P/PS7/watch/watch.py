@@ -8,10 +8,9 @@ def main():
 
 def parse(s):
     if matches := re.match(r"\<iframe.*?src=\"https?://(?:www\.)?youtube\.com/embed/(.+?)(\?.+?)?\".*?></iframe>", s):
-        print(matches.group(1))
-        return True
+        return "https://youtu.be/"+matches.group(1)
     else:
-        return False
+        return None
 
 
 if __name__ == "__main__":
