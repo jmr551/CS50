@@ -7,10 +7,10 @@ def main():
 
 
 def parse(s):
-    if matches := re.search(r"src=\"https?://(:?www\.)?youtube\.com/embed/\"", s)
-
-
-...
+    if matches := re.search(r"src=\"https?://(:?www\.)?youtube\.com/embed/.+?\"", s):
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
