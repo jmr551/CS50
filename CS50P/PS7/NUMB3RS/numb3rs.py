@@ -7,11 +7,12 @@ def main():
 
 
 def validate(ip):
-    matches = re.match(r"(d{1,3})\.(d{1,3})\.(d{1,3})\.(d{1,3})$", ip)
-    print(matches.group(1))
-    print(matches.group(2))
-    print(matches.group(3))
-    print(matches.group(4))
+    if matches := re.match(r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$", ip):
+        for i in range(1,5):
+            if int(matches.group(i)) > 255:
+                return False
+            return True
+
 
 if __name__ == "__main__":
     main()
