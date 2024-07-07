@@ -4,9 +4,10 @@ def main():
     print(valid(input("What's your email address? ")))
 
 def valid(ad):
-    if validator.email(ad)
+    try:
+        validators.email(ad)
         return "Valid"
-    else:
+    except InvalidEmailError:
         return "Invalid"
 
 if __name__ == "__main__":
