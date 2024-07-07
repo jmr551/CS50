@@ -7,7 +7,7 @@ def main():
 
 
 def convert(s):
-    if matches := re.match(r"(?P<h1>\d\d?)(:(?P<m1>\d\d))? (?P<ampm1>A|P)M to (?P<h2>\d\d?):(?P<m2>\d\d) (?P<ampm2>A|P)M$", s):
+    if matches := re.match(r"(?P<h1>\d\d?)(:(?P<m1>\d\d))? (?P<ampm1>A|P)M to (?P<h2>\d\d?)(:(?P<m2>\d\d))? (?P<ampm2>A|P)M$", s):
         h1, m1, ampm1 = int(matches.group("h1")), matches.group("m1"), matches.group("ampm1")
         h2, m2, ampm2 = int(matches.group("h2")), matches.group("m2"), matches.group("ampm2")
 
