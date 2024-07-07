@@ -7,7 +7,7 @@ def main():
 
 
 def count(s):
-    matches = re.findall(r"um")
+    matches = re.findall(r"(^um|um|um$|^um$)", s, flags=re.IGNORECASE)
 
 if __name__ == "__main__":
     main()
