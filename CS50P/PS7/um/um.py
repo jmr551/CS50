@@ -7,7 +7,7 @@ def main():
 
 
 def count(s):
-    matches = re.findall(r"(^um[^a-z]|um|um$|^um$)", s, flags=re.IGNORECASE)
+    matches = re.findall(r"(^um[^a-z]|[^a-z]um[^a-z]|[^a-z]um$|^um$)", s, flags=re.IGNORECASE)
     return (matches)
 
 
