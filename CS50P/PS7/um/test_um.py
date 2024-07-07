@@ -1,8 +1,8 @@
 from um import count
 
 def test_count():
-    assert count("um, hello, um, world") ==
-    assert count("um...") ==
-    assert count("yum") ==
-    assert count("yummy") ==
-    assert count("um aja um umm sum um") ==
+    assert count("um, hello, um, world") == 2
+    assert count("um...") == 1
+    assert count("yum") == 0
+    assert count("yummy") == 0
+    assert count("um aja um umm sum um") == 3
