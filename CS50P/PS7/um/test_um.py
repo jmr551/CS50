@@ -6,3 +6,4 @@ def test_count():
     assert count("yum") == 0
     assert count("yummy") == 0
     assert count("um aja um umm sum um") == 3
+    assert count("Um loco, no se, um") == 2
