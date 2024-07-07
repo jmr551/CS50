@@ -1,11 +1,10 @@
-import re
+from validator_collection import validators, checkers, errors
 
 def main():
     print(valid(input("What's your email address? ")))
 
 def valid(ad):
-    m = r"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-    if re.search(m, ad):
+    if validator.email(ad)
         return "Valid"
     else:
         return "Invalid"
