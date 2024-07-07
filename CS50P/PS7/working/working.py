@@ -13,8 +13,12 @@ def convert(s):
 
         if m1 == None:
             m1 = 0
+        else:
+            m1 = int(m1)
         if m2 == None:
             m2 = 0
+        else:
+            m2 = int(m2)
 
         if not (0 <= h1 <= 12) or not (0 <= h2 <= 12) or not (0 <= m1 <= 59) or not (0 <= m2 <= 59):
             raise ValueError
