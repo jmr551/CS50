@@ -6,8 +6,11 @@ def main():
 def valid(ad):
     try:
         validators.email(ad)
+        print(f"Lo que tiene la variable: {email_address}")
         return "Valid"
-    except InvalidEmailError:
+    except errors.EmptyValueError:
+        return "Invalid"
+    except errors.InvalidEmailError:
         return "Invalid"
 
 if __name__ == "__main__":
