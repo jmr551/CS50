@@ -23,9 +23,14 @@ def convert(s):
         if not (0 <= h1 <= 12) or not (0 <= h2 <= 12) or not (0 <= m1 <= 59) or not (0 <= m2 <= 59):
             raise ValueError
 
-        
+        if h1 == 12:
+            h1 = 0
         if ampm1 == "P":
             h1 += 12
+
+
+        if h2 == 12:
+            h2 = 0
         if ampm2 == "P":
             h2 += 12
 
